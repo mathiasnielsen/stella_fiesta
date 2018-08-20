@@ -1,9 +1,22 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Api", "src\StellaFiesta.Api\StellaFiesta.Api.csproj", "{F11013E3-81E1-42EE-B3BE-F2201BBD0554}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{720CFE8B-6B23-4B8B-9BB4-A1909F3ED46C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F11013E3-81E1-42EE-B3BE-F2201BBD0554} = {720CFE8B-6B23-4B8B-9BB4-A1909F3ED46C}
 	EndGlobalSection
 EndGlobal
