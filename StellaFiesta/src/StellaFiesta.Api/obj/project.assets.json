@@ -93,6 +93,71 @@
           "lib/netstandard1.6/Microsoft.AI.DependencyCollector.dll": {}
         }
       },
+      "Microsoft.AspNet.WebApi.Client/5.2.6": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "10.0.1",
+          "Newtonsoft.Json.Bson": "1.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Net.Http.Formatting.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Core/5.2.6": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.6"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.OData/5.7.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.2",
+          "Microsoft.AspNet.WebApi.Core": "[5.2.2, 5.3.0)",
+          "Microsoft.Data.OData": "5.6.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.OData.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.OData.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Owin/5.2.6": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "[5.2.6, 5.3.0)",
+          "Microsoft.Owin": "2.0.2",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.Owin.dll": {}
+        }
+      },
+      "Microsoft.AspNet.WebApi.Tracing/5.2.6": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "[5.2.6, 5.3.0)"
+        },
+        "compile": {
+          "lib/net45/System.Web.Http.Tracing.dll": {}
+        },
+        "runtime": {
+          "lib/net45/System.Web.Http.Tracing.dll": {}
+        }
+      },
       "Microsoft.AspNetCore/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -1453,6 +1518,139 @@
           "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.dll": {}
         }
       },
+      "Microsoft.Azure.Mobile.Server/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.3",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/net46/Microsoft.Azure.Mobile.Server.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Microsoft.Azure.Mobile.Server.dll": {}
+        },
+        "resource": {
+          "lib/net46/de/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net46/es/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net46/fr/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net46/it/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net46/ja/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net46/ko/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net46/ru/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net46/zh-Hans/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net46/zh-Hant/Microsoft.Azure.Mobile.Server.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.Azure.Mobile.Server.Authentication/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Core": "5.2.3",
+          "Microsoft.Azure.Mobile.Server": "2.0.0",
+          "Microsoft.Owin.Security": "3.0.1",
+          "Newtonsoft.Json": "9.0.1",
+          "System.IdentityModel.Tokens.Jwt": "4.0.3.308261200"
+        },
+        "compile": {
+          "lib/net46/Microsoft.Azure.Mobile.Server.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Microsoft.Azure.Mobile.Server.Authentication.dll": {}
+        },
+        "resource": {
+          "lib/net46/de/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net46/es/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net46/fr/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net46/it/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net46/ja/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net46/ko/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net46/ru/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net46/zh-Hans/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net46/zh-Hant/Microsoft.Azure.Mobile.Server.Authentication.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
+      "Microsoft.Azure.Mobile.Server.Tables/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNet.WebApi.Client": "5.2.3",
+          "Microsoft.AspNet.WebApi.Core": "5.2.3",
+          "Microsoft.AspNet.WebApi.OData": "5.7.0",
+          "Microsoft.Azure.Mobile.Server": "2.0.0",
+          "Microsoft.Data.OData": "5.8.1",
+          "Newtonsoft.Json": "9.0.1"
+        },
+        "compile": {
+          "lib/net46/Microsoft.Azure.Mobile.Server.Tables.dll": {}
+        },
+        "runtime": {
+          "lib/net46/Microsoft.Azure.Mobile.Server.Tables.dll": {}
+        },
+        "resource": {
+          "lib/net46/de/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net46/es/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net46/fr/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net46/it/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net46/ja/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net46/ko/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net46/ru/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net46/zh-Hans/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net46/zh-Hant/Microsoft.Azure.Mobile.Server.Tables.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
       "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
         "type": "package"
       },
@@ -2593,6 +2791,31 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "Microsoft.Owin/4.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.Owin.dll": {}
+        }
+      },
+      "Microsoft.Owin.Security/3.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Owin": "3.0.1",
+          "Owin": "1.0.0"
+        },
+        "compile": {
+          "lib/net45/Microsoft.Owin.Security.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Microsoft.Owin.Security.dll": {}
+        }
+      },
       "Microsoft.Rest.ClientRuntime/2.3.8": {
         "type": "package",
         "dependencies": {
@@ -2733,6 +2956,15 @@
         },
         "runtime": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "Owin/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Owin.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Owin.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -3264,6 +3496,19 @@
           "lib/netstandard1.5/System.ComponentModel.TypeConverter.dll": {}
         }
       },
+      "System.Configuration.ConfigurationManager/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.Cryptography.ProtectedData": "4.5.0",
+          "System.Security.Permissions": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
+        }
+      },
       "System.Console/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3631,6 +3876,18 @@
           "lib/netstandard1.3/System.Linq.Queryable.dll": {}
         }
       },
+      "System.Memory/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {}
+        }
+      },
       "System.Net.Http/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -3965,13 +4222,13 @@
           "ref/netstandard1.5/System.Runtime.dll": {}
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/4.4.0": {
+      "System.Runtime.CompilerServices.Unsafe/4.5.0": {
         "type": "package",
         "compile": {
           "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {}
         }
       },
       "System.Runtime.Extensions/4.3.0": {
@@ -4096,11 +4353,11 @@
           "lib/netstandard1.3/System.Runtime.Serialization.Primitives.dll": {}
         }
       },
-      "System.Security.AccessControl/4.4.0": {
+      "System.Security.AccessControl/4.5.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0",
-          "System.Security.Principal.Windows": "4.4.0"
+          "System.Security.Principal.Windows": "4.5.0"
         },
         "compile": {
           "ref/netstandard2.0/System.Security.AccessControl.dll": {}
@@ -4109,10 +4366,6 @@
           "lib/netstandard2.0/System.Security.AccessControl.dll": {}
         },
         "runtimeTargets": {
-          "runtimes/unix/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
-            "assetType": "runtime",
-            "rid": "unix"
-          },
           "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll": {
             "assetType": "runtime",
             "rid": "win"
@@ -4311,6 +4564,24 @@
           "lib/netstandard1.3/System.Security.Cryptography.Primitives.dll": {}
         }
       },
+      "System.Security.Cryptography.ProtectedData/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/_._": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {}
+        },
+        "runtimeTargets": {
+          "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Security.Cryptography.X509Certificates/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4363,6 +4634,18 @@
           "lib/netstandard2.0/System.Security.Cryptography.Xml.dll": {}
         }
       },
+      "System.Security.Permissions/4.5.0": {
+        "type": "package",
+        "dependencies": {
+          "System.Security.AccessControl": "4.5.0"
+        },
+        "compile": {
+          "ref/netstandard2.0/System.Security.Permissions.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Security.Permissions.dll": {}
+        }
+      },
       "System.Security.Principal/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -4375,7 +4658,7 @@
           "lib/netstandard1.0/System.Security.Principal.dll": {}
         }
       },
-      "System.Security.Principal.Windows/4.4.0": {
+      "System.Security.Principal.Windows/4.5.0": {
         "type": "package",
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.0.0"
@@ -4817,6 +5100,71 @@
         "lib/netstandard1.6/Microsoft.AI.DependencyCollector.xml",
         "microsoft.applicationinsights.dependencycollector.2.4.1.nupkg.sha512",
         "microsoft.applicationinsights.dependencycollector.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Client/5.2.6": {
+      "sha512": "rMDlyePoxggkmN/qgha1+BR2Uy+dOr38xKCQOPfVNKGY07R2nYJGMTKJFE1XFgwD70RYUNazf2fqutjJF18XgQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.client/5.2.6",
+      "files": [
+        ".signature.p7s",
+        "lib/net45/System.Net.Http.Formatting.dll",
+        "lib/net45/System.Net.Http.Formatting.xml",
+        "lib/netstandard2.0/System.Net.Http.Formatting.dll",
+        "lib/netstandard2.0/System.Net.Http.Formatting.xml",
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.dll",
+        "lib/portable-wp8+netcore45+net45+wp81+wpa81/System.Net.Http.Formatting.xml",
+        "microsoft.aspnet.webapi.client.5.2.6.nupkg.sha512",
+        "microsoft.aspnet.webapi.client.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Core/5.2.6": {
+      "sha512": "QMFixs/MvKZXjfUbV0gXxF85LKi+keu/zJKv13upg/JlcxJ+wdLSYzyHO/sgPPUuFVstgndK6Zt3VduWeqFmHQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.core/5.2.6",
+      "files": [
+        ".signature.p7s",
+        "Content/web.config.transform",
+        "lib/net45/System.Web.Http.dll",
+        "lib/net45/System.Web.Http.xml",
+        "microsoft.aspnet.webapi.core.5.2.6.nupkg.sha512",
+        "microsoft.aspnet.webapi.core.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.OData/5.7.0": {
+      "sha512": "odo0eVD9eKwwY4Kh1EeAmZwTgsaSYowzD8o9ho51Q6IriRY2fd5LyP3KFL8Cvsfx10bgoxyp68BlGU8bORVn+A==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.odata/5.7.0",
+      "files": [
+        "lib/net45/System.Web.Http.OData.dll",
+        "lib/net45/System.Web.Http.OData.xml",
+        "microsoft.aspnet.webapi.odata.5.7.0.nupkg.sha512",
+        "microsoft.aspnet.webapi.odata.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Owin/5.2.6": {
+      "sha512": "Ky6Oc072KIVOcgtX5ilsWHbRUwp9WYE97ZFj2YRiDqpsTjTqo38Xsao6zejEdFpdobbAlquCM661ohqS2C68oQ==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.owin/5.2.6",
+      "files": [
+        ".signature.p7s",
+        "lib/net45/System.Web.Http.Owin.dll",
+        "lib/net45/System.Web.Http.Owin.xml",
+        "microsoft.aspnet.webapi.owin.5.2.6.nupkg.sha512",
+        "microsoft.aspnet.webapi.owin.nuspec"
+      ]
+    },
+    "Microsoft.AspNet.WebApi.Tracing/5.2.6": {
+      "sha512": "tFJvjQnyAk7+wNcpp/LwX8sS4YGoLs8iGB4d5gGKAe1eAj0Ggz9Drb4i/Mg1zNtT8axH7wWQOnorDj82sKAzlw==",
+      "type": "package",
+      "path": "microsoft.aspnet.webapi.tracing/5.2.6",
+      "files": [
+        ".signature.p7s",
+        "ReadMe.txt",
+        "lib/net45/System.Web.Http.Tracing.dll",
+        "lib/net45/System.Web.Http.Tracing.xml",
+        "microsoft.aspnet.webapi.tracing.5.2.6.nupkg.sha512",
+        "microsoft.aspnet.webapi.tracing.nuspec"
       ]
     },
     "Microsoft.AspNetCore/2.0.0": {
@@ -5779,6 +6127,66 @@
         "lib/netstandard1.4/Microsoft.Azure.KeyVault.WebKey.xml",
         "microsoft.azure.keyvault.webkey.2.0.7.nupkg.sha512",
         "microsoft.azure.keyvault.webkey.nuspec"
+      ]
+    },
+    "Microsoft.Azure.Mobile.Server/2.0.0": {
+      "sha512": "kSGYkJxzJzQg44x4kpybqSl/AfEV5XS/d+v0lY3qENbECWu6ZEfFLwbV+EWKIuU+zrzMvn8TeRvDcQz9Eh0Kgw==",
+      "type": "package",
+      "path": "microsoft.azure.mobile.server/2.0.0",
+      "files": [
+        "lib/net46/Microsoft.Azure.Mobile.Server.dll",
+        "lib/net46/Microsoft.Azure.Mobile.Server.xml",
+        "lib/net46/de/Microsoft.Azure.Mobile.Server.resources.dll",
+        "lib/net46/es/Microsoft.Azure.Mobile.Server.resources.dll",
+        "lib/net46/fr/Microsoft.Azure.Mobile.Server.resources.dll",
+        "lib/net46/it/Microsoft.Azure.Mobile.Server.resources.dll",
+        "lib/net46/ja/Microsoft.Azure.Mobile.Server.resources.dll",
+        "lib/net46/ko/Microsoft.Azure.Mobile.Server.resources.dll",
+        "lib/net46/ru/Microsoft.Azure.Mobile.Server.resources.dll",
+        "lib/net46/zh-Hans/Microsoft.Azure.Mobile.Server.resources.dll",
+        "lib/net46/zh-Hant/Microsoft.Azure.Mobile.Server.resources.dll",
+        "microsoft.azure.mobile.server.2.0.0.nupkg.sha512",
+        "microsoft.azure.mobile.server.nuspec"
+      ]
+    },
+    "Microsoft.Azure.Mobile.Server.Authentication/2.0.0": {
+      "sha512": "MqOQYpiPBFFm8koMdtQQiQWu5sVuY3z/rT54YDAAm9jcIKPowSmmqYY+6WUJZ/0Qrtbw3oPm8jbWR54ablrcfQ==",
+      "type": "package",
+      "path": "microsoft.azure.mobile.server.authentication/2.0.0",
+      "files": [
+        "lib/net46/Microsoft.Azure.Mobile.Server.Authentication.dll",
+        "lib/net46/Microsoft.Azure.Mobile.Server.Authentication.xml",
+        "lib/net46/de/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "lib/net46/es/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "lib/net46/fr/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "lib/net46/it/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "lib/net46/ja/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "lib/net46/ko/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "lib/net46/ru/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "lib/net46/zh-Hans/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "lib/net46/zh-Hant/Microsoft.Azure.Mobile.Server.Authentication.resources.dll",
+        "microsoft.azure.mobile.server.authentication.2.0.0.nupkg.sha512",
+        "microsoft.azure.mobile.server.authentication.nuspec"
+      ]
+    },
+    "Microsoft.Azure.Mobile.Server.Tables/2.0.0": {
+      "sha512": "pIvLY1fstwu3qtIv3eFCXzrU178njGhYDYhjx754w4Z4NOP4R/1wS/DO77GRku+RN95v1HqMi1U0KLDaOmOt4A==",
+      "type": "package",
+      "path": "microsoft.azure.mobile.server.tables/2.0.0",
+      "files": [
+        "lib/net46/Microsoft.Azure.Mobile.Server.Tables.dll",
+        "lib/net46/Microsoft.Azure.Mobile.Server.Tables.xml",
+        "lib/net46/de/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "lib/net46/es/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "lib/net46/fr/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "lib/net46/it/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "lib/net46/ja/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "lib/net46/ko/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "lib/net46/ru/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "lib/net46/zh-Hans/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "lib/net46/zh-Hant/Microsoft.Azure.Mobile.Server.Tables.resources.dll",
+        "microsoft.azure.mobile.server.tables.2.0.0.nupkg.sha512",
+        "microsoft.azure.mobile.server.tables.nuspec"
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/1.1.0": {
@@ -7277,6 +7685,28 @@
         "runtime.json"
       ]
     },
+    "Microsoft.Owin/4.0.0": {
+      "sha512": "3TNVMkgF+yhesPYwq67ZOcLGtfKEupNNXcqVO4FRNjkQ1v0gBNb3k8CSuJonrCC8EAUp+OeUYrDTQePiyaVzpw==",
+      "type": "package",
+      "path": "microsoft.owin/4.0.0",
+      "files": [
+        "lib/net451/Microsoft.Owin.XML",
+        "lib/net451/Microsoft.Owin.dll",
+        "microsoft.owin.4.0.0.nupkg.sha512",
+        "microsoft.owin.nuspec"
+      ]
+    },
+    "Microsoft.Owin.Security/3.0.1": {
+      "sha512": "LPoUxaTKzmjs97wDCTtBIoRwp30Jkq9UFnoj+EfMFJv+XxjcvHE/D573LRomA568WhvXoI2cUiwhZFvqfbLMVg==",
+      "type": "package",
+      "path": "microsoft.owin.security/3.0.1",
+      "files": [
+        "lib/net45/Microsoft.Owin.Security.XML",
+        "lib/net45/Microsoft.Owin.Security.dll",
+        "microsoft.owin.security.3.0.1.nupkg.sha512",
+        "microsoft.owin.security.nuspec"
+      ]
+    },
     "Microsoft.Rest.ClientRuntime/2.3.8": {
       "sha512": "Hj96LBoCwKY2VQKfSCVGGPV1sSumVjuYnrlpBwL4JSTnSK4b6ZxjLtXj8LgmKav8xJ2gps+UN7eI3hHVFKvBFw==",
       "type": "package",
@@ -7555,6 +7985,16 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "Owin/1.0.0": {
+      "sha512": "OseTFniKmyp76mEzOBwIKGBRS5eMoYNkMKaMXOpxx9jv88+b6mh1rSaw43vjBOItNhaLFG3d0a20PfHyibH5sw==",
+      "type": "package",
+      "path": "owin/1.0.0",
+      "files": [
+        "lib/net40/Owin.dll",
+        "owin.1.0.0.nupkg.sha512",
+        "owin.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
@@ -8504,6 +8944,26 @@
         "ref/xamarinwatchos10/_._",
         "system.componentmodel.typeconverter.4.3.0.nupkg.sha512",
         "system.componentmodel.typeconverter.nuspec"
+      ]
+    },
+    "System.Configuration.ConfigurationManager/4.5.0": {
+      "sha512": "NIY8VUJuSNeXPrV5wjQBKKMcd/vctzEGzQuY15zt3/j7Vd4PXfk/QVIOBlqU1/ONRRUu0dsdk5uUTLSSNY+now==",
+      "type": "package",
+      "path": "system.configuration.configurationmanager/4.5.0",
+      "files": [
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Configuration.ConfigurationManager.dll",
+        "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "ref/net461/System.Configuration.ConfigurationManager.dll",
+        "ref/net461/System.Configuration.ConfigurationManager.xml",
+        "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll",
+        "ref/netstandard2.0/System.Configuration.ConfigurationManager.xml",
+        "system.configuration.configurationmanager.4.5.0.nupkg.sha512",
+        "system.configuration.configurationmanager.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Console/4.3.0": {
@@ -9650,6 +10110,44 @@
         "system.linq.queryable.nuspec"
       ]
     },
+    "System.Memory/4.5.0": {
+      "sha512": "P56/L4B9vhz0YFTC4qIXFgx+VgMhg3JhCm5/EASihTotyjwmBt2QEAQdmd2tNctYET/w0CRJzVH1cwxgbKGnDQ==",
+      "type": "package",
+      "path": "system.memory/4.5.0",
+      "files": [
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/netcoreapp2.1/_._",
+        "lib/netstandard1.1/System.Memory.dll",
+        "lib/netstandard1.1/System.Memory.xml",
+        "lib/netstandard2.0/System.Memory.dll",
+        "lib/netstandard2.0/System.Memory.xml",
+        "lib/uap10.0.16300/_._",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/netcoreapp2.1/_._",
+        "ref/netstandard1.1/System.Memory.dll",
+        "ref/netstandard1.1/System.Memory.xml",
+        "ref/netstandard2.0/System.Memory.dll",
+        "ref/netstandard2.0/System.Memory.xml",
+        "ref/uap10.0.16300/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.memory.4.5.0.nupkg.sha512",
+        "system.memory.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Net.Http/4.3.0": {
       "sha512": "sYg+FtILtRQuYWSIAuNOELwVuVsxVyJGWQyOnlAzhV4xvhyFnON1bAzYYC+jjRW8JREM45R0R5Dgi8MTC5sEwA==",
       "type": "package",
@@ -10573,22 +11071,27 @@
         "system.runtime.nuspec"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/4.4.0": {
-      "sha512": "9dLLuBxr5GNmOfl2jSMcsHuteEg32BEfUotmmUkmZjpR3RpVHE8YQwt0ow3p6prwA1ME8WqDVZqrr8z6H8G+Kw==",
+    "System.Runtime.CompilerServices.Unsafe/4.5.0": {
+      "sha512": "6zBxkHYemB0kQiHP3vGXGRXejZVoNVuMn2paUuqKKi5Wyjkxfkp+D0rd0c3VrGwotidRINt6KpOi2smL4VkJKw==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/4.4.0",
+      "path": "system.runtime.compilerservices.unsafe/4.5.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/uap10.0.16300/_._",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.4.4.0.nupkg.sha512",
+        "ref/uap10.0.16300/_._",
+        "system.runtime.compilerservices.unsafe.4.5.0.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -11043,17 +11546,19 @@
         "system.runtime.serialization.primitives.nuspec"
       ]
     },
-    "System.Security.AccessControl/4.4.0": {
-      "sha512": "2NRFPX/V81ucKQmqNgGBZrKGH/5ejsvivSGMRum0SMgPnJxwhuNkzVS1+7gC3R2X0f57CtwrPrXPPSe6nOp82g==",
+    "System.Security.AccessControl/4.5.0": {
+      "sha512": "aVjTe36YkO8FzfNhMLoPEzv3gF9rphoW9ngFhG/MH4zzEPLx07sNrgCLwMP4Wx2leI6qarMrGv21OwQXYUKLmw==",
       "type": "package",
-      "path": "system.security.accesscontrol/4.4.0",
+      "path": "system.security.accesscontrol/4.5.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/System.Security.AccessControl.dll",
         "lib/net461/System.Security.AccessControl.dll",
         "lib/netstandard1.3/System.Security.AccessControl.dll",
         "lib/netstandard2.0/System.Security.AccessControl.dll",
+        "lib/uap10.0.16299/_._",
         "ref/net46/System.Security.AccessControl.dll",
         "ref/net461/System.Security.AccessControl.dll",
         "ref/net461/System.Security.AccessControl.xml",
@@ -11070,12 +11575,13 @@
         "ref/netstandard1.3/zh-hant/System.Security.AccessControl.xml",
         "ref/netstandard2.0/System.Security.AccessControl.dll",
         "ref/netstandard2.0/System.Security.AccessControl.xml",
-        "runtimes/unix/lib/netcoreapp2.0/System.Security.AccessControl.dll",
+        "ref/uap10.0.16299/_._",
         "runtimes/win/lib/net46/System.Security.AccessControl.dll",
         "runtimes/win/lib/net461/System.Security.AccessControl.dll",
         "runtimes/win/lib/netcoreapp2.0/System.Security.AccessControl.dll",
         "runtimes/win/lib/netstandard1.3/System.Security.AccessControl.dll",
-        "system.security.accesscontrol.4.4.0.nupkg.sha512",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.accesscontrol.4.5.0.nupkg.sha512",
         "system.security.accesscontrol.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -11293,6 +11799,46 @@
         "system.security.cryptography.primitives.nuspec"
       ]
     },
+    "System.Security.Cryptography.ProtectedData/4.5.0": {
+      "sha512": "wZGwRoLGTuEQBOYXlZmEK41OfmO+vYWbLk7q5ePoFqs6vOKP2kUsOeviEjQoR6MbW9udlDjx9iWhcWOTzSj05w==",
+      "type": "package",
+      "path": "system.security.cryptography.protecteddata/4.5.0",
+      "files": [
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/MonoAndroid10/_._",
+        "lib/MonoTouch10/_._",
+        "lib/net46/System.Security.Cryptography.ProtectedData.dll",
+        "lib/net461/System.Security.Cryptography.ProtectedData.dll",
+        "lib/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "lib/xamarinios10/_._",
+        "lib/xamarinmac20/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/MonoAndroid10/_._",
+        "ref/MonoTouch10/_._",
+        "ref/net46/System.Security.Cryptography.ProtectedData.dll",
+        "ref/net461/System.Security.Cryptography.ProtectedData.dll",
+        "ref/net461/System.Security.Cryptography.ProtectedData.xml",
+        "ref/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "ref/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "ref/netstandard2.0/System.Security.Cryptography.ProtectedData.xml",
+        "ref/xamarinios10/_._",
+        "ref/xamarinmac20/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "runtimes/win/lib/net46/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/net461/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/netstandard1.3/System.Security.Cryptography.ProtectedData.dll",
+        "runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll",
+        "system.security.cryptography.protecteddata.4.5.0.nupkg.sha512",
+        "system.security.cryptography.protecteddata.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Security.Cryptography.X509Certificates/4.3.0": {
       "sha512": "t2Tmu6Y2NtJ2um0RtcuhP7ZdNNxXEgUm2JeoA/0NvlMjAhKCnM1NX07TDl3244mVp3QU6LPEhT3HTtH1uF7IYw==",
       "type": "package",
@@ -11366,6 +11912,26 @@
         "version.txt"
       ]
     },
+    "System.Security.Permissions/4.5.0": {
+      "sha512": "vDQ7q30Soe0a1cPhvxn+7IFmMeTG5IP+hTQrnKQDjTNpD2epqwbZSzMM2Git5TXBr4Kwwhc/0SEtJY0qPoiegA==",
+      "type": "package",
+      "path": "system.security.permissions/4.5.0",
+      "files": [
+        ".signature.p7s",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/System.Security.Permissions.dll",
+        "lib/netstandard2.0/System.Security.Permissions.dll",
+        "ref/net461/System.Security.Permissions.dll",
+        "ref/net461/System.Security.Permissions.xml",
+        "ref/netstandard2.0/System.Security.Permissions.dll",
+        "ref/netstandard2.0/System.Security.Permissions.xml",
+        "system.security.permissions.4.5.0.nupkg.sha512",
+        "system.security.permissions.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
     "System.Security.Principal/4.3.0": {
       "sha512": "I1tkfQlAoMM2URscUtpcRo/hX0jinXx6a/KUtEQoz3owaYwl3qwsO8cbzYVVnjxrzxjHo3nJC+62uolgeGIS9A==",
       "type": "package",
@@ -11423,17 +11989,19 @@
         "system.security.principal.nuspec"
       ]
     },
-    "System.Security.Principal.Windows/4.4.0": {
-      "sha512": "pP+AOzt1o3jESOuLmf52YQTF7H3Ng9hTnrOESQiqsnl2IbBh1HInsAMHYtoh75iUYV0OIkHmjvveraYB6zM97w==",
+    "System.Security.Principal.Windows/4.5.0": {
+      "sha512": "WA9ETb/pY3BjnxKjBUHEgO59B7d/nnmjHFsqjJ2eDT780nD769CT1/bw2ia0Z6W7NqlcqokE6sKGKa6uw88XGA==",
       "type": "package",
-      "path": "system.security.principal.windows/4.4.0",
+      "path": "system.security.principal.windows/4.5.0",
       "files": [
+        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net46/System.Security.Principal.Windows.dll",
         "lib/net461/System.Security.Principal.Windows.dll",
         "lib/netstandard1.3/System.Security.Principal.Windows.dll",
         "lib/netstandard2.0/System.Security.Principal.Windows.dll",
+        "lib/uap10.0.16299/_._",
         "ref/net46/System.Security.Principal.Windows.dll",
         "ref/net461/System.Security.Principal.Windows.dll",
         "ref/net461/System.Security.Principal.Windows.xml",
@@ -11450,12 +12018,14 @@
         "ref/netstandard1.3/zh-hant/System.Security.Principal.Windows.xml",
         "ref/netstandard2.0/System.Security.Principal.Windows.dll",
         "ref/netstandard2.0/System.Security.Principal.Windows.xml",
+        "ref/uap10.0.16299/_._",
         "runtimes/unix/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
         "runtimes/win/lib/net46/System.Security.Principal.Windows.dll",
         "runtimes/win/lib/net461/System.Security.Principal.Windows.dll",
         "runtimes/win/lib/netcoreapp2.0/System.Security.Principal.Windows.dll",
         "runtimes/win/lib/netstandard1.3/System.Security.Principal.Windows.dll",
-        "system.security.principal.windows.4.4.0.nupkg.sha512",
+        "runtimes/win/lib/uap10.0.16299/_._",
+        "system.security.principal.windows.4.5.0.nupkg.sha512",
         "system.security.principal.windows.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
@@ -12528,8 +13098,15 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Microsoft.AspNet.WebApi.Owin >= 5.2.6",
+      "Microsoft.AspNet.WebApi.Tracing >= 5.2.6",
       "Microsoft.AspNetCore.All >= 2.0.0",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.Azure.Mobile.Server >= 2.0.0",
+      "Microsoft.Azure.Mobile.Server.Authentication >= 2.0.0",
+      "Microsoft.Azure.Mobile.Server.Tables >= 2.0.0",
+      "Microsoft.NETCore.App >= 2.0.0",
+      "Microsoft.Owin >= 4.0.0",
+      "System.Configuration.ConfigurationManager >= 4.5.0"
     ]
   },
   "packageFolders": {
@@ -12581,6 +13158,34 @@
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "2.0.0"
+          },
+          "Microsoft.Azure.Mobile.Server": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "Microsoft.Owin": {
+            "target": "Package",
+            "version": "4.0.0"
+          },
+          "Microsoft.Azure.Mobile.Server.Authentication": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "System.Configuration.ConfigurationManager": {
+            "target": "Package",
+            "version": "4.5.0"
+          },
+          "Microsoft.AspNet.WebApi.Tracing": {
+            "target": "Package",
+            "version": "5.2.6"
+          },
+          "Microsoft.Azure.Mobile.Server.Tables": {
+            "target": "Package",
+            "version": "2.0.0"
+          },
+          "Microsoft.AspNet.WebApi.Owin": {
+            "target": "Package",
+            "version": "5.2.6"
           }
         },
         "imports": [
@@ -12590,5 +13195,107 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Core 5.2.6' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Core",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.OData 5.7.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.OData",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Owin 5.2.6' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.WebApi.Tracing 5.2.6' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.WebApi.Tracing",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Azure.Mobile.Server 2.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Azure.Mobile.Server",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Azure.Mobile.Server.Authentication 2.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Azure.Mobile.Server.Authentication",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Azure.Mobile.Server.Tables 2.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Azure.Mobile.Server.Tables",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin 4.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Security 3.0.1' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Security",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Owin",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.0"
+      ]
+    }
+  ]
 }

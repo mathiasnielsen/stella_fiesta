@@ -1,8 +1,21 @@
 ﻿<Properties StartupConfiguration="{209FA716-A7AD-4095-BD70-C8710FC66FA7}|">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="QuickStartAppService/App_Start/Startup.MobileApp.cs">
+    <Files>
+      <File FileName="QuickStartAppService/Controllers/TodoItemController.cs" Line="24" Column="23" />
+      <File FileName="QuickStartAppService/Controllers/ValuesController.cs" Line="1" Column="1" />
+      <File FileName="QuickStartAppService/Models/QuickStartAppContext.cs" Line="25" Column="55" />
+      <File FileName="QuickStartAppService/DataObjects/TodoItem.cs" Line="7" Column="41" />
+      <File FileName="QuickStartAppService/Web.config" Line="85" Column="17" />
+      <File FileName="QuickStartAppService/Properties/AssemblyInfo.cs" Line="1" Column="1" />
+      <File FileName="QuickStartAppService/Startup.cs" Line="12" Column="24" />
+      <File FileName="QuickStartAppService/App_Start/Startup.MobileApp.cs" Line="25" Column="29" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Kirkegaard/Desktop/StellaFiesta/Quickstarts/MobileApp QuickStart/QuickStartApp_Runtime/QuickStartAppService/App_Start/Startup.MobileApp.cs" relfile="QuickStartAppService/App_Start/Startup.MobileApp.cs" line="36" column="57" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />

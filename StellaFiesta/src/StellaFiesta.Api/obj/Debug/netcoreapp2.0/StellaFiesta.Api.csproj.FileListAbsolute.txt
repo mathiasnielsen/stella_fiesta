@@ -1,0 +1,11 @@
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/obj/Debug/netcoreapp2.0/StellaFiesta.Api.csprojResolveAssemblyReference.cache
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/obj/Debug/netcoreapp2.0/StellaFiesta.Api.csproj.CoreCompileInputs.cache
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/obj/Debug/netcoreapp2.0/StellaFiesta.Api.AssemblyInfoInputs.cache
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/obj/Debug/netcoreapp2.0/StellaFiesta.Api.AssemblyInfo.cs
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/bin/Debug/netcoreapp2.0/StellaFiesta.Api.deps.json
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/bin/Debug/netcoreapp2.0/StellaFiesta.Api.runtimeconfig.json
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/bin/Debug/netcoreapp2.0/StellaFiesta.Api.runtimeconfig.dev.json
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/bin/Debug/netcoreapp2.0/StellaFiesta.Api.dll
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/bin/Debug/netcoreapp2.0/StellaFiesta.Api.pdb
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/obj/Debug/netcoreapp2.0/StellaFiesta.Api.dll
+/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/obj/Debug/netcoreapp2.0/StellaFiesta.Api.pdb

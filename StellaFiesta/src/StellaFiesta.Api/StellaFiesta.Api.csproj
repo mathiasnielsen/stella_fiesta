@@ -6,14 +6,33 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
+    <Folder Include="Models\" />
+    <Folder Include="DataObjects\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Server" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Owin" Version="4.0.0" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Server.Authentication" Version="2.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Tracing" Version="5.2.6" />
+    <PackageReference Include="Microsoft.Azure.Mobile.Server.Tables" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.6" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Remove="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Models\StellaFiestaAppContext.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="App_Start\Startup.MobileApp" />
+    <Compile Remove="App_Start\Startup.MobileApp.cs" />
+  </ItemGroup>
 </Project>
