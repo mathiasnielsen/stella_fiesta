@@ -1,15 +1,18 @@
 ﻿<Properties StartupConfiguration="{F11013E3-81E1-42EE-B3BE-F2201BBD0554}|Default">
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/StellaFiesta.Api/Startup.cs">
+    <Files>
+      <File FileName="src/StellaFiesta.Api/Controllers/CarTimesController.cs" Line="19" Column="18" />
+      <File FileName="src/StellaFiesta.Api/Controllers/PersonsController.cs" Line="22" Column="1" />
+      <File FileName="src/StellaFiesta.Api/Models/StellaFiestaContext.cs" Line="11" Column="9" />
+      <File FileName="src/StellaFiesta.Api/Startup.cs" Line="9" Column="25" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/Controllers/ValuesController.cs" relfile="src/StellaFiesta.Api/Controllers/ValuesController.cs" line="16" column="1" />
-      <Breakpoint file="/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/Controllers/CarTimesController.cs" relfile="src/StellaFiesta.Api/Controllers/CarTimesController.cs" line="36" column="1" />
-      <Breakpoint file="/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/Controllers/CarTimesController.cs" relfile="src/StellaFiesta.Api/Controllers/CarTimesController.cs" line="28" column="1" />
-      <Breakpoint file="/Users/Kirkegaard/Desktop/StellaFiesta/StellaFiesta/src/StellaFiesta.Api/Controllers/CarTimesController.cs" relfile="src/StellaFiesta.Api/Controllers/CarTimesController.cs" line="19" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Api.StellaFiesta.Api.Tests FirstBuild="True" />
   <MonoDevelop.Ide.ItemProperties.Api.StellaFiesta.Api PreferredExecutionTarget="MonoDevelop.Default" />
 </Properties>

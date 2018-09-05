@@ -19,18 +19,14 @@ namespace StellaFiesta.Api
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration.GetConnectionString("BloggingDatabase");
-            services.AddDbContext<CarTimesContext>(opt =>
+            services.AddDbContext<StellaFiestaContext>(opt =>
                 opt.UseSqlServer(connectionString));
 
-            ////var connectionString = Configuration.GetConnectionString("BloggingDatabase");
-            ////services.AddDbContext<PersonsContext>(opt =>
-                ////opt.UseSqlServer(connectionString));
-
             services.AddMvc();
-            
+
             ////services.AddMvc()
-                    ////.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            
+            ////.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

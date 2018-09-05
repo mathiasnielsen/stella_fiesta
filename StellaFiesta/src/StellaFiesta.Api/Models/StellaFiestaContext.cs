@@ -2,13 +2,15 @@
 
 namespace StellaFiesta.Api
 {
-    public class CarTimesContext : DbContext
+    public class StellaFiestaContext : DbContext
     {
-        public CarTimesContext(DbContextOptions<CarTimesContext> options)
+        public StellaFiestaContext(DbContextOptions<StellaFiestaContext> options)
             : base(options)
         {
         }
 
         public DbSet<CarTime> CarTimes { get; set; }
+
+        public DbSet<Person> Persons { get; set; }
     }
 }
