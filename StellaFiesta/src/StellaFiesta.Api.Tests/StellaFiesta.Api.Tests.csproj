@@ -12,10 +12,4 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\StellaFiesta.Api.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Remove="FactAttribute.cs" />
-  </ItemGroup>
 </Project>
