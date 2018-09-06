@@ -2,7 +2,7 @@
 
 namespace StellaFiesta.Api
 {
-    public class StellaFiestaContext : DbContext
+    public class StellaFiestaContext : DbContext, IStellaFiestaContext
     {
         public StellaFiestaContext(DbContextOptions<StellaFiestaContext> options)
             : base(options)

@@ -8,9 +8,9 @@ namespace StellaFiesta.Api.Controllers
     [Route("api/[controller]")]
     public class CarTimesController : Controller
     {
-        private readonly StellaFiestaContext _context;
+        private readonly IStellaFiestaContext _context;
 
-        public CarTimesController(StellaFiestaContext context)
+        public CarTimesController(IStellaFiestaContext context)
         {
             _context = context;
         }
