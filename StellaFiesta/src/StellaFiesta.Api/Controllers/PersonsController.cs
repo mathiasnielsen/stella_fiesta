@@ -20,7 +20,6 @@ namespace StellaFiesta.Api.Controllers
         public IEnumerable<string> Get()
         {
             var allNames = _context.Persons.Select(x => x.LastName).ToList();
-
             return allNames;
         }
     }
