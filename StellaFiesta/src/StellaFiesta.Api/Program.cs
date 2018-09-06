@@ -32,19 +32,16 @@ namespace StellaFiesta.Api
 
             var buildConfig = config.Build();
 
-            var azureName = buildConfig["azureKeyVault:vault"];
+            var vaultName = buildConfig["azureKeyVault:vault"];
             var clientId = buildConfig["azureKeyVault:clientId"];
             var clientSecret = buildConfig["azureKeyVault:clientSecret"];
-            var redirectUrl = $"https://{azureName}.vault.azure.net/";
+            var dnsName = $"https://{vaultName}.vault.azure.net/";
             config.AddAzureKeyVault(
-                redirectUrl,
+                dnsName,
                 clientId,
                 clientSecret);
 
             var newBuildConfig = config.Build();
-
-            // In azure: appSettings-connectionStrings-stellaFiestaKey
-            var connectionString = newBuildConfig["appSettings:connectionStrings:stellafiestakode"];
         }
     }
 }
