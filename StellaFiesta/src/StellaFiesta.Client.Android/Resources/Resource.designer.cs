@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("StellaFiesta.Droid.Resource", IsApplication = true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("StellaFiesta.Client.Droid.Resource", IsApplication = true)]
 
-namespace StellaFiesta.Droid
+namespace StellaFiesta.Client.Droid
 {
 
 
@@ -26,7 +26,7 @@ namespace StellaFiesta.Droid
 
         public static void UpdateIdValues()
         {
-            global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::StellaFiesta.Droid.Resource.Attribute.actionBarSize;
+            global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::StellaFiesta.Client.Droid.Resource.Attribute.actionBarSize;
         }
 
         public partial class Animation

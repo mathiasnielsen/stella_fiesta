@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace StellaFiesta.iOS
+namespace StellaFiesta.Client.iOS
 {
     public class Application
     {

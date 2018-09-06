@@ -3,12 +3,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ED41A76E-086D-45C0-A70E-6C176264C73D}</ProjectGuid>
+    <ProjectGuid>{B775B18F-CE9E-4D33-BC0B-175D134713FE}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{c9e5eea5-ca05-42a1-839b-61506e0a37df}</TemplateGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>StellaFiesta.Droid</RootNamespace>
-    <AssemblyName>StellaFiesta.Android</AssemblyName>
+    <RootNamespace>StellaFiesta.Client.Droid</RootNamespace>
+    <AssemblyName>StellaFiesta.Client.Android</AssemblyName>
     <AndroidApplication>True</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
     <AndroidResgenClass>Resource</AndroidResgenClass>
@@ -93,9 +93,9 @@
     <Folder Include="Resources\drawable-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StellaFiesta\StellaFiesta.csproj">
-      <Project>{92D683F8-3907-4D96-9659-9FB8DEEB00D1}</Project>
-      <Name>StellaFiesta</Name>
+    <ProjectReference Include="..\StellaFiesta.Client\StellaFiesta.Client.csproj">
+      <Project>{92DFC310-E3BF-49FC-B2EB-04BC965E7A7B}</Project>
+      <Name>StellaFiesta.Client</Name>
     </ProjectReference>
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

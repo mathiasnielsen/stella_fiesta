@@ -5,13 +5,13 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A40D51EF-9AC1-4388-9D83-50E74C7E3DFA}</ProjectGuid>
+    <ProjectGuid>{85C1CB64-34FC-4D3C-B709-8373C8C651D5}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6143fdea-f3c2-4a09-aafa-6e230626515e}</TemplateGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>StellaFiesta.iOS</RootNamespace>
+    <RootNamespace>StellaFiesta.Client.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>StellaFiesta.iOS</AssemblyName>
+    <AssemblyName>StellaFiesta.Client.iOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -152,9 +152,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StellaFiesta\StellaFiesta.csproj">
-      <Project>{92D683F8-3907-4D96-9659-9FB8DEEB00D1}</Project>
-      <Name>StellaFiesta</Name>
+    <ProjectReference Include="..\StellaFiesta.Client\StellaFiesta.Client.csproj">
+      <Project>{92DFC310-E3BF-49FC-B2EB-04BC965E7A7B}</Project>
+      <Name>StellaFiesta.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

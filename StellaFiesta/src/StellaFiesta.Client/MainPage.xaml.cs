@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace StellaFiesta
+namespace StellaFiesta.Client
 {
     public partial class MainPage : ContentPage
     {
