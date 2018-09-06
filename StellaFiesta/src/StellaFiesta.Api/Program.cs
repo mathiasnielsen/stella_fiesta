@@ -19,7 +19,32 @@ namespace StellaFiesta.Api
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+                   .ConfigureAppConfiguration((context, config) => SetupConfig(context, config))
+                    .UseStartup<Startup>()
+                    .Build();
+
+        private static void SetupConfig(WebHostBuilderContext context, IConfigurationBuilder config)
+        {
+            var rootPath = context.HostingEnvironment.ContentRootPath;
+            config
+                .SetBasePath(rootPath)
+                .AddJsonFile("azurekeyvault.json", optional: false, reloadOnChange: true);
+
+            var buildConfig = config.Build();
+
+            var azureName = buildConfig["azureKeyVault:vault"];
+            var clientId = buildConfig["azureKeyVault:clientId"];
+            var clientSecret = buildConfig["azureKeyVault:clientSecret"];
+            var redirectUrl = $"https://{azureName}.vault.azure.net/";
+            config.AddAzureKeyVault(
+                redirectUrl,
+                clientId,
+                clientSecret);
+
+            var newBuildConfig = config.Build();
+
+            // In azure: appSettings-connectionStrings-stellaFiestaKey
+            var connectionString = newBuildConfig["appSettings:connectionStrings:stellafiestakode"];
+        }
     }
 }

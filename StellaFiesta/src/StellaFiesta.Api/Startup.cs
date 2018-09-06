@@ -18,7 +18,10 @@ namespace StellaFiesta.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration.GetConnectionString("BloggingDatabase");
+            // Before AzureKeyVault
+            ////var connectionString = Configuration.GetConnectionString("BloggingDatabase");
+
+            var connectionString = Configuration["appSettings:connectionStrings:stellafiestakode"];
             services.AddDbContext<StellaFiestaContext>(opt =>
                 opt.UseSqlServer(connectionString));
 

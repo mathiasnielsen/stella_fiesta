@@ -19,6 +19,7 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Tracing" Version="5.2.6" />
     <PackageReference Include="Microsoft.Azure.Mobile.Server.Tables" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNet.WebApi.Owin" Version="5.2.6" />
+    <PackageReference Include="Microsoft.Azure.KeyVault.Core" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +28,7 @@
 
   <ItemGroup>
     <Content Remove="Web.config" />
+    <Content Remove="azurekeyvault.json" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\StellaFiestaAppContext.xml" />
@@ -34,5 +36,9 @@
   <ItemGroup>
     <Compile Remove="App_Start\Startup.MobileApp" />
     <Compile Remove="App_Start\Startup.MobileApp.cs" />
+    <Compile Remove="Models\IStellaFiestaContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="azurekeyvault.json" />
   </ItemGroup>
 </Project>
