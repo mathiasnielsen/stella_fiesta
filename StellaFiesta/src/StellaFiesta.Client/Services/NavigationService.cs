@@ -1,5 +1,6 @@
 ﻿using System;
 using StellaFiesta.Client.Core;
+using StellaFiesta.Client.Features.Calendar;
 using StellaFiesta.Client.Features.Common;
 
 namespace StellaFiesta.Client
@@ -10,6 +11,7 @@ namespace StellaFiesta.Client
         {
             Configure(nameof(HomeView), typeof(HomeView));
             Configure(nameof(AboutView), typeof(AboutView));
+            Configure(nameof(CalendarView), typeof(CalendarView));
         }
 
         public void NavigateToHome()
@@ -20,6 +22,11 @@ namespace StellaFiesta.Client
         public void NavigateToAbout()
         {
             NavigateTo(nameof(AboutView));
+        }
+
+        public void NavigateToCalendar()
+        {
+            NavigateTo(nameof(CalendarView));
         }
 
         ////public void NavigateToDataMagazine(string directory = null)

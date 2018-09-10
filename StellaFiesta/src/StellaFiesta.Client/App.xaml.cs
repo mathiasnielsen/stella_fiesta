@@ -5,6 +5,7 @@ using Xamarin.Forms.Xaml;
 using StellaFiesta.Client;
 using StellaFiesta.Client.Core;
 using StellaFiesta.Client.Features.Common;
+using StellaFiesta.Client.CoreStandard;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace StellaFiesta.Client
@@ -54,6 +55,8 @@ namespace StellaFiesta.Client
         private static void RegisterCoreTypes()
         {
             _container.RegisterSingleton<INavigationService, NavigationService>();
+            _container.RegisterSingleton<ICarTimesApi, CarTimesApi>();
+            _container.RegisterSingleton<IHttpClientFactory, HttpClientFactory>();
         }
     }
 }

@@ -23,13 +23,17 @@ namespace StellaFiesta.Api
             // Old hat.
             ////var connectionString = CloudConfigurationManager.
 
-            var account = new CloudStorageAccount(
-                new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
-                    "<storage-accountname>",
-                    "<storage-accountkey>"), true);
+            // Maybe something?
+            ////var account = new CloudStorageAccount(
+            ////new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+            ////"<storage-accountname>",
+            ////"<storage-accountkey>"), true);
 
             ////var connectionString = Configuration["appSettings:connectionStrings:stellafiestakode"];
-            var connectionString = Configuration.GetConnectionString("DefaultConnection");
+            ////var connectionString = Configuration.GetConnectionString("DefaultConnection");
+
+            var connectionString = "Server=tcp:quickstart.database.windows.net,1433;Initial Catalog=StellaFiestaDB;Persist Security Info=False;User ID=mathias;Password=Stella4ever;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
             services.AddDbContext<StellaFiestaContext>(opt =>
                 opt.UseSqlServer(connectionString));
 

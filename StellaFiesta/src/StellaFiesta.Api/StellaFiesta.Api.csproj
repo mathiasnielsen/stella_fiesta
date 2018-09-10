@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="DataObjects\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,7 +26,6 @@
 
   <ItemGroup>
     <Content Remove="Web.config" />
-    <Content Remove="azurekeyvault.json" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="Models\StellaFiestaAppContext.xml" />
@@ -38,6 +36,6 @@
     <Compile Remove="Models\IStellaFiestaContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="azurekeyvault.json" />
+    <ProjectReference Include="..\StellaFiesta.Models\StellaFiesta.Models.csproj" />
   </ItemGroup>
 </Project>

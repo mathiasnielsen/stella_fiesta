@@ -17,10 +17,9 @@ namespace StellaFiesta.Api.Controllers
 
         // GET api/values
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<CarTime> Get()
         {
-            var allNames = _context.Persons.Select(x => x.LastName).ToList();
-            return allNames;
+            return _context.CarTimes;
         }
     }
 }
