@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.Azure;
 
 namespace StellaFiesta.Api
 {
@@ -18,7 +20,16 @@ namespace StellaFiesta.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration["appSettings:connectionStrings:stellafiestakode"];
+            // Old hat.
+            ////var connectionString = CloudConfigurationManager.
+
+            var account = new CloudStorageAccount(
+                new Microsoft.WindowsAzure.Storage.Auth.StorageCredentials(
+                    "<storage-accountname>",
+                    "<storage-accountkey>"), true);
+
+            ////var connectionString = Configuration["appSettings:connectionStrings:stellafiestakode"];
+            var connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<StellaFiestaContext>(opt =>
                 opt.UseSqlServer(connectionString));
 

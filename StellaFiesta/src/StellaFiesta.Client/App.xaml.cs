@@ -1,4 +1,3 @@
-using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,7 +10,9 @@ namespace StellaFiesta.Client
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            var mainPage = new MainPage();
+            var navigationPage = new NavigationPage(mainPage);
+            MainPage = navigationPage;
         }
 
         protected override void OnStart()

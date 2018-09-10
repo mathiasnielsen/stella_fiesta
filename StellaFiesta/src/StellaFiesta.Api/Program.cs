@@ -19,7 +19,7 @@ namespace StellaFiesta.Api
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                   .ConfigureAppConfiguration((context, config) => SetupConfig(context, config))
+                    ////.ConfigureAppConfiguration((context, config) => SetupConfig(context, config))
                     .UseStartup<Startup>()
                     .Build();
 
