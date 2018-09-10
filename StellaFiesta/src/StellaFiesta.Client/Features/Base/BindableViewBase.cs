@@ -21,7 +21,6 @@ namespace StellaFiesta.Client
                 BindingContext = ViewModel;
 
                 InitializeViewBaseBindings();
-                this.Navigation.get
                 ViewModel.ViewInitialized(this.GetNavigationArgs());
                 hasAppeared = true;
             }

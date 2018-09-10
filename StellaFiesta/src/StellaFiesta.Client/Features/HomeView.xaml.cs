@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using StellaFiesta.Client.Core;
 using Xamarin.Forms;
 
-namespace StellaFiesta.Client
+namespace StellaFiesta.Client.Features.Common
 {
-    public partial class HomeView : BindableViewBase<HomeViewModel>
+    public abstract class HomeViewBase : BindableViewBase<HomeViewModel>
+    {
+    }
+
+    public partial class HomeView : HomeViewBase
     {
         public HomeView()
         {

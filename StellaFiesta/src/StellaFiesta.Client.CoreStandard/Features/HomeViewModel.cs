@@ -1,4 +1,6 @@
 ﻿using System;
+using GalaSoft.MvvmLight.Command;
+
 namespace StellaFiesta.Client.Core
 {
     public class HomeViewModel : BindableViewModelBase
@@ -8,8 +10,15 @@ namespace StellaFiesta.Client.Core
         public HomeViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
+
+            GoToAboutCommand = new RelayCommand(GoToAbout);
         }
 
         public RelayCommand GoToAboutCommand { get; }
+
+        private void GoToAbout()
+        {
+            navigationService.NavigateToAbout();
+        }
     }
 }

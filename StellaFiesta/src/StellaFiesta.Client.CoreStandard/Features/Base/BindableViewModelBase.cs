@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight;
 
 namespace StellaFiesta.Client.Core
 {

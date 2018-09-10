@@ -1,5 +1,6 @@
 ﻿using System;
 using StellaFiesta.Client.Core;
+using StellaFiesta.Client.Features.Common;
 
 namespace StellaFiesta.Client
 {
@@ -8,6 +9,7 @@ namespace StellaFiesta.Client
         public NavigationService()
         {
             Configure(nameof(HomeView), typeof(HomeView));
+            Configure(nameof(AboutView), typeof(AboutView));
         }
 
         public void NavigateToHome()
@@ -15,19 +17,24 @@ namespace StellaFiesta.Client
             NavigateTo(nameof(HomeView));
         }
 
-        public void NavigateToDataMagazine(string directory = null)
+        public void NavigateToAbout()
         {
-            if (directory == null)
-            {
-                NavigateTo(nameof(DataMagazineView));
-            }
-            else
-            {
-                var parms = new Dictionary<string, string>();
-                parms.Add(DataMagazineViewModel.RelativeDirectoryParameterKey, directory);
-
-                NavigateTo(nameof(DataMagazineView), parameter: parms);
-            }
+            NavigateTo(nameof(AboutView));
         }
+
+        ////public void NavigateToDataMagazine(string directory = null)
+        ////{
+        ////    if (directory == null)
+        ////    {
+        ////        NavigateTo(nameof(DataMagazineView));
+        ////    }
+        ////    else
+        ////    {
+        ////        var parms = new Dictionary<string, string>();
+        ////        parms.Add(DataMagazineViewModel.RelativeDirectoryParameterKey, directory);
+
+        ////        NavigateTo(nameof(DataMagazineView), parameter: parms);
+        ////    }
+        ////}
     }
 }

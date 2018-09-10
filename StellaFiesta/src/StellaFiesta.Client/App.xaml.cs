@@ -4,6 +4,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using StellaFiesta.Client;
 using StellaFiesta.Client.Core;
+using StellaFiesta.Client.Features.Common;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace StellaFiesta.Client
@@ -30,7 +31,7 @@ namespace StellaFiesta.Client
         {
             InitializeComponent();
 
-            var mainPage = new MainPage();
+            var mainPage = new HomeView();
             var navigationPage = new NavigationPage(mainPage);
             MainPage = navigationPage;
         }

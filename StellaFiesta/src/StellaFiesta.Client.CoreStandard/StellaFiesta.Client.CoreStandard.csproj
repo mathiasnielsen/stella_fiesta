@@ -1,17 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Http\" />
-    <Folder Include="Features\" />
-    <Folder Include="Features\Base\" />
-    <Folder Include="Services\" />
-    <Folder Include="Features\Common\" />
+    <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Features\" />
+    <Folder Include="Http\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Unity" Version="5.8.11" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1" />
   </ItemGroup>
