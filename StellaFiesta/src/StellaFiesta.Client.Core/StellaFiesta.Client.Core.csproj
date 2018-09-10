@@ -8,5 +8,11 @@
     <Folder Include="Http\" />
     <Folder Include="Features\" />
     <Folder Include="Features\Base\" />
+    <Folder Include="Services\" />
+    <Folder Include="Features\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Unity" Version="5.8.11" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1" />
   </ItemGroup>
 </Project>

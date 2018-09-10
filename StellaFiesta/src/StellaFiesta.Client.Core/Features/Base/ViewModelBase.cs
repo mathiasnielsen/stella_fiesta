@@ -1,12 +1,16 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace StellaFiesta.Client.Core
 {
-    public class ViewModelBase : INotifyPropertyChanged
+    public abstract class ViewModelBase : INotifyPropertyChanged
     {
-        public ViewModelBase()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged([CallerMemberName] string propertyName = "")
         {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

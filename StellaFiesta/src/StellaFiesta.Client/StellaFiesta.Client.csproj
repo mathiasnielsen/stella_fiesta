@@ -6,10 +6,20 @@
 
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
+    <PackageReference Include="Unity" Version="5.8.11" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
     <Folder Include="Features\" />
     <Folder Include="Features\Base\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Services\" />
+    <Folder Include="Features\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StellaFiesta.Client.Core\StellaFiesta.Client.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Features\Common.cs" />
   </ItemGroup>
 </Project>
