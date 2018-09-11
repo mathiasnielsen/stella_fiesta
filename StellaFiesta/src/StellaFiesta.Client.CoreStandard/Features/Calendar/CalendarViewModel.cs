@@ -15,13 +15,15 @@ namespace StellaFiesta.Client.CoreStandard
         private List<CarDayViewModel> carDays;
         private List<DateTime> supportedYears;
         private List<DateTime> allMonths;
-        private DateTime selectedYear;
-        private DateTime selectedMonth;
 
         public CalendarViewModel(ICarTimesApi carTimesApi)
         {
             this.carTimesApi = carTimesApi;
+
+            DateSelectedCommand = new RelayCommand<DateTime>(DateSelected);
         }
+
+        public RelayCommand<DateTime> DateSelectedCommand { get; }
 
         public List<CarDayViewModel> CarDays
         {
@@ -41,33 +43,7 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref allMonths, value); }
         }
 
-        public DateTime SelectedYear
-        {
-            get
-            {
-                return selectedYear;
-            }
-
-            set
-            {
-                Set(ref selectedYear, value);
-                CarDays = GetCarDays(new DateTime(selectedYear.Year, SelectedMonth.Month, DateTime.MinValue.Day));
-            }
-        }
-
-        public DateTime SelectedMonth
-        {
-            get
-            {
-                return selectedMonth;
-            }
-
-            set
-            {
-                Set(ref selectedMonth, value);
-                CarDays = GetCarDays(new DateTime(SelectedYear.Year, selectedMonth.Month, DateTime.MinValue.Day));
-            }
-        }
+        public DateTime StartDate => DateTime.Now;
 
         public override async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
         {
@@ -76,7 +52,8 @@ namespace StellaFiesta.Client.CoreStandard
 
             AllMonths = CalendarInfoProvider.GetAllMonths();
             SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
-            CarDays = GetCarDays(DateTime.Now);
+
+            CarDays = GetCarDays(StartDate);
         }
 
         private List<CarDayViewModel> GetCarDays(DateTime selectedDate)
@@ -94,6 +71,11 @@ namespace StellaFiesta.Client.CoreStandard
         private async Task RetrieveCarTimesAsync()
         {
             carTimes = await carTimesApi.GetCarTimesAsync();
+        }
+
+        private void DateSelected(DateTime date)
+        {
+            CarDays = GetCarDays(date);
         }
     }
 }

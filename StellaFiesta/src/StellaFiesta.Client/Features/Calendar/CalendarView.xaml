@@ -21,23 +21,11 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Picker
-                    Title="Year"
-                    ItemsSource="{Binding SupportedYears}"
-                    ItemDisplayBinding="{Binding ., StringFormat='{0:yyyy}'}"
-                    SelectedItem="{Binding SelectedYear, Mode=OneWayToSource}" />
-                <Picker
-                    Grid.Column="1"
-                    Title="Month"
-                    ItemsSource="{Binding AllMonths}"
-                    ItemDisplayBinding="{Binding ., StringFormat='{0:MMMM}'}"
-                    SelectedItem="{Binding SelectedMonth, Mode=OneWayToSource}"/>
-            </Grid>
+            <ContentView
+                Padding="10, 10, 10, 10">
+                <DatePicker
+                    x:Name="datepicker"/>
+            </ContentView>
             <ListView
                 Grid.Row="1"
                 SeparatorVisibility="None"
@@ -59,11 +47,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-                
-            <!-- Naah
-            <DatePicker
-                Grid.Row="2"/>
-            -->
         </Grid>
     </ContentPage.Content>
 </local:CalendarViewBase>

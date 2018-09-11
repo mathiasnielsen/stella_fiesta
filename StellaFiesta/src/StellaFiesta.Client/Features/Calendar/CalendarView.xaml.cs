@@ -1,4 +1,6 @@
-﻿using StellaFiesta.Client.CoreStandard;
+﻿using System;
+using StellaFiesta.Client.CoreStandard;
+using Xamarin.Forms;
 
 namespace StellaFiesta.Client.Features.Calendar
 {
@@ -13,8 +15,27 @@ namespace StellaFiesta.Client.Features.Calendar
             InitializeComponent();
         }
 
-        private void Handle_Unfocused(object sender, Xamarin.Forms.FocusEventArgs e)
+        protected override void OnAppearing()
         {
+            base.OnAppearing();
+
+            datepicker.MinimumDate = DateTime.Now;
+            datepicker.MaximumDate = DateTime.Now.AddYears(1);
+            datepicker.Date = ViewModel.StartDate;
+
+            datepicker.DateSelected += OnDateSelected;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+
+            datepicker.DateSelected -= OnDateSelected;
+        }
+
+        private void OnDateSelected(object sender, DateChangedEventArgs e)
+        {
+            ViewModel.DateSelectedCommand.Execute(e.NewDate);
         }
     }
 }
