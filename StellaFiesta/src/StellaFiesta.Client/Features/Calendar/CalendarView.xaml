@@ -3,16 +3,67 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:StellaFiesta.Client.Features.Calendar;assembly=StellaFiesta.Client"
+    xmlns:data="clr-namespace:StellaFiesta.Client.CoreStandard;assembly=StellaFiesta.Client.CoreStandard"
+    xmlns:cvt="clr-namespace:StellaFiesta.Client.Converters"
     x:Class="StellaFiesta.Client.Features.Calendar.CalendarView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <cvt:EmbeddedImageConverter 
+                x:Key="irConverter"
+                ResolvingAssemblyType="{x:Type data:CarDayViewModel}" />
+            <cvt:WeekDayToColorConverter 
+                x:Key="weekDayToColorConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <ListView
-            ItemsSource="{Binding CarTimes}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextCell
-                        Text="{Binding Name}"/>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Picker
+                    Title="Year"
+                    ItemsSource="{Binding SupportedYears}"
+                    ItemDisplayBinding="{Binding ., StringFormat='{0:yyyy}'}"
+                    SelectedItem="{Binding SelectedYear, Mode=OneWayToSource}" />
+                <Picker
+                    Grid.Column="1"
+                    Title="Month"
+                    ItemsSource="{Binding AllMonths}"
+                    ItemDisplayBinding="{Binding ., StringFormat='{0:MMMM}'}"
+                    SelectedItem="{Binding SelectedMonth, Mode=OneWayToSource}"/>
+            </Grid>
+            <ListView
+                Grid.Row="1"
+                SeparatorVisibility="None"
+                ItemsSource="{Binding CarDays}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid
+                                Padding="10, 10, 10, 10"
+                                HeightRequest="48"
+                                BackgroundColor="{Binding Day, Converter={StaticResource weekDayToColorConverter}}">
+                                <Label
+                                    Text="{Binding Name}"
+                                    LineBreakMode="TailTruncation"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Start"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+                
+            <!-- Naah
+            <DatePicker
+                Grid.Row="2"/>
+            -->
+        </Grid>
     </ContentPage.Content>
 </local:CalendarViewBase>

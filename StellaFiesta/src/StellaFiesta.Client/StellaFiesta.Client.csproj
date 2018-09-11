@@ -16,6 +16,7 @@
     <Folder Include="Services\" />
     <Folder Include="Features\Common\" />
     <Folder Include="Features\Calendar\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Common.cs" />

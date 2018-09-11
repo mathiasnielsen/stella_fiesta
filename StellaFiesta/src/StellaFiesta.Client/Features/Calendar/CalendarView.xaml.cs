@@ -12,5 +12,9 @@ namespace StellaFiesta.Client.Features.Calendar
         {
             InitializeComponent();
         }
+
+        private void Handle_Unfocused(object sender, Xamarin.Forms.FocusEventArgs e)
+        {
+        }
     }
 }
