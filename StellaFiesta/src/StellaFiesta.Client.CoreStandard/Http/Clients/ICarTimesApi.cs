@@ -7,6 +7,6 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public interface ICarTimesApi
     {
-        Task<List<CarTime>> GetCarTimesAsync();
+        Task<List<CarDay>> GetCarTimesAsync();
     }
 }

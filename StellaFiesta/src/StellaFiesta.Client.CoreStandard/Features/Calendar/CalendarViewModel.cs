@@ -11,7 +11,7 @@ namespace StellaFiesta.Client.CoreStandard
     {
         private readonly ICarTimesApi carTimesApi;
 
-        private List<CarTime> carTimes;
+        private List<CarDay> carTimes;
         private List<CarDayViewModel> carDays;
         private List<DateTime> supportedYears;
         private List<DateTime> allMonths;

@@ -16,11 +16,11 @@ namespace StellaFiesta.Client.CoreStandard
             executor = new HttpRequestExecutor(httpClientFactory);
         }
 
-        public async Task<List<CarTime>> GetCarTimesAsync()
+        public async Task<List<CarDay>> GetCarTimesAsync()
         {
             try
             {
-                var carTimes = await executor.Get<List<CarTime>>(baseUrl + "cartimes");
+                var carTimes = await executor.Get<List<CarDay>>(baseUrl + "cartimes");
                 return carTimes;
             }
             catch (Exception ex)
