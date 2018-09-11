@@ -1,4 +1,6 @@
-﻿using StellaFiesta.Client.CoreStandard;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.Core
 {

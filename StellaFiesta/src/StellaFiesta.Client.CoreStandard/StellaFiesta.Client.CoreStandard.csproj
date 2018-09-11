@@ -14,6 +14,7 @@
     <Folder Include="Http\Clients\" />
     <Folder Include="Features\Calendar\" />
     <Folder Include="Common\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
