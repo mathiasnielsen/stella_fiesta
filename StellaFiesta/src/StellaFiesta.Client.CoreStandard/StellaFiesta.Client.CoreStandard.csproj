@@ -13,11 +13,11 @@
     <Folder Include="Services\" />
     <Folder Include="Http\Clients\" />
     <Folder Include="Features\Calendar\" />
+    <Folder Include="Common\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Unity" Version="5.8.11" />
-    <PackageReference Include="MvvmLightLibs" Version="5.4.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StellaFiesta.Models\StellaFiesta.Models.csproj" />

@@ -6,6 +6,13 @@
     x:Class="StellaFiesta.Client.Features.Calendar.CalendarView">
     <ContentPage.Content>
         <ListView
-            ItemsSource="{Binding CarTimes}"/>
+            ItemsSource="{Binding CarTimes}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell
+                        Text="{Binding Name}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </local:CalendarViewBase>

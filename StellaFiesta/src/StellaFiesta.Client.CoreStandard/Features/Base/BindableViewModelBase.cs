@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight;
+using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.Core
 {

@@ -1,5 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight.Command;
+﻿using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.Core
 {
