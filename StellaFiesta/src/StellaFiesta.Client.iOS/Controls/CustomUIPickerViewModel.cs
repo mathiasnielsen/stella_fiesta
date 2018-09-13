@@ -37,6 +37,13 @@ namespace StellaFiesta.Client.iOS
             }
         }
 
+        public DateTime GetSelectedAsDateTime()
+        {
+            var year = years[selectedYearIndex];
+            var selectedDateTime = new DateTime(year, selectedMonthIndex + 1, 1);
+            return selectedDateTime;
+        }
+
         public void SetDate(DateTime dateTime)
         {
             selectedYearIndex = years.FindIndex(x => x == dateTime.Year);

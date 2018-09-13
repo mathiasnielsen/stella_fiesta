@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace StellaFiesta.Client
 {
@@ -6,6 +7,13 @@ namespace StellaFiesta.Client
     {
         public CustomDatePicker()
         {
+        }
+
+        public event EventHandler<DateTime> FinishedSelection;
+
+        public void RaiseFinishedSelection(DateTime dateTime)
+        {
+            FinishedSelection?.Invoke(this, dateTime);
         }
 
         public static readonly BindableProperty NumberOfComponentsProperty = BindableProperty.Create(

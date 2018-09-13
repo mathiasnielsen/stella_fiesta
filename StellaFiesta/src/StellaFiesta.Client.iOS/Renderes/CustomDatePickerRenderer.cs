@@ -58,6 +58,9 @@ namespace StellaFiesta.Client.iOS
         private void DoneButtonPressed(object sender, EventArgs e)
         {
             Control.ResignFirstResponder();
+
+            var formsControl = Element as CustomDatePicker;
+            formsControl.RaiseFinishedSelection(customDatePickerViewModel.GetSelectedAsDateTime());
             ////DropdownValueSelected?.Invoke(this, EventArgs.Empty);
         }
 

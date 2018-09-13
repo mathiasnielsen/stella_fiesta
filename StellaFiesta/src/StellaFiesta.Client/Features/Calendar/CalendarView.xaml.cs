@@ -22,6 +22,7 @@ namespace StellaFiesta.Client.Features.Calendar
             custom_date_picker.MinimumDate = DateTime.Now;
             custom_date_picker.MaximumDate = DateTime.Now.AddYears(3);
 
+            custom_date_picker.FinishedSelection += Custom_Date_Picker_FinishedSelection;
 
             ////datepicker.MinimumDate = DateTime.Now;
             ////datepicker.MaximumDate = DateTime.Now.AddYears(1);
@@ -35,6 +36,11 @@ namespace StellaFiesta.Client.Features.Calendar
             base.OnDisappearing();
 
             ////datepicker.DateSelected -= OnDateSelected;
+        }
+
+        private void Custom_Date_Picker_FinishedSelection(object sender, DateTime e)
+        {
+            ViewModel.DateSelectedCommand.Execute(e);
         }
 
         private void OnDateSelected(object sender, DateChangedEventArgs e)
