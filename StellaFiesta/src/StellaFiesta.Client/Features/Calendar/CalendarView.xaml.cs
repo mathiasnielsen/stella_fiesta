@@ -19,18 +19,22 @@ namespace StellaFiesta.Client.Features.Calendar
         {
             base.OnAppearing();
 
-            datepicker.MinimumDate = DateTime.Now;
-            datepicker.MaximumDate = DateTime.Now.AddYears(1);
-            datepicker.Date = ViewModel.StartDate;
+            custom_date_picker.MinimumDate = DateTime.Now;
+            custom_date_picker.MaximumDate = DateTime.Now.AddYears(3);
 
-            datepicker.DateSelected += OnDateSelected;
+
+            ////datepicker.MinimumDate = DateTime.Now;
+            ////datepicker.MaximumDate = DateTime.Now.AddYears(1);
+            ////datepicker.Date = ViewModel.StartDate;
+
+            ////datepicker.DateSelected += OnDateSelected;
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
 
-            datepicker.DateSelected -= OnDateSelected;
+            ////datepicker.DateSelected -= OnDateSelected;
         }
 
         private void OnDateSelected(object sender, DateChangedEventArgs e)
