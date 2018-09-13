@@ -9,7 +9,7 @@ namespace StellaFiesta.Api
         {
         }
 
-        public DbSet<CarDay> CarDays { get; set; }
+        public DbSet<CarBooking> CarBookings { get; set; }
 
         public DbSet<Person> Persons { get; set; }
     }

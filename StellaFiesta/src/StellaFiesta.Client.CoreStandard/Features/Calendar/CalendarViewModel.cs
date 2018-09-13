@@ -11,10 +11,10 @@ namespace StellaFiesta.Client.CoreStandard
     {
         private readonly ICarTimesApi carTimesApi;
 
-        private List<CarDay> carTimes;
         private List<CarDayViewModel> carDays;
         private List<DateTime> supportedYears;
         private List<DateTime> allMonths;
+        private List<CarBooking> carBookings;
 
         public CalendarViewModel(ICarTimesApi carTimesApi)
         {
@@ -43,17 +43,15 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref allMonths, value); }
         }
 
-        public DateTime StartDate => DateTime.Now;
-
         public override async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
         {
-            await Task.Delay(200);
-            //await RetrieveCarTimesAsync();
+            // All bookings
+            await RetrieveCarTimesAsync();
 
             AllMonths = CalendarInfoProvider.GetAllMonths();
             SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
 
-            CarDays = GetCarDays(StartDate);
+            UpdateCarDays(DateTime.Now);
         }
 
         private List<CarDayViewModel> GetCarDays(DateTime selectedDate)
@@ -70,12 +68,38 @@ namespace StellaFiesta.Client.CoreStandard
 
         private async Task RetrieveCarTimesAsync()
         {
-            carTimes = await carTimesApi.GetCarTimesAsync();
+            carBookings = await carTimesApi.GetCarTimesAsync();
         }
 
         private void DateSelected(DateTime date)
         {
-            CarDays = GetCarDays(date);
+            UpdateCarDays(date);
+        }
+
+        private void UpdateCarDays(DateTime date)
+        {
+            var tempCarDays = GetCarDays(date);
+            foreach (var carDay in tempCarDays)
+            {
+                var booking = carBookings.FirstOrDefault(b =>
+                {
+                    if (b.BookingStartDate == null || b.BookingEndDate == null)
+                    {
+                        return false;
+                    }
+
+                    return
+                        b.BookingStartDate.Value.Ticks < carDay.Day.Ticks
+                        && b.BookingEndDate.Value.Ticks > carDay.Day.Ticks;
+                });
+
+                if (booking != null)
+                {
+                    carDay.IsBooked = true;
+                }
+            }
+
+            CarDays = tempCarDays;
         }
     }
 }

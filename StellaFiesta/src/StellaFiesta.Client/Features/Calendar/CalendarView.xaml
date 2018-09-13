@@ -35,16 +35,22 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid
+                            <StackLayout
                                 Padding="10, 10, 10, 10"
                                 HeightRequest="48"
+                                Orientation="Horizontal"
                                 BackgroundColor="{Binding Day, Converter={StaticResource weekDayToColorConverter}}">
                                 <Label
                                     Text="{Binding Name}"
                                     LineBreakMode="TailTruncation"
                                     VerticalOptions="CenterAndExpand"
                                     HorizontalOptions="Start"/>
-                            </Grid>
+                                <Label
+                                    Text="{Binding IsBooked}"
+                                    LineBreakMode="TailTruncation"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="Start"/>
+                            </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

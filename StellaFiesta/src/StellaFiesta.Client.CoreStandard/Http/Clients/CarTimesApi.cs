@@ -7,7 +7,7 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public class CarTimesApi : ICarTimesApi
     {
-        private const string baseUrl = "http://stellafiesta.azurewebsites.net/api/";
+        private const string baseUrl = "http://stellafiesta.azurewebsites.net/api/carbooking/";
 
         private readonly IHttpRequestExecutor executor;
 
@@ -16,11 +16,11 @@ namespace StellaFiesta.Client.CoreStandard
             executor = new HttpRequestExecutor(httpClientFactory);
         }
 
-        public async Task<List<CarDay>> GetCarTimesAsync()
+        public async Task<List<CarBooking>> GetCarTimesAsync()
         {
             try
             {
-                var carTimes = await executor.Get<List<CarDay>>(baseUrl + "cartimes");
+                var carTimes = await executor.Get<List<CarBooking>>(baseUrl + "bookings");
                 return carTimes;
             }
             catch (Exception ex)

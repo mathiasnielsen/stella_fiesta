@@ -18,11 +18,11 @@ namespace StellaFiesta.Api.Controllers
 
         // GET api/values
         [HttpGet("bookings")]
-        public IEnumerable<CarDay> Get()
+        public IEnumerable<CarBooking> Get()
         {
             try
             {
-                var carDays = _context.CarDays;
+                var carDays = _context.CarBookings;
                 var carBookings = carDays.ToList();
                 return carDays;
             }
@@ -34,11 +34,11 @@ namespace StellaFiesta.Api.Controllers
         }
 
         [HttpPost]
-        public async Task AddBookingAsync(CarDay carDay)
+        public async Task AddBookingAsync(CarBooking carDay)
         {
             try
             {
-                await _context.CarDays.AddAsync(carDay);
+                await _context.CarBookings.AddAsync(carDay);
                 _context.SaveChanges();
             }
             catch (Exception ex)

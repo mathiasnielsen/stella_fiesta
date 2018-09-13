@@ -7,6 +7,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
 // Read stuff here:
+// https://github.com/xamarin/Xamarin.Forms/blob/9fe5372c1d80ca8fcff0c4fc397d25f91f6b61d3/Xamarin.Forms.Platform.iOS/Renderers/DatePickerRenderer.cs
 // https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/custom-renderer/listview
 [assembly: ExportRenderer(typeof(CustomDatePicker), typeof(CustomDatePickerRenderer))]
 namespace StellaFiesta.Client.iOS
@@ -28,7 +29,7 @@ namespace StellaFiesta.Client.iOS
             {
                 // Subscribe here!
 
-                Control.BorderStyle = UIKit.UITextBorderStyle.Line;
+                Control.BorderStyle = UIKit.UITextBorderStyle.None;
 
                 var customPicker = new UIPickerView();
                 customDatePickerViewModel = new CustomUIPickerViewModel(Control, customPicker);
