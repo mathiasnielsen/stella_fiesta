@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using UIKit;
 
 namespace StellaFiesta.Client.iOS
@@ -35,6 +34,8 @@ namespace StellaFiesta.Client.iOS
             {
                 years.Add(minDateTime.Year + i);
             }
+
+            SetDate(DateTime.Now);
         }
 
         public DateTime GetSelectedAsDateTime()
@@ -74,14 +75,19 @@ namespace StellaFiesta.Client.iOS
         {
             if (component == YearComponentValue)
             {
-                var year = years[(int)row];
-                return year.ToString();
+                if (row < years.Count)
+                {
+                    var year = years[(int)row];
+                    return year.ToString();
+                }
             }
             else
             {
                 var monthInText = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName((int)row + 1);
                 return monthInText;
             }
+
+            return string.Empty;
         }
 
         public override void Selected(UIPickerView pickerView, nint row, nint component)

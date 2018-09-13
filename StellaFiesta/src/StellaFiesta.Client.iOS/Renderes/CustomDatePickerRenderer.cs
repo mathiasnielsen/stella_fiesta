@@ -30,7 +30,7 @@ namespace StellaFiesta.Client.iOS
 
                 Control.BorderStyle = UIKit.UITextBorderStyle.Line;
 
-                var customPicker = new CustomUIPickerView();
+                var customPicker = new UIPickerView();
                 customDatePickerViewModel = new CustomUIPickerViewModel(Control, customPicker);
                 customPicker.Model = customDatePickerViewModel;
                 Control.InputView = customPicker;
@@ -61,7 +61,6 @@ namespace StellaFiesta.Client.iOS
 
             var formsControl = Element as CustomDatePicker;
             formsControl.RaiseFinishedSelection(customDatePickerViewModel.GetSelectedAsDateTime());
-            ////DropdownValueSelected?.Invoke(this, EventArgs.Empty);
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -73,7 +72,7 @@ namespace StellaFiesta.Client.iOS
                 var formsControl = Element as CustomDatePicker;
                 var minDate = formsControl.MinimumDate;
                 var maxDate = formsControl.MaximumDate;
-                ////customDatePickerViewModel.UpdateYears(minDate, maxDate);
+                customDatePickerViewModel.UpdateYears(minDate, maxDate);
             }
         }
     }

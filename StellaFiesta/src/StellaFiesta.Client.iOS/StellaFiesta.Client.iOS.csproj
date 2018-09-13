@@ -95,7 +95,6 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderes\CustomDatePickerRenderer.cs" />
-    <Compile Include="Controls\CustomUIPickerView.cs" />
     <Compile Include="Controls\CustomUIPickerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
