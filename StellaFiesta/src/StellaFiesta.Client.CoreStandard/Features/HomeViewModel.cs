@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using StellaFiesta.Client.CoreStandard;
 
@@ -14,11 +15,14 @@ namespace StellaFiesta.Client.Core
 
             GoToAboutCommand = new RelayCommand(GoToAbout);
             GoToCalendarCommand = new RelayCommand(GoToCalendar);
+            GoToSignInCommand = new RelayCommand(GoToSignIn);
         }
 
         public RelayCommand GoToAboutCommand { get; }
 
         public RelayCommand GoToCalendarCommand { get; }
+
+        public RelayCommand GoToSignInCommand { get; }
 
         private void GoToAbout()
         {
@@ -28,6 +32,11 @@ namespace StellaFiesta.Client.Core
         private void GoToCalendar()
         {
             navigationService.NavigateToCalendar();
+        }
+
+        private void GoToSignIn()
+        {
+            navigationService.NavigateToSignIn();
         }
     }
 }

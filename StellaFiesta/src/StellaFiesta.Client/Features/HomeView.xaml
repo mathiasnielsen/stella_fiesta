@@ -13,6 +13,9 @@
             <Button
                 Text="Calendar"
                 Command="{Binding GoToCalendarCommand}"/>
+            <Button
+                Text="Sign in"
+                Command="{Binding GoToSignInCommand}"/>
         </StackLayout>
     </ContentPage.Content>
 </local:HomeViewBase>
