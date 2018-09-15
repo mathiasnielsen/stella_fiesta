@@ -97,6 +97,8 @@
     <Compile Include="Renderes\CustomDatePickerRenderer.cs" />
     <Compile Include="Controls\CustomUIPickerViewModel.cs" />
     <Compile Include="Services\FacebookService.cs" />
+    <Compile Include="Renderes\FacebookLoginPageRenderer.cs" />
+    <Compile Include="Features\Account\FacebookLoginView.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -173,6 +175,8 @@
     <Folder Include="Renderes\" />
     <Folder Include="Controls\" />
     <Folder Include="Services\" />
+    <Folder Include="Features\" />
+    <Folder Include="Features\Account\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

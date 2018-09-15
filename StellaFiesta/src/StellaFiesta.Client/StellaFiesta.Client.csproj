@@ -27,4 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StellaFiesta.Client.CoreStandard\StellaFiesta.Client.CoreStandard.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Features\HomeView.xaml.orig" />
+  </ItemGroup>
 </Project>

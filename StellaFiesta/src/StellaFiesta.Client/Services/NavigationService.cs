@@ -14,6 +14,7 @@ namespace StellaFiesta.Client
             Configure(nameof(AboutView), typeof(AboutView));
             Configure(nameof(CalendarView), typeof(CalendarView));
             Configure(nameof(SignInView), typeof(SignInView));
+            Configure(nameof(FacebookLoginPage), typeof(FacebookLoginPage));
         }
 
         public void NavigateToHome()
@@ -33,7 +34,8 @@ namespace StellaFiesta.Client
 
         public void NavigateToSignIn()
         {
-            NavigateTo(nameof(SignInView));
+            ////NavigateTo(nameof(SignInView));
+            NavigateTo(nameof(FacebookLoginPage));
         }
 
         ////public void NavigateToDataMagazine(string directory = null)

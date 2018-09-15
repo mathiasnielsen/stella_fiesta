@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
 using StellaFiesta.Client.Core;
@@ -33,7 +34,7 @@ namespace StellaFiesta.Client.Features.Common
         private const string GoogleRedirectUrl = "https://www.google.dk";
         private const string GoogleAccessTokenUrl = "https://www.googleapis.com/oauth2/v4/token";
 
-        private Account account;
+        private Xamarin.Auth.Account account;
         private AccountStore store;
 
         public HomeView()
@@ -47,7 +48,7 @@ namespace StellaFiesta.Client.Features.Common
 
             store = AccountStore.Create();
             var accounts = store.FindAccountsForService(AppName);
-            var account = accounts.FirstOrDefault();
+            account = accounts.FirstOrDefault();
         }
 
         private void Handle_Clicked(object sender, System.EventArgs e)
