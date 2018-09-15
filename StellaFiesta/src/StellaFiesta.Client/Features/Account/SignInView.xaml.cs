@@ -38,6 +38,8 @@ namespace StellaFiesta.Client.Features.Account
                 + clientId
                 + "&display=popup&response_type=token&redirect_uri=http://www.facebook.com/connect/login_success.html";
 
+            ////var test = "https://www.facebook.com/dialog/oauth?client_id=534663733642417&display=popup&response_type=token&redirect_uri=http://www.facebook.com/connect/login_success.html";
+
             var webView = new WebView
             {
                 Source = apiRequest,
