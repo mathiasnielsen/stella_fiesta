@@ -23,7 +23,6 @@ namespace StellaFiesta.Client.iOS
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
-            global::Xamarin.Auth.Presenters.XamarinIOS.AuthenticationConfiguration.Init();
 
             LoadApplication(new App());
 
