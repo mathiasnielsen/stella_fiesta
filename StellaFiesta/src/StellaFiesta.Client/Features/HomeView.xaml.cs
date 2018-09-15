@@ -15,18 +15,26 @@ namespace StellaFiesta.Client.Features.Common
 
     public partial class HomeView : HomeViewBase
     {
+        // New and better tutorial? NO!
+        // https://www.joesauve.com/using-xamarin-auth-with-xamarin-forms/
+
+        // Maybe use this?
+        //https://manage.auth0.com/#/tenant/billing/subscription
+
         private const string AppName = "StellaFiesta";
 
         private const string FacebookClientId = "534663733642417";
         private const string FacebookClientSecrect = "17357e48347723a3824c3358bc88fef3";
+        private const string FacebookAuthorizeUrl = "https://m.facebook.com/dialog/oauth/";
+        private const string FacebookRedirectUrl = "http://www.facebook.com/connect/login_success.html";
 
         private const string GoogleProjectNumber = "81929190353";
         private const string GoogleClientId = "81929190353-e4bl452s15les5othlqo8fgu30qo88bq.apps.googleusercontent.com";
 
         // https://github.com/xamarin/xamarin-forms-samples/blob/master/WebServices/OAuthNativeFlow/OAuthNativeFlow/Constants.cs
-        private const string AuthorizeUrl = "https://accounts.google.com/o/oauth2/auth";
-        private const string RedirectUrl = "https://www.google.dk";
-        private const string AccessTokenUrl = "https://www.googleapis.com/oauth2/v4/token";
+        private const string GoogleAuthorizeUrl = "https://accounts.google.com/o/oauth2/auth";
+        private const string GoogleRedirectUrl = "https://www.google.dk";
+        private const string GoogleAccessTokenUrl = "https://www.googleapis.com/oauth2/v4/token";
 
         private Account account;
         private AccountStore store;
@@ -50,9 +58,9 @@ namespace StellaFiesta.Client.Features.Common
             // Inspiration
             // https://github.com/xamarin/xamarin-forms-samples/blob/master/WebServices/OAuthNativeFlow/OAuthNativeFlow/OAuthNativeFlowPage.xaml.cs
 
-            var authorizeUri = new Uri(AuthorizeUrl);
-            var redirectUri = new Uri(RedirectUrl);
-            var accessTokenUri = new Uri(AccessTokenUrl);
+            var authorizeUri = new Uri(GoogleAuthorizeUrl);
+            var redirectUri = new Uri(GoogleRedirectUrl);
+            var accessTokenUri = new Uri(GoogleAccessTokenUrl);
 
             var authenticator = new OAuth2Authenticator(
                 clientId: GoogleClientId,
