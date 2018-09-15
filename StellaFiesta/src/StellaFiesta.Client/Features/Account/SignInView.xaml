@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:SignInViewBase 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:StellaFiesta.Client.Features.Account;assembly=StellaFiesta.Client"
+    x:Class="StellaFiesta.Client.Features.Account.SignInView">
+    <ContentPage.Content>
+        <Button
+            x:Name="login_facebook_btn"
+            Text="Login with facebook"/>
+    </ContentPage.Content>
+</local:SignInViewBase >

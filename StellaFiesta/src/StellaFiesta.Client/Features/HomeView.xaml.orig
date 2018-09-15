@@ -14,8 +14,13 @@
                 Text="Calendar"
                 Command="{Binding GoToCalendarCommand}"/>
             <Button
+<<<<<<< HEAD
+                Text="SignIn"
+                Clicked="Handle_Clicked"/>
+=======
                 Text="Sign in"
                 Command="{Binding GoToSignInCommand}"/>
+>>>>>>> with-facebook-and-sign-in
         </StackLayout>
     </ContentPage.Content>
 </local:HomeViewBase>

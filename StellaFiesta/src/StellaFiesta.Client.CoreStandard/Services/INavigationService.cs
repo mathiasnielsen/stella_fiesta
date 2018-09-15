@@ -6,5 +6,7 @@ namespace StellaFiesta.Client.Core
         void NavigateToAbout();
 
         void NavigateToCalendar();
+
+        void NavigateToSignIn();
     }
 }

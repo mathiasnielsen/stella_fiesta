@@ -1,8 +1,15 @@
-﻿using System.Diagnostics;
+<<<<<<< HEAD
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Newtonsoft.Json;
 using StellaFiesta.Client.Core;
 using Xamarin.Auth;
+using Xamarin.Forms;
+=======
+﻿using StellaFiesta.Client.Core;
+>>>>>>> with-facebook-and-sign-in
 
 namespace StellaFiesta.Client.Features.Common
 {
