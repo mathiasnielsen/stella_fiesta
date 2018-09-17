@@ -23,18 +23,19 @@ namespace StellaFiesta.Client.iOS
         public override bool FinishedLaunching(UIApplication uiApplication, NSDictionary launchOptions)
         {
             global::Xamarin.Forms.Forms.Init();
+            global::Xamarin.Auth.Presenters.XamarinIOS.AuthenticationConfiguration.Init();
 
             LoadApplication(new App());
 
-            Facebook.CoreKit.ApplicationDelegate.SharedInstance.FinishedLaunching(uiApplication, launchOptions);
+            //Facebook.CoreKit.ApplicationDelegate.SharedInstance.FinishedLaunching(uiApplication, launchOptions);
 
             return base.FinishedLaunching(uiApplication, launchOptions);
         }
 
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
-            var openUrlOptions = new UIApplicationOpenUrlOptions(options);
-            Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(app, url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
+            ////var openUrlOptions = new UIApplicationOpenUrlOptions(options);
+            ////Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(app, url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
 
             return base.OpenUrl(app, url, options);
         }
