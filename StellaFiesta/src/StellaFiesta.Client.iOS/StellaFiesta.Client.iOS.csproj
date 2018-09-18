@@ -181,5 +181,8 @@
     <Folder Include="Controls\" />
     <Folder Include="Services\" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="car.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
