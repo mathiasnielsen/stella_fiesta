@@ -24,9 +24,12 @@ namespace StellaFiesta.Client.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
-            LoadApplication(new App());
-
             Facebook.CoreKit.ApplicationDelegate.SharedInstance.FinishedLaunching(uiApplication, launchOptions);
+
+            var setup = new Setup();
+            setup.Bootstrap();
+
+            LoadApplication(new App());
 
             return base.FinishedLaunching(uiApplication, launchOptions);
         }

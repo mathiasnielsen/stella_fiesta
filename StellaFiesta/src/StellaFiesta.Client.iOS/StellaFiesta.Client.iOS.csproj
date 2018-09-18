@@ -97,8 +97,9 @@
     <Compile Include="Renderes\CustomDatePickerRenderer.cs" />
     <Compile Include="Controls\CustomUIPickerViewModel.cs" />
     <Compile Include="Services\FacebookService.cs" />
-    <Compile Include="Renderes\FacebookLoginPageRenderer.cs" />
-    <Compile Include="Features\Account\FacebookLoginView.cs" />
+    <Compile Include="Renderes\SignInPageRenderer.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Setup.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -170,13 +171,15 @@
       <Project>{92DFC310-E3BF-49FC-B2EB-04BC965E7A7B}</Project>
       <Name>StellaFiesta.Client</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StellaFiesta.Client.CoreStandard\StellaFiesta.Client.CoreStandard.csproj">
+      <Project>{48792154-4BD5-4F86-B643-0400360B38B6}</Project>
+      <Name>StellaFiesta.Client.CoreStandard</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Renderes\" />
     <Folder Include="Controls\" />
     <Folder Include="Services\" />
-    <Folder Include="Features\" />
-    <Folder Include="Features\Account\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

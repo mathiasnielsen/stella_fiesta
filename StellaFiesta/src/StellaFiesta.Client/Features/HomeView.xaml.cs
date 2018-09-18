@@ -1,4 +1,5 @@
 ﻿using StellaFiesta.Client.Core;
+using Xamarin.Forms;
 
 namespace StellaFiesta.Client.Features.Common
 {
@@ -11,6 +12,8 @@ namespace StellaFiesta.Client.Features.Common
         public HomeView()
         {
             InitializeComponent();
+
+            NavigationPage.SetHasNavigationBar(this, true);
         }
     }
 }

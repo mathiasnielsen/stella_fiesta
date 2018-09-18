@@ -6,6 +6,7 @@ using StellaFiesta.Client;
 using StellaFiesta.Client.Core;
 using StellaFiesta.Client.Features.Common;
 using StellaFiesta.Client.CoreStandard;
+using StellaFiesta.Client.Features.Account;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace StellaFiesta.Client
@@ -32,8 +33,18 @@ namespace StellaFiesta.Client
         {
             InitializeComponent();
 
-            var mainPage = new HomeView();
-            var navigationPage = new NavigationPage(mainPage);
+            ContentPage startPage = null;
+            var authenticationService = _container.Resolve<IAuthenticationService>();
+            if (authenticationService.IsLoggedIn)
+            {
+                startPage = new HomeView();
+            }
+            else
+            {
+                startPage = new SignInView();
+            }
+
+            var navigationPage = new NavigationPage(startPage);
             MainPage = navigationPage;
         }
 

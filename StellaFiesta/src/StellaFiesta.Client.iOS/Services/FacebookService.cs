@@ -1,12 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Facebook.LoginKit;
 using Foundation;
 using UIKit;
 
 namespace StellaFiesta.Client.iOS
 {
-    public class FacebookService //: IFacebookAuthenticationManager
+    public class FacebookService
     {
         private readonly string[] _readPermissions = { "public_profile", "email" };
 
@@ -18,9 +17,12 @@ namespace StellaFiesta.Client.iOS
             this.currentViewController = currentViewController;
 
             loginManager = new LoginManager();
+
+            // Using the web version, acutally lets you log out of the app.
+            ////loginManager.LoginBehavior = LoginBehavior.Web;
         }
 
-        public async Task<bool> LogInAsync()
+        public async Task<LoginManagerLoginResult> LogInAsync()
         {
             try
             {
@@ -31,7 +33,7 @@ namespace StellaFiesta.Client.iOS
                 }
                 else
                 {
-                    return true;
+                    return result;
                 }
             }
             catch (NSErrorException errorException)
@@ -40,12 +42,7 @@ namespace StellaFiesta.Client.iOS
                 System.Diagnostics.Debug.WriteLine("Failed to login: " + errorException.Message);
             }
 
-            return false;
-        }
-
-        public void SignOut()
-        {
-            loginManager.LogOut();
+            return null;
         }
     }
 }

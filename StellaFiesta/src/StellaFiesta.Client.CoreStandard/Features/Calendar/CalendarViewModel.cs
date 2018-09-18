@@ -45,6 +45,8 @@ namespace StellaFiesta.Client.CoreStandard
 
         public override async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
         {
+            UpdateCarDays(DateTime.Now);
+
             // All bookings
             await RetrieveCarTimesAsync();
 
@@ -81,7 +83,7 @@ namespace StellaFiesta.Client.CoreStandard
             var tempCarDays = GetCarDays(date);
             foreach (var carDay in tempCarDays)
             {
-                var booking = carBookings.FirstOrDefault(b =>
+                var booking = carBookings?.FirstOrDefault(b =>
                 {
                     if (b.BookingStartDate == null || b.BookingEndDate == null)
                     {

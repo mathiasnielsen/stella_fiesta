@@ -1,5 +1,4 @@
-﻿using System;
-using StellaFiesta.Client.Core;
+﻿using StellaFiesta.Client.Core;
 using StellaFiesta.Client.Features.Account;
 using StellaFiesta.Client.Features.Calendar;
 using StellaFiesta.Client.Features.Common;
@@ -14,12 +13,12 @@ namespace StellaFiesta.Client
             Configure(nameof(AboutView), typeof(AboutView));
             Configure(nameof(CalendarView), typeof(CalendarView));
             Configure(nameof(SignInView), typeof(SignInView));
-            Configure(nameof(FacebookLoginPage), typeof(FacebookLoginPage));
+            Configure(nameof(ProfileView), typeof(ProfileView));
         }
 
         public void NavigateToHome()
         {
-            NavigateTo(nameof(HomeView));
+            NavigateTo(nameof(HomeView), historyBehavior: HistoryBehavior.ClearHistory);
         }
 
         public void NavigateToAbout()
@@ -34,8 +33,12 @@ namespace StellaFiesta.Client
 
         public void NavigateToSignIn()
         {
-            ////NavigateTo(nameof(SignInView));
-            NavigateTo(nameof(FacebookLoginPage));
+            NavigateTo(nameof(SignInView), historyBehavior: HistoryBehavior.ClearHistory);
+        }
+
+        public void NavigateToProfile()
+        {
+            NavigateTo(nameof(ProfileView));
         }
 
         ////public void NavigateToDataMagazine(string directory = null)

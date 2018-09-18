@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<local:ProfileViewBase 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:StellaFiesta.Client.Features.Account;assembly=StellaFiesta.Client"
+    x:Class="StellaFiesta.Client.Features.Account.ProfileView">
+    <ContentPage.Content>
+        <StackLayout
+            Orientation="Vertical">
+           
+        <Label
+            HorizontalOptions="CenterAndExpand"
+            HorizontalTextAlignment="Center"
+            Text="{Binding UserName}"/>
+            
+        <Image
+            HeightRequest="100"
+            WidthRequest="100"
+            VerticalOptions="CenterAndExpand"
+            Source="{Binding ImageUrl}"/>
+
+        <Button
+            HorizontalOptions="CenterAndExpand"
+            Text="Sign out"
+            Command="{Binding SignOutCommand}"/>
+            
+        </StackLayout>
+    </ContentPage.Content>
+</local:ProfileViewBase >
