@@ -6,7 +6,7 @@ namespace StellaFiesta.Client
 {
     public class ViewBase : ContentPage
     {
-        private View loadingView;
+        private ContentOverlay loadingView;
 
         public ViewBase()
         {
@@ -23,18 +23,11 @@ namespace StellaFiesta.Client
         {
             if (Content is Grid relativeLayoutContent)
             {
-                loadingView = new Grid()
+                loadingView = new ContentOverlay()
                 {
-                    BackgroundColor = Color.Black.MultiplyAlpha(0.2),
+                    BackgroundColor = Color.Black.MultiplyAlpha(0.1),
                     IsVisible = false,
                 };
-
-                ////var centerX = Constraint.RelativeToParent(parent => 0);
-                ////var centerY = Constraint.RelativeToParent(parent => 0);
-                ////var width = Constraint.RelativeToParent(parent => parent.Width);
-                ////var height = Constraint.RelativeToParent(parent => parent.Height);
-
-                ////relativeLayoutContent.Children.Add(loadingView, centerX, centerY, width, height);
 
                 relativeLayoutContent.Children.Add(loadingView);
             }

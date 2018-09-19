@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+    x:Class="StellaFiesta.Client.ContentOverlay">
+    <ContentView.Content>
+        <StackLayout
+            Orientation="Vertical"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <forms:AnimationView 
+                x:Name="animationView" 
+                Grid.Row="1"
+                Animation="car.json"
+                Loop="true" 
+                AutoPlay="true"
+                VerticalOptions="1" 
+                HorizontalOptions="FillAndExpand" />
+            <ActivityIndicator
+                HeightRequest="100"
+                WidthRequest="100"
+                IsRunning="true"
+                IsVisible="true"/>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -24,6 +24,7 @@
     <Compile Remove="Features\Common.cs" />
     <Compile Remove="MainPage.xaml.cs" />
     <Compile Remove="Features\AuthenticationState.cs" />
+    <Compile Remove="Controls\ContentOverlay.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StellaFiesta.Client.CoreStandard\StellaFiesta.Client.CoreStandard.csproj" />
