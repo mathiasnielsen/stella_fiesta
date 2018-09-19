@@ -6,27 +6,29 @@
     xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
     x:Class="StellaFiesta.Client.Features.Common.HomeView">
     <ContentPage.Content>
-        <StackLayout
-            Orientation="Vertical">
-            <Label
-                Text="Welcome to Stella"/>
-            <Button
-                Text="About"
-                Command="{Binding GoToAboutCommand}"/>
-            <Button
-                Text="Calendar"
-                Command="{Binding GoToCalendarCommand}"/>
-            <Button
-                Text="See profile"
-                Command="{Binding GoToProfileCommand}"/>
-            <forms:AnimationView 
-                x:Name="animationView" 
-                Grid.Row="1"
-                Animation="car.json"
-                Loop="true" 
-                AutoPlay="true"
-                VerticalOptions="FillAndExpand" 
-                HorizontalOptions="FillAndExpand" />
-        </StackLayout>
+        <Grid>
+            <StackLayout
+                Orientation="Vertical">
+                <Label
+                    Text="Welcome to Stella"/>
+                <Button
+                    Text="About"
+                    Command="{Binding GoToAboutCommand}"/>
+                <Button
+                    Text="Calendar"
+                    Command="{Binding GoToCalendarCommand}"/>
+                <Button
+                    Text="See profile"
+                    Command="{Binding GoToProfileCommand}"/>
+                <forms:AnimationView 
+                    x:Name="animationView" 
+                    Grid.Row="1"
+                    Animation="car.json"
+                    Loop="true" 
+                    AutoPlay="true"
+                    VerticalOptions="FillAndExpand" 
+                    HorizontalOptions="FillAndExpand" />
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </local:HomeViewBase>

@@ -18,43 +18,45 @@
     </ContentPage.Resources>
     <ContentPage.Content>
         <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <ContentView
-                Padding="10, 10, 10, 10">
-                <controls:CustomDatePicker
-                    x:Name="custom_date_picker"
-                    NumberOfComponents="2"/>
-            </ContentView>
-            <ListView
-                Grid.Row="1"
-                SeparatorVisibility="None"
-                ItemsSource="{Binding CarDays}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout
-                                Padding="10, 10, 10, 10"
-                                HeightRequest="48"
-                                Orientation="Horizontal"
-                                BackgroundColor="{Binding Day, Converter={StaticResource weekDayToColorConverter}}">
-                                <Label
-                                    Text="{Binding Name}"
-                                    LineBreakMode="TailTruncation"
-                                    VerticalOptions="CenterAndExpand"
-                                    HorizontalOptions="Start"/>
-                                <Label
-                                    Text="{Binding IsBooked}"
-                                    LineBreakMode="TailTruncation"
-                                    VerticalOptions="CenterAndExpand"
-                                    HorizontalOptions="Start"/>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <ContentView
+                    Padding="10, 10, 10, 10">
+                    <controls:CustomDatePicker
+                        x:Name="custom_date_picker"
+                        NumberOfComponents="2"/>
+                </ContentView>
+                <ListView
+                    Grid.Row="1"
+                    SeparatorVisibility="None"
+                    ItemsSource="{Binding CarDays}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout
+                                    Padding="10, 10, 10, 10"
+                                    HeightRequest="48"
+                                    Orientation="Horizontal"
+                                    BackgroundColor="{Binding Day, Converter={StaticResource weekDayToColorConverter}}">
+                                    <Label
+                                        Text="{Binding Name}"
+                                        LineBreakMode="TailTruncation"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="Start"/>
+                                    <Label
+                                        Text="{Binding IsBooked}"
+                                        LineBreakMode="TailTruncation"
+                                        VerticalOptions="CenterAndExpand"
+                                        HorizontalOptions="Start"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </local:CalendarViewBase>

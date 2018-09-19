@@ -6,10 +6,13 @@ namespace StellaFiesta.Client.Core
 {
     public class BindableViewModelBase : ViewModelBase
     {
+        protected ILoadingManager LoadingManager { get; set; }
+
         protected Dictionary<string, string> NavigationParameters { get; set; }
 
-        public async void ViewInitialized(Dictionary<string, string> navigationParameters)
+        public async void ViewInitialized(Dictionary<string, string> navigationParameters, ILoadingManager loadingManager)
         {
+            LoadingManager = loadingManager;
             NavigationParameters = navigationParameters ?? new Dictionary<string, string>();
             await OnViewInitialized(NavigationParameters);
         }

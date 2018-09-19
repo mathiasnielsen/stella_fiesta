@@ -45,15 +45,20 @@ namespace StellaFiesta.Client.CoreStandard
 
         public override async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
         {
-            UpdateCarDays(DateTime.Now);
+            using (LoadingManager.CreateLoadingScope())
+            {
+                UpdateCarDays(DateTime.Now);
 
-            // All bookings
-            await RetrieveCarTimesAsync();
+                await Task.Delay(4000);
 
-            AllMonths = CalendarInfoProvider.GetAllMonths();
-            SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
+                // All bookings
+                await RetrieveCarTimesAsync();
 
-            UpdateCarDays(DateTime.Now);
+                AllMonths = CalendarInfoProvider.GetAllMonths();
+                SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
+
+                UpdateCarDays(DateTime.Now);   
+            }
         }
 
         private List<CarDayViewModel> GetCarDays(DateTime selectedDate)
