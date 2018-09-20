@@ -4,13 +4,14 @@ using Xamarin.Forms;
 
 namespace StellaFiesta.Client
 {
-    public class ViewBase : ContentPage
+    public class ViewBase : MasterView
     {
         private ContentOverlay loadingView;
 
         public ViewBase()
         {
             LoadingManager = CreateLoadingManager();
+            ControlTemplate = (ControlTemplate)Application.Current.Resources["MainPageTemplate"];
         }
 
         protected override void OnAppearing()

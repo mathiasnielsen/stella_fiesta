@@ -7,6 +7,8 @@ using StellaFiesta.Client.Core;
 using StellaFiesta.Client.Features.Common;
 using StellaFiesta.Client.CoreStandard;
 using StellaFiesta.Client.Features.Account;
+using Xamarin.Forms.Internals;
+using System.Threading.Tasks;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace StellaFiesta.Client

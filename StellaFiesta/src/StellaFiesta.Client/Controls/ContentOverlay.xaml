@@ -15,7 +15,7 @@
                 Animation="car.json"
                 Loop="true" 
                 AutoPlay="true"
-                VerticalOptions="1" 
+                VerticalOptions="FillAndExpand"  
                 HorizontalOptions="FillAndExpand" />
             <ActivityIndicator
                 HeightRequest="100"
