@@ -10,11 +10,19 @@ namespace StellaFiesta.Client.Core
 
         protected Dictionary<string, string> NavigationParameters { get; set; }
 
+        private bool isLoading;
+
         public async void ViewInitialized(Dictionary<string, string> navigationParameters, ILoadingManager loadingManager)
         {
             LoadingManager = loadingManager;
             NavigationParameters = navigationParameters ?? new Dictionary<string, string>();
             await OnViewInitialized(NavigationParameters);
+        }
+
+        public bool IsLoading
+        {
+            get { return isLoading; }
+            set { Set(ref isLoading, value); }
         }
 
         public async void ViewReloading()

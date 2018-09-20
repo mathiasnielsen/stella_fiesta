@@ -20,14 +20,6 @@
                 <Button
                     Text="See profile"
                     Command="{Binding GoToProfileCommand}"/>
-                <forms:AnimationView 
-                    x:Name="animationView" 
-                    Grid.Row="1"
-                    Animation="car.json"
-                    Loop="true" 
-                    AutoPlay="true"
-                    VerticalOptions="FillAndExpand" 
-                    HorizontalOptions="FillAndExpand" />
             </StackLayout>
         </Grid>
     </ContentPage.Content>

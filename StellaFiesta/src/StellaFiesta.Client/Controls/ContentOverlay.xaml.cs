@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace StellaFiesta.Client
+namespace StellaFiesta.Client.Controls
 {
     // https://xamarinhelp.com/xamarin-forms-page-templates/
     public partial class ContentOverlay : ContentView
@@ -8,8 +8,8 @@ namespace StellaFiesta.Client
         public ContentOverlay()
         {
             InitializeComponent();
-        }
 
-        private View Frame;
+            Root.BackgroundColor = Color.Gray.MultiplyAlpha(0.1);
+        }
     }
 }
