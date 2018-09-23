@@ -1,14 +1,10 @@
-using System;
+using StellaFiesta.Client.Core;
+using StellaFiesta.Client.CoreStandard;
+using StellaFiesta.Client.Features.Account;
+using StellaFiesta.Client.Features.Common;
 using Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using StellaFiesta.Client;
-using StellaFiesta.Client.Core;
-using StellaFiesta.Client.Features.Common;
-using StellaFiesta.Client.CoreStandard;
-using StellaFiesta.Client.Features.Account;
-using Xamarin.Forms.Internals;
-using System.Threading.Tasks;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace StellaFiesta.Client

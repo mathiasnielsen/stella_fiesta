@@ -4,6 +4,7 @@ using Xamarin.Forms;
 
 namespace StellaFiesta.Client.Features.Account
 {
+    ////https://github.com/xamarin/xamarin-forms-samples/blob/master/WorkingWithImages/WorkingWithImages/EmbeddedImagesXaml.xaml.cs
     public abstract class SignInViewBase : BindableViewBase<SignInViewModel>
     {
     }
@@ -15,7 +16,27 @@ namespace StellaFiesta.Client.Features.Account
         public SignInView()
         {
             InitializeComponent();
+
             NavigationPage.SetHasNavigationBar(this, false);
+
+            backgroundImage.Opacity = 0;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            ShowAnimations();
+        }
+
+        private void ShowAnimations()
+        {
+            FadeInImage();
+        }
+
+        private void FadeInImage()
+        {
+            backgroundImage.FadeTo(1, 2000);
         }
 
         private void OnFacebookSignInClicked(object sender, System.EventArgs e)

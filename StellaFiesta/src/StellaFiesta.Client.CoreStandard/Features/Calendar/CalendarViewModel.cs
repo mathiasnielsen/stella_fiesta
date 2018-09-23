@@ -9,6 +9,8 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public class CalendarViewModel : BindableViewModelBase
     {
+        private const int MinimumTaskTimeInMs = 3000;
+
         private readonly ICarTimesApi carTimesApi;
 
         private List<CarDayViewModel> carDays;
@@ -47,17 +49,17 @@ namespace StellaFiesta.Client.CoreStandard
         {
             using (LoadingManager.CreateLoadingScope())
             {
+                IsLoading = true;
                 UpdateCarDays(DateTime.Now);
 
-                await Task.Delay(4000);
-
                 // All bookings
-                await RetrieveCarTimesAsync();
+                await Task.WhenAll(RetrieveCarTimesAsync(), Task.Delay(MinimumTaskTimeInMs));
 
                 AllMonths = CalendarInfoProvider.GetAllMonths();
                 SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
 
-                UpdateCarDays(DateTime.Now);   
+                UpdateCarDays(DateTime.Now);
+                IsLoading = false;
             }
         }
 
