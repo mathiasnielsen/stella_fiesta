@@ -14,18 +14,26 @@
 
             <Grid
                 BackgroundColor="#66000000"/>
-            
-            <Button
-                x:Name="login_facebook_btn"
-                Text="Login with facebook"
-                IsVisible="false"
-                VerticalOptions="Center"
-                HorizontalOptions="CenterAndExpand"
-                Clicked="OnFacebookSignInClicked"/>
 
-            <controls:FacebookLoginButton
-                VerticalOptions="Center"
-                HorizontalOptions="CenterAndExpand"/>
+            <StackLayout
+                Orientation="Vertical"
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand">
+
+                <Label
+                    x:Name="title_label"
+                    Text="Welcome to Stella!"/>
+
+                <Button
+                    x:Name="login_facebook_btn"
+                    Margin="10"
+                    BackgroundColor="White"
+                    Text="Login with facebook"
+                    VerticalOptions="Center"
+                    HorizontalOptions="CenterAndExpand"
+                    Clicked="OnFacebookSignInClicked"/>
+
+            </StackLayout>
         </Grid>
     </ContentPage.Content>
 </local:SignInViewBase >

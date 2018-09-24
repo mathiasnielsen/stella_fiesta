@@ -13,11 +13,16 @@ namespace StellaFiesta.Client.Features.Account
     {
         public event EventHandler FacebookSignInClicked;
 
+        private readonly Effect fontEffect;
+
         public SignInView()
         {
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, false);
+
+            fontEffect = new SillyFontEffect();
+            login_facebook_btn.Effects.Add(fontEffect);
 
             backgroundImage.Opacity = 0;
         }

@@ -21,6 +21,7 @@
     <Folder Include="Features\Account\" />
     <Folder Include="Assets\" />
     <Folder Include="Assets\Images\" />
+    <Folder Include="Effects\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Common.cs" />

@@ -47,5 +47,11 @@
 	<string>534663733642417</string>
 	<key>FacebookDisplayName</key>
 	<string>StellaFiesta</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ReenieBeanie.tff</string>
+		<string>Pacifico.ttf</string>
+		<string>gabiie_s handwritting.ttf</string>
+	</array>
 </dict>
 </plist>
