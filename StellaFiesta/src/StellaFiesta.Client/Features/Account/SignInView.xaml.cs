@@ -26,6 +26,9 @@ namespace StellaFiesta.Client.Features.Account
         {
             base.OnAppearing();
 
+            var imageResource = ImageSource.FromResource("StellaFiesta.Client.forden.jpg", this.GetType().Assembly);
+            backgroundImage.Source = imageResource;
+
             ShowAnimations();
         }
 
