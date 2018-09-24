@@ -98,7 +98,7 @@
     <Compile Include="Renderes\SignInPageRenderer.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Setup.cs" />
-    <Compile Include="Renderes\FacebookButtonRenderer.cs" />
+    <Compile Include="Renderes\IntelligentButtonRenderer.cs" />
     <Compile Include="Effects\SillyFontEffect.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -11,8 +11,7 @@ namespace StellaFiesta.Client.Features.Account
 
     public partial class SignInView : SignInViewBase
     {
-        public event EventHandler FacebookSignInClicked;
-
+        private const int AnimationDuration = 2000;
         private readonly Effect fontEffect;
 
         public SignInView()
@@ -25,7 +24,12 @@ namespace StellaFiesta.Client.Features.Account
             login_facebook_btn.Effects.Add(fontEffect);
 
             backgroundImage.Opacity = 0;
+            title_label.Opacity = 0;
+            login_facebook_btn.Opacity = 0;
+            login_facebook_btn.TranslationY = 40;
         }
+
+        public event EventHandler FacebookSignInClicked;
 
         protected override void OnAppearing()
         {
@@ -39,15 +43,28 @@ namespace StellaFiesta.Client.Features.Account
 
         private void ShowAnimations()
         {
-            FadeInImage();
+            BackgroundImageAnimations();
+            WelcomeLabelAnimations();
+            FacebookButtonAnimations();
         }
 
-        private void FadeInImage()
+        private void BackgroundImageAnimations()
         {
-            backgroundImage.FadeTo(1, 2000);
+            backgroundImage.FadeTo(1, AnimationDuration);
         }
 
-        private void OnFacebookSignInClicked(object sender, System.EventArgs e)
+        private void WelcomeLabelAnimations()
+        {
+            title_label.FadeTo(1, AnimationDuration);
+        }
+
+        private void FacebookButtonAnimations()
+        {
+            login_facebook_btn.FadeTo(1, AnimationDuration);
+            login_facebook_btn.TranslateTo(0, 0, AnimationDuration, Easing.CubicOut);
+        }
+
+        private void OnFacebookSignInClicked(object sender, EventArgs e)
         {
             FacebookSignInClicked?.Invoke(sender, e);
         }

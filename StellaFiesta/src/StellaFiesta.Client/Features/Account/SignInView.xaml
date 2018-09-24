@@ -13,7 +13,7 @@
                 Aspect="AspectFill"/>
 
             <Grid
-                BackgroundColor="#66000000"/>
+                BackgroundColor="#99000000"/>
 
             <StackLayout
                 Orientation="Vertical"
@@ -22,11 +22,13 @@
 
                 <Label
                     x:Name="title_label"
-                    Text="Welcome to Stella!"/>
+                    Text="Welcome to Stella!"
+                    TextColor="White"
+                    HorizontalOptions="CenterAndExpand"/>
 
-                <Button
+                <controls:IntelligentButton
                     x:Name="login_facebook_btn"
-                    Margin="10"
+                    Padding="20,10"
                     BackgroundColor="White"
                     Text="Login with facebook"
                     VerticalOptions="Center"
