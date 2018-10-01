@@ -1,6 +1,7 @@
 ﻿using System;
 using StellaFiesta.Client.Features.Account;
 using StellaFiesta.Client.iOS;
+using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
@@ -24,6 +25,35 @@ namespace StellaFiesta.Client.iOS
             {
                 page.FacebookSignInClicked += OnFacebookClicked;
             }
+        }
+
+        public override UIStatusBarStyle PreferredStatusBarStyle()
+        {
+            return UIStatusBarStyle.Default;
+        }
+
+        public override void ViewWillAppear(bool animated)
+        {
+            base.ViewWillAppear(animated);
+            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
+            NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
+
+            SetNeedsStatusBarAppearanceUpdate();
+            ParentViewController.ParentViewController.ParentViewController.SetNeedsStatusBarAppearanceUpdate();
+        }
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+
+            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
+            SetNeedsStatusBarAppearanceUpdate();
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
         }
 
         private async void OnFacebookClicked(object sender, EventArgs e)

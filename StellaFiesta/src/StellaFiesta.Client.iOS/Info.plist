@@ -53,5 +53,7 @@
 		<string>Pacifico.ttf</string>
 		<string>gabiie_s handwritting.ttf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

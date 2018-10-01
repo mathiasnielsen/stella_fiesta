@@ -5,12 +5,22 @@
     xmlns:controls="clr-namespace:StellaFiesta.Client.Controls;assembly=StellaFiesta.Client"
     x:Class="StellaFiesta.Client.App">
     <Application.Resources>
-      <ControlTemplate x:Key="MainPageTemplate">
-        <Grid>
-            <ContentPresenter />
-            <controls:ContentOverlay
-                IsVisible="{TemplateBinding BindingContext.IsLoading}"/>
-        </Grid>
-      </ControlTemplate>
+        <ControlTemplate x:Key="MainPageTemplate">
+            <Grid>
+                <ContentPresenter />
+                <controls:ContentOverlay
+                    IsVisible="{TemplateBinding BindingContext.IsLoading}"/>
+            </Grid>
+        </ControlTemplate>
+
+        <ResourceDictionary>
+            <Color
+                x:Key="FacebookBlue">#4469b0</Color>
+
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+            </Style>
+        </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

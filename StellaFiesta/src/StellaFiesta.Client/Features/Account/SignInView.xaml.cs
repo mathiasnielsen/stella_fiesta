@@ -11,22 +11,25 @@ namespace StellaFiesta.Client.Features.Account
 
     public partial class SignInView : SignInViewBase
     {
-        private const int AnimationDuration = 2000;
-        private readonly Effect fontEffect;
+        private const string FordImagePath = "StellaFiesta.Client.Assets.Images.forden.jpg";
+        private const int AnimationDurationInMs = 1000;
+        private const int WelcomeTranslationYOffset = 40;
 
         public SignInView()
         {
             InitializeComponent();
 
-            NavigationPage.SetHasNavigationBar(this, false);
+            ////NavigationPage.SetHasNavigationBar(this, false);
 
-            fontEffect = new SillyFontEffect();
-            login_facebook_btn.Effects.Add(fontEffect);
+            title_label.Effects.Add(new SillyFontEffect());
+            login_facebook_btn.Effects.Add(new SillyFontEffect());
 
-            backgroundImage.Opacity = 0;
             title_label.Opacity = 0;
             login_facebook_btn.Opacity = 0;
-            login_facebook_btn.TranslationY = 40;
+            login_facebook_btn.TranslationY = WelcomeTranslationYOffset;
+
+            var backgroundImageResource = ImageSource.FromResource(FordImagePath, this.GetType().Assembly);
+            backgroundImage.Source = backgroundImageResource;
         }
 
         public event EventHandler FacebookSignInClicked;
@@ -34,34 +37,24 @@ namespace StellaFiesta.Client.Features.Account
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            var imageResource = ImageSource.FromResource("StellaFiesta.Client.forden.jpg", this.GetType().Assembly);
-            backgroundImage.Source = imageResource;
-
             ShowAnimations();
         }
 
         private void ShowAnimations()
         {
-            BackgroundImageAnimations();
             WelcomeLabelAnimations();
             FacebookButtonAnimations();
         }
 
-        private void BackgroundImageAnimations()
-        {
-            backgroundImage.FadeTo(1, AnimationDuration);
-        }
-
         private void WelcomeLabelAnimations()
         {
-            title_label.FadeTo(1, AnimationDuration);
+            title_label.FadeTo(1, AnimationDurationInMs);
         }
 
         private void FacebookButtonAnimations()
         {
-            login_facebook_btn.FadeTo(1, AnimationDuration);
-            login_facebook_btn.TranslateTo(0, 0, AnimationDuration, Easing.CubicOut);
+            login_facebook_btn.FadeTo(1, AnimationDurationInMs);
+            login_facebook_btn.TranslateTo(0, 0, AnimationDurationInMs, Easing.CubicOut);
         }
 
         private void OnFacebookSignInClicked(object sender, EventArgs e)

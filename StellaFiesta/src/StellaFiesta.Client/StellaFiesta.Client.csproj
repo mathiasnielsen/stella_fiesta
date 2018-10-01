@@ -5,9 +5,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
     <PackageReference Include="Unity" Version="5.8.11" />
     <PackageReference Include="Com.Airbnb.Xamarin.Forms.Lottie" Version="2.6.3" />
+    <PackageReference Include="Xamarin.Forms" Version="3.2.0.839982" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controls\" />
@@ -35,9 +35,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Features\HomeView.xaml.orig" />
-    <None Remove="forden.jpg" />
+    <None Remove="Assets\Images\forden.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="forden.jpg" />
+    <EmbeddedResource Include="Assets\Images\forden.jpg" />
   </ItemGroup>
 </Project>

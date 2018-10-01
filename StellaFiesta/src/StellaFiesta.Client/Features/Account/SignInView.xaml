@@ -15,27 +15,35 @@
             <Grid
                 BackgroundColor="#99000000"/>
 
-            <StackLayout
-                Orientation="Vertical"
-                VerticalOptions="CenterAndExpand"
-                HorizontalOptions="CenterAndExpand">
+            <Grid
+                Padding="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="2*"/>
+                    <RowDefinition
+                        Height="*"/>
+                </Grid.RowDefinitions>
 
                 <Label
                     x:Name="title_label"
-                    Text="Welcome to Stella!"
+                    Text="Welcome to Stella Fiesta!"
+                    FontSize="Large"
                     TextColor="White"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Center"
                     HorizontalOptions="CenterAndExpand"/>
-
                 <controls:IntelligentButton
+                    Grid.Row="1"
                     x:Name="login_facebook_btn"
                     Padding="20,10"
-                    BackgroundColor="White"
-                    Text="Login with facebook"
-                    VerticalOptions="Center"
+                    BackgroundColor="{StaticResource FacebookBlue}"
+                    Text="Sign in with facebook"
+                    TextColor="White"
+                    VerticalOptions="Start"
                     HorizontalOptions="CenterAndExpand"
-                    Clicked="OnFacebookSignInClicked"/>
-
-            </StackLayout>
+                    Clicked="OnFacebookSignInClicked">
+                </controls:IntelligentButton>
+            </Grid>
         </Grid>
     </ContentPage.Content>
 </local:SignInViewBase >
