@@ -10,7 +10,7 @@ namespace StellaFiesta.Client.Droid
 {
     public class SillyFontEffect : PlatformEffect
     {
-        private const string SillyFontName = "gabiies handwritting.ttf";
+        private const string SillyFontName = "gabiie_s handwritting.ttf";
 
         private Typeface originalFont;
 

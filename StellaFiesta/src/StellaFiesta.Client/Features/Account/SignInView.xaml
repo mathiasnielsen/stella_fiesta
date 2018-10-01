@@ -5,6 +5,7 @@
     xmlns:local="clr-namespace:StellaFiesta.Client.Features.Account;assembly=StellaFiesta.Client"
     xmlns:controls="clr-namespace:StellaFiesta.Client.Controls;assembly=StellaFiesta.Client"
     xmlns:extensions="clr-namespace:StellaFiesta.Client.Extensions;assembly=StellaFiesta.Client"
+    xmlns:effects="clr-namespace:StellaFiesta.Client.Effects;assembly=StellaFiesta.Client"
     x:Class="StellaFiesta.Client.Features.Account.SignInView">
     <ContentPage.Content>
         <Grid>
@@ -31,7 +32,11 @@
                     TextColor="White"
                     VerticalOptions="Center"
                     HorizontalTextAlignment="Center"
-                    HorizontalOptions="CenterAndExpand"/>
+                    HorizontalOptions="CenterAndExpand">
+                    <Label.Effects>
+                        <effects:SillyFontEffect/>
+                    </Label.Effects>
+                </Label>
                 <controls:IntelligentButton
                     Grid.Row="1"
                     x:Name="login_facebook_btn"

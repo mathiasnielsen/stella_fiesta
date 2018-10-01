@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 
-namespace StellaFiesta.Client
+namespace StellaFiesta.Client.Effects
 {
     public class SillyFontEffect : RoutingEffect
     {

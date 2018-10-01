@@ -56,13 +56,20 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>3.2.0.839982</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Facebook.Android">
+      <Version>4.34.0</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="SplashScreenActivity.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Renderers\CustomDatePickerRenderer.cs" />
     <Compile Include="Effects\SillyFontEffect.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\FacebookService.cs" />
+    <Compile Include="Renderers\SignInPageRenderer.cs" />
+    <Compile Include="Setup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -87,6 +94,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\drawable\ic_car.xml" />
+    <AndroidResource Include="Resources\values\strings.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -96,15 +104,21 @@
     <Folder Include="Resources\drawable-xxxhdpi\" />
     <Folder Include="Renderers\" />
     <Folder Include="Effects\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StellaFiesta.Client\StellaFiesta.Client.csproj">
       <Project>{92DFC310-E3BF-49FC-B2EB-04BC965E7A7B}</Project>
       <Name>StellaFiesta.Client</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StellaFiesta.Client.CoreStandard\StellaFiesta.Client.CoreStandard.csproj">
+      <Project>{48792154-4BD5-4F86-B643-0400360B38B6}</Project>
+      <Name>StellaFiesta.Client.CoreStandard</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\gabiie_s handwritting.ttf" />
+    <AndroidAsset Include="Assets\car.json" />
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
