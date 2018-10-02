@@ -5,7 +5,8 @@
     xmlns:local="clr-namespace:StellaFiesta.Client.Features.Common;assembly=StellaFiesta.Client"
     xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
     xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
-    x:Class="StellaFiesta.Client.Features.Common.HomeView">
+    x:Class="StellaFiesta.Client.Features.Common.HomeView"
+    Title="Home">
     <ContentPage.Content>
         <Grid>
             <StackLayout
