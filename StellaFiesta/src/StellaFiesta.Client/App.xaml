@@ -14,12 +14,23 @@
         </ControlTemplate>
 
         <ResourceDictionary>
+
+            <Color
+                x:Key="BrandColor">#bc4d46</Color>
+            <Color
+                x:Key="LightBrandColor">#f37c71</Color>
+            <Color
+                x:Key="DarkBrandColor">#871c1e</Color>
+            
             <Color
                 x:Key="FacebookBlue">#4469b0</Color>
+            <Color
+                x:Key="ColoradoRed">#871C1E</Color>
 
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="12"/>
             </Style>
+            
         </ResourceDictionary>
         
     </Application.Resources>

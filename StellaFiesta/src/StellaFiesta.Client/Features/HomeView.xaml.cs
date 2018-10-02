@@ -15,5 +15,16 @@ namespace StellaFiesta.Client.Features.Common
 
             NavigationPage.SetHasNavigationBar(this, true);
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var tigerSvgPath = "StellaFiesta.Client.Assets.Images.tiger.svg";
+            var assembly = this.GetType().Assembly;
+
+            profile_svgImage.SvgPath = tigerSvgPath;
+            profile_svgImage.SvgAssembly = assembly;
+        }
     }
 }

@@ -4,7 +4,6 @@ using StellaFiesta.Client.Features.Account;
 using StellaFiesta.Client.Features.Common;
 using Unity;
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
 using Xamarin.Forms.Xaml;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
@@ -31,6 +30,8 @@ namespace StellaFiesta.Client
         public App()
         {
             InitializeComponent();
+
+            Resources = StylesFactory.GenerateStyles(Resources);
 
             ContentPage startPage = null;
             var authenticationService = _container.Resolve<IAuthenticationService>();

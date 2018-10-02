@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using SVG.Forms.Plugin.iOS;
 using UIKit;
 
 namespace StellaFiesta.Client.iOS
@@ -25,6 +26,7 @@ namespace StellaFiesta.Client.iOS
             global::Xamarin.Forms.Forms.Init();
 
             Facebook.CoreKit.ApplicationDelegate.SharedInstance.FinishedLaunching(uiApplication, launchOptions);
+            SvgImageRenderer.Init();
 
             var setup = new Setup();
             setup.Bootstrap();
