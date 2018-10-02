@@ -38,13 +38,8 @@ namespace StellaFiesta.Client.Droid
         private async void OnFacebookButtonClicked(object sender, EventArgs e)
         {
             var activity = this.Context as Activity;
-            var facebookService = new FacebookService(activity, callbackManager);
+            var facebookService = new FacebookService(activity, SplashScreenActivity.CallbackManager);
             var didLogin = await facebookService.LoginAsync();
-        }
-
-        private class TestActivity : Activity
-        {
-            
         }
     }
 }

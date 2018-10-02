@@ -10,6 +10,27 @@ namespace StellaFiesta.Client.iOS
 {
     public class SignInPageRenderer : PageRenderer
     {
+        // TODO: Test on iOS9
+        ////public override UIStatusBarStyle PreferredStatusBarStyle()
+        ////{
+        ////    return UIStatusBarStyle.LightContent;
+        ////}
+
+        public override void ViewDidAppear(bool animated)
+        {
+            base.ViewDidAppear(animated);
+            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
+
+            // TODO: Test on iOS9
+            ////SetNeedsStatusBarAppearanceUpdate();
+        }
+
+        public override void ViewWillDisappear(bool animated)
+        {
+            base.ViewWillDisappear(animated);
+            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
+        }
+
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             base.OnElementChanged(e);
@@ -25,35 +46,6 @@ namespace StellaFiesta.Client.iOS
             {
                 page.FacebookSignInClicked += OnFacebookClicked;
             }
-        }
-
-        public override UIStatusBarStyle PreferredStatusBarStyle()
-        {
-            return UIStatusBarStyle.Default;
-        }
-
-        public override void ViewWillAppear(bool animated)
-        {
-            base.ViewWillAppear(animated);
-            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
-            NavigationController.NavigationBar.BarStyle = UIBarStyle.Black;
-
-            SetNeedsStatusBarAppearanceUpdate();
-            ParentViewController.ParentViewController.ParentViewController.SetNeedsStatusBarAppearanceUpdate();
-        }
-
-        public override void ViewDidAppear(bool animated)
-        {
-            base.ViewDidAppear(animated);
-
-            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
-            SetNeedsStatusBarAppearanceUpdate();
-        }
-
-        public override void ViewWillDisappear(bool animated)
-        {
-            base.ViewWillDisappear(animated);
-            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
         }
 
         private async void OnFacebookClicked(object sender, EventArgs e)

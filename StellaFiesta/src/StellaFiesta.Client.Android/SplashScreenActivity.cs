@@ -39,7 +39,7 @@ namespace StellaFiesta.Client.Droid
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
-            CallbackManager.OnActivityResult(requestCode, resultCode, data);
+            CallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
             base.OnActivityResult(requestCode, resultCode, data);
         }
     }
