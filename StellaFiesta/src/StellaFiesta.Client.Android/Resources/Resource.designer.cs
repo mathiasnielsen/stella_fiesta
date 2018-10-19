@@ -26,6 +26,7 @@ namespace StellaFiesta.Client.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::NGraphics.Android.Custom.Resource.String.library_name = global::StellaFiesta.Client.Droid.Resource.String.library_name;
 			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::StellaFiesta.Client.Droid.Resource.Attribute.actionBarSize;
 		}
 		
@@ -4553,11 +4554,14 @@ namespace StellaFiesta.Client.Droid
 			// aapt resource value: 0x7f0a0017
 			public const int com_facebook_tooltip_default = 2131361815;
 			
-			// aapt resource value: 0x7f0a0054
-			public const int facebook_app_id = 2131361876;
-			
 			// aapt resource value: 0x7f0a0055
-			public const int fb_login_protocol_scheme = 2131361877;
+			public const int facebook_app_id = 2131361877;
+			
+			// aapt resource value: 0x7f0a0056
+			public const int fb_login_protocol_scheme = 2131361878;
+			
+			// aapt resource value: 0x7f0a0054
+			public const int library_name = 2131361876;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int messenger_send_button_text = 2131361792;

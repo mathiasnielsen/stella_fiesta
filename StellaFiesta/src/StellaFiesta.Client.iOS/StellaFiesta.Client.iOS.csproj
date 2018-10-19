@@ -110,34 +110,16 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon180.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
       <Visible>false</Visible>
     </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon120.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon87.png">
-      <Visible>false</Visible>
-    </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon60.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon58.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon40.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
@@ -148,6 +130,12 @@
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\ic_facebook.imageset\Contents.json" />
     <ImageAsset Include="Assets.xcassets\ic_facebook.imageset\ic_facebook.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %281%29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %284%29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %285%29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %286%29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %287%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

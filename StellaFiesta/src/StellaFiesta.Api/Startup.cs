@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.Azure;
+using System.Configuration;
 
 namespace StellaFiesta.Api
 {
@@ -32,7 +33,12 @@ namespace StellaFiesta.Api
             ////var connectionString = Configuration["appSettings:connectionStrings:stellafiestakode"];
             ////var connectionString = Configuration.GetConnectionString("DefaultConnection");
 
+#if DEBUG
             var connectionString = "Server=tcp:quickstart.database.windows.net,1433;Initial Catalog=StellaFiestaDB;Persist Security Info=False;User ID=mathias;Password=Stella4ever;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            var connectionStringTest = ConfigurationManager.
+#else
+            var connectionString = "Server=tcp:quickstart.database.windows.net,1433;Initial Catalog=StellaFiestaDB;Persist Security Info=False;User ID=mathias;Password=Stella4ever;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+#endif
 
             services.AddDbContext<StellaFiestaContext>(opt =>
                 opt.UseSqlServer(connectionString));

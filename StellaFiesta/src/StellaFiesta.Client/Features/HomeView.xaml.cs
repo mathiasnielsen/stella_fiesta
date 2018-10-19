@@ -14,12 +14,12 @@ namespace StellaFiesta.Client.Features.Common
             InitializeComponent();
 
             NavigationPage.SetHasNavigationBar(this, true);
+            SetSVGImage();
         }
 
-        protected override void OnAppearing()
+        private void SetSVGImage()
         {
-            base.OnAppearing();
-
+            // Need to be set before appearing (otherwise we get an object null ref)
             var tigerSvgPath = "StellaFiesta.Client.Assets.Images.tiger.svg";
             var assembly = this.GetType().Assembly;
 

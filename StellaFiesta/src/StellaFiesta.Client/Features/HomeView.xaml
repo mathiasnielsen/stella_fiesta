@@ -15,8 +15,8 @@
                     Text="Welcome to Stella"/>
                 <abstractions:SvgImage
                     x:Name="profile_svgImage"
-                    SvgAssembly="{Binding SvgAssembly}"
-                    SvgPath="{Binding CoolMaskSvgPath}"
+                    SvgPath=""
+                    SvgAssembly=""
                     HeightRequest="50"
                     WidthRequest="50"
                     BackgroundColor="White"
