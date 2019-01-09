@@ -42,10 +42,6 @@
     <None Remove="Assets\Images\tiger.svg" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Remove="Assets\Images\tiger.xaml" />
-    <EmbeddedResource Remove="Resources\PageTemplates.xaml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Assets\Images\forden.jpg" />
     <EmbeddedResource Include="Assets\Images\tiger.svg" />
   </ItemGroup>

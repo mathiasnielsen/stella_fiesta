@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace StellaFiesta.Client
+namespace StellaFiesta.Client.Resources
 {
     public partial class Colors : ResourceDictionary
     {

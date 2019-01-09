@@ -3,14 +3,14 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:StellaFiesta.Client.Controls;assembly=StellaFiesta.Client"
-    xmlns:local="using:StellaFiesta.Client"
+    xmlns:resources="using:StellaFiesta.Client.Resources"
     x:Class="StellaFiesta.Client.App">
     <Application.Resources>
         <ResourceDictionary>
             
             <ResourceDictionary.MergedDictionaries>
-                <local:PageTemplates/>
-                <local:Colors/>
+                <resources:PageTemplates/>
+                <resources:Colors/>
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="Label">
