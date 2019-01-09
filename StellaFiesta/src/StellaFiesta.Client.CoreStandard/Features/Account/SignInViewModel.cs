@@ -16,14 +16,14 @@ namespace StellaFiesta.Client.CoreStandard
             this.navigationService = navigationService;
         }
 
-        public override Task OnViewReloaded()
+        public override Task OnLoadAsync()
         {
             if (authenticationService.IsLoggedIn)
             {
                 navigationService.NavigateToHome();
             }
 
-            return base.OnViewReloaded();
+            return base.OnLoadAsync();
         }
     }
 }

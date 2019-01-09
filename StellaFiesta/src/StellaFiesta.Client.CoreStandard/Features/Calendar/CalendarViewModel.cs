@@ -9,7 +9,7 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public class CalendarViewModel : BindableViewModelBase
     {
-        private const int MinimumTaskTimeInMs = 3000;
+        private const int MinimumTaskTimeInMs = 1000;
 
         private readonly ICarTimesApi carTimesApi;
 
@@ -49,7 +49,6 @@ namespace StellaFiesta.Client.CoreStandard
         {
             using (LoadingManager.CreateLoadingScope())
             {
-                IsLoading = true;
                 UpdateCarDays(DateTime.Now);
 
                 // All bookings
@@ -59,7 +58,6 @@ namespace StellaFiesta.Client.CoreStandard
                 SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
 
                 UpdateCarDays(DateTime.Now);
-                IsLoading = false;
             }
         }
 

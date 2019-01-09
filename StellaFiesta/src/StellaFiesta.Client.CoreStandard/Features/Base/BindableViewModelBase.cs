@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using StellaFiesta.Client.CoreStandard;
 
@@ -6,28 +7,41 @@ namespace StellaFiesta.Client.Core
 {
     public class BindableViewModelBase : ViewModelBase
     {
+        public BindableViewModelBase()
+        {
+            LoadingManager = new LoadingManager();
+        }
+
         protected ILoadingManager LoadingManager { get; set; }
 
         protected Dictionary<string, string> NavigationParameters { get; set; }
 
         private bool isLoading;
 
-        public async void ViewInitialized(Dictionary<string, string> navigationParameters, ILoadingManager loadingManager)
+        public bool IsLoading
         {
-            LoadingManager = loadingManager;
+            get { return isLoading; }
+            private set { Set(ref isLoading, value); }
+        }
+
+        public async void ViewInitialized(Dictionary<string, string> navigationParameters)
+        {
             NavigationParameters = navigationParameters ?? new Dictionary<string, string>();
             await OnViewInitialized(NavigationParameters);
         }
 
-        public bool IsLoading
+        public async void ViewLoading()
         {
-            get { return isLoading; }
-            set { Set(ref isLoading, value); }
+            LoadingManager.Loading += OnLoading;
+            LoadingManager.Completed += OnCompleted;
+            await OnLoadAsync();
         }
 
-        public async void ViewReloading()
+        public async void ViewUnloading()
         {
-            await OnViewReloaded();
+            LoadingManager.Loading -= OnLoading;
+            LoadingManager.Completed -= OnCompleted;
+            await OnUnloadAsync();
         }
 
         public virtual async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
@@ -35,9 +49,24 @@ namespace StellaFiesta.Client.Core
             await Task.FromResult(true);
         }
 
-        public virtual async Task OnViewReloaded()
+        public virtual async Task OnLoadAsync()
         {
             await Task.FromResult(true);
+        }
+
+        public virtual async Task OnUnloadAsync()
+        {
+            await Task.FromResult(true);
+        }
+
+        private void OnCompleted(object sender, EventArgs e)
+        {
+            IsLoading = false;
+        }
+
+        private void OnLoading(object sender, EventArgs e)
+        {
+            IsLoading = true;
         }
     }
 }

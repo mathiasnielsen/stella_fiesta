@@ -21,28 +21,28 @@ namespace StellaFiesta.Client
                 BindingContext = ViewModel;
 
                 InitializeViewBaseBindings();
-                ViewModel.ViewInitialized(this.GetNavigationArgs(), LoadingManager);
+                ViewModel.ViewInitialized(this.GetNavigationArgs());
                 hasAppeared = true;
             }
-            else
-            {
-                ViewModel.ViewReloading();
-            }
-        }
 
-        private void InitializeViewBaseBindings()
-        {
-            // None yet.
+            ViewModel.ViewLoading();
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
+
+            ViewModel.ViewUnloading();
         }
 
         protected virtual TViewModel OnPrepareViewModel()
         {
             return App.Container.Resolve<TViewModel>();
+        }
+
+        private void InitializeViewBaseBindings()
+        {
+            // None yet.
         }
     }
 }

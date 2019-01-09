@@ -13,5 +13,7 @@
         void NavigateToProfile();
 
         void NavigateToPlayground();
+
+        void NavigateToBooking();
     }
 }

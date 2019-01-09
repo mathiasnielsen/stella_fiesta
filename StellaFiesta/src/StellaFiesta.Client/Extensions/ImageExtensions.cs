@@ -4,7 +4,7 @@ using Xamarin.Forms;
 
 namespace StellaFiesta.Client
 {
-    public static class ImageExtentions
+    public static class ImageExtensions
     {
         public static ImageSource GetImageSource(this CarDayViewModel carDay)
         {

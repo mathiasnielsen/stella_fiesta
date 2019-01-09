@@ -14,6 +14,8 @@
                 ResolvingAssemblyType="{x:Type data:CarDayViewModel}" />
             <cvt:WeekDayToColorConverter 
                 x:Key="weekDayToColorConverter" />
+            <cvt:BookingStateToTextBoolConverter
+                x:Key="bookingStateToTextBoolConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -47,10 +49,10 @@
                                         VerticalOptions="CenterAndExpand"
                                         HorizontalOptions="Start"/>
                                     <Label
-                                        Text="{Binding IsBooked}"
+                                        Text="{Binding IsBooked, Converter={StaticResource bookingStateToTextBoolConverter}}"
                                         LineBreakMode="TailTruncation"
                                         VerticalOptions="CenterAndExpand"
-                                        HorizontalOptions="Start"/>
+                                        HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
