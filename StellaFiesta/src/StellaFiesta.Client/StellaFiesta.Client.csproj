@@ -23,6 +23,8 @@
     <Folder Include="Assets\" />
     <Folder Include="Assets\Images\" />
     <Folder Include="Effects\" />
+    <Folder Include="Features\Tools\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Common.cs" />
@@ -41,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="Assets\Images\tiger.xaml" />
+    <EmbeddedResource Remove="Resources\PageTemplates.xaml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Images\forden.jpg" />

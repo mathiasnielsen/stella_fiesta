@@ -26,9 +26,12 @@ namespace StellaFiesta.Client.iOS
             {
                 Profile.LoadCurrentProfile((Profile profile, NSError error) =>
                 {
-                    var userProfile = new UserProfile();
+                    var userProfile = new UserProfile
+                    {
+                        UserId = profile.UserId,
+                        Name = profile.Name,
+                    };
 
-                    userProfile.Name = profile.Name;
                     userProfile.ImageUrl = profile.ImageUrl(
                         ProfilePictureMode.Square,
                         new CoreGraphics.CGSize(ImageSize, ImageSize)).AbsoluteString;

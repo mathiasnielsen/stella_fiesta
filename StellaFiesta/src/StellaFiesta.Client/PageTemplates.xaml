@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="StellaFiesta.Client.PageTemplates"
+    xmlns:controls="clr-namespace:StellaFiesta.Client.Controls;assembly=StellaFiesta.Client">
+    
+    <ControlTemplate x:Key="MainPageTemplate">
+        <Grid>
+            <ContentPresenter />
+            <controls:ContentOverlay
+                IsVisible="{TemplateBinding BindingContext.IsLoading}"/>
+        </Grid> 
+    </ControlTemplate>
+
+</ResourceDictionary>

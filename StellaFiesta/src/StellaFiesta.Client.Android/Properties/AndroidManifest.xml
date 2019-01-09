@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="1" android:versionName="1.0" package="com.kirkegaardbusiness.Stella_Fiesta">
 	<uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<application android:label="StellaFiesta.Client.Android"></application>
-    <string name="fb_login_protocol_scheme">fb534663733642417</string>
+	<string name="fb_login_protocol_scheme">fb534663733642417</string>
 </manifest>

@@ -3,32 +3,15 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:StellaFiesta.Client.Controls;assembly=StellaFiesta.Client"
+    xmlns:local="using:StellaFiesta.Client"
     x:Class="StellaFiesta.Client.App">
     <Application.Resources>
-        <ControlTemplate x:Key="MainPageTemplate">
-            <Grid>
-                <ContentPresenter />
-                <controls:ContentOverlay
-                    IsVisible="{TemplateBinding BindingContext.IsLoading}"/>
-            </Grid>
-        </ControlTemplate>
-
         <ResourceDictionary>
-
-            <!-- https://material.io/tools/color/#!/?view.left=0&view.right=1&primary.color=e57373&primary.text.color=000000 -->
-            <Color
-                x:Key="BrandColor">#FF4F4F</Color>
-            <Color
-                x:Key="LightBrandColor">#ff847b</Color>
-            <Color
-                x:Key="DarkBrandColor">#871c1e</Color>
-            <Color
-                x:Key="SecondaryBrandColor">#4f4fff</Color>
             
-            <Color
-                x:Key="FacebookBlue">#4469b0</Color>
-            <Color
-                x:Key="ColoradoRed">#871C1E</Color>
+            <ResourceDictionary.MergedDictionaries>
+                <local:PageTemplates/>
+                <local:Colors/>
+            </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="12"/>

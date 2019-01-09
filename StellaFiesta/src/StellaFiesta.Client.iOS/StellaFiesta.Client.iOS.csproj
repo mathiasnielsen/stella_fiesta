@@ -95,12 +95,13 @@
     <Compile Include="Renderes\CustomDatePickerRenderer.cs" />
     <Compile Include="Controls\CustomUIPickerViewModel.cs" />
     <Compile Include="Services\FacebookService.cs" />
-    <Compile Include="Renderes\SignInPageRenderer.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Renderes\IntelligentButtonRenderer.cs" />
     <Compile Include="Effects\SillyFontEffect.cs" />
     <None Include="Resources\Images\ic_facebook_drawing.jpg" />
+    <Compile Include="Renderes\Pages\SignInPageRenderer.cs" />
+    <Compile Include="Renderes\Pages\PlaygroundPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -174,6 +175,7 @@
     <Folder Include="Effects\" />
     <Folder Include="Resources\Images\" />
     <Folder Include="Assets.xcassets\ic_facebook.imageset\" />
+    <Folder Include="Renderes\Pages\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="car.json" />

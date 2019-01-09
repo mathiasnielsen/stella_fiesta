@@ -11,5 +11,7 @@
         void NavigateToSignIn();
 
         void NavigateToProfile();
+
+        void NavigateToPlayground();
     }
 }

@@ -47,5 +47,20 @@ namespace StellaFiesta.Api.Controllers
                 throw ex;
             }
         }
+
+        [HttpPost]
+        public async Task AddBookingAsync(CarBooking carDay)
+        {
+            try
+            {
+                await _context.CarBookings.AddAsync(carDay);
+                _context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Failed to post, ex:" + ex.Message);
+                throw ex;
+            }
+        }
     }
 }

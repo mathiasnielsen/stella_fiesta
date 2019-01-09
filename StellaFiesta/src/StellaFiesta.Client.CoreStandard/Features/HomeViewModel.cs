@@ -16,6 +16,7 @@ namespace StellaFiesta.Client.Core
             GoToAboutCommand = new RelayCommand(GoToAbout);
             GoToCalendarCommand = new RelayCommand(GoToCalendar);
             GoToProfileCommand = new RelayCommand(GoToProfile);
+            GoToPlaygroundCommand = new RelayCommand(GoToPlayground);
         }
 
         public RelayCommand GoToAboutCommand { get; }
@@ -23,6 +24,8 @@ namespace StellaFiesta.Client.Core
         public RelayCommand GoToCalendarCommand { get; }
 
         public RelayCommand GoToProfileCommand { get; }
+
+        public RelayCommand GoToPlaygroundCommand { get; }
 
         private void GoToAbout()
         {
@@ -37,6 +40,11 @@ namespace StellaFiesta.Client.Core
         private void GoToProfile()
         {
             navigationService.NavigateToProfile();
+        }
+
+        private void GoToPlayground()
+        {
+            navigationService.NavigateToPlayground();
         }
     }
 }

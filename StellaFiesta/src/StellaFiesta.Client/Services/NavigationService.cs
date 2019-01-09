@@ -14,6 +14,7 @@ namespace StellaFiesta.Client
             Configure(nameof(CalendarView), typeof(CalendarView));
             Configure(nameof(SignInView), typeof(SignInView));
             Configure(nameof(ProfileView), typeof(ProfileView));
+            Configure(nameof(PlaygroundView), typeof(PlaygroundView));
         }
 
         public void NavigateToHome()
@@ -39,6 +40,11 @@ namespace StellaFiesta.Client
         public void NavigateToProfile()
         {
             NavigateTo(nameof(ProfileView));
+        }
+
+        public void NavigateToPlayground()
+        {
+            NavigateTo(nameof(PlaygroundView));
         }
 
         ////public void NavigateToDataMagazine(string directory = null)
