@@ -1,5 +1,6 @@
 ﻿using System;
 using StellaFiesta.Client.CoreStandard;
+using Xamarin.Forms;
 
 namespace StellaFiesta.Client.Features.Calendar
 {
@@ -21,19 +22,27 @@ namespace StellaFiesta.Client.Features.Calendar
             custom_date_picker.MinimumDate = DateTime.Now;
             custom_date_picker.MaximumDate = DateTime.Now.AddYears(3);
 
-            custom_date_picker.FinishedSelection += OnFinishedSelection;
+            custom_date_picker.FinishedSelection += OnMonthSelected;
+            date_list.ItemTapped += OnItemTapped;
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
 
-            custom_date_picker.FinishedSelection -= OnFinishedSelection;
+            custom_date_picker.FinishedSelection -= OnMonthSelected;
+            date_list.ItemTapped -= OnItemTapped;
         }
 
-        private void OnFinishedSelection(object sender, DateTime e)
+        private void OnMonthSelected(object sender, DateTime e)
         {
-            ViewModel.DateSelectedCommand.Execute(e);
+            ViewModel.MonthSelectedCommand.Execute(e);
+        }
+
+        private void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var item = (CarDayViewModel)e.Item;
+            ViewModel.BookingDateSelectedCommand.Execute(item);
         }
     }
 }

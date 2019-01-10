@@ -12,20 +12,27 @@ namespace StellaFiesta.Client.CoreStandard
         private const int MinimumTaskTimeInMs = 1000;
 
         private readonly ICarTimesApi carTimesApi;
+        private readonly INavigationService navigationService;
 
         private List<CarDayViewModel> carDays;
         private List<DateTime> supportedYears;
         private List<DateTime> allMonths;
         private List<CarBooking> carBookings;
 
-        public CalendarViewModel(ICarTimesApi carTimesApi)
+        public CalendarViewModel(
+            ICarTimesApi carTimesApi,
+            INavigationService navigationService)
         {
             this.carTimesApi = carTimesApi;
+            this.navigationService = navigationService;
 
-            DateSelectedCommand = new RelayCommand<DateTime>(DateSelected);
+            MonthSelectedCommand = new RelayCommand<DateTime>(MonthSelected);
+            BookingDateSelectedCommand = new RelayCommand<CarDayViewModel>(BookingDateSelected);
         }
 
-        public RelayCommand<DateTime> DateSelectedCommand { get; }
+        public RelayCommand<DateTime> MonthSelectedCommand { get; }
+
+        public RelayCommand<CarDayViewModel> BookingDateSelectedCommand { get; }
 
         public List<CarDayViewModel> CarDays
         {
@@ -65,9 +72,15 @@ namespace StellaFiesta.Client.CoreStandard
         {
             var daysInMonth = CalendarInfoProvider.GetDaysInMonth(selectedDate);
             var tempCarDays = new List<CarDayViewModel>();
+            var currentDate = DateTime.Now.Date;
             foreach (var day in daysInMonth)
             {
-                tempCarDays.Add(new CarDayViewModel(day.DayOfWeek.ToString(), day, false, "StellaFiesta.Client.CoreStandard.Images.nepal.png"));
+                tempCarDays.Add(
+                    new CarDayViewModel(
+                        day.DayOfWeek.ToString(),
+                        day,
+                        isBooked: false,
+                        imageUrl: "StellaFiesta.Client.CoreStandard.Images.nepal.png"));
             }
 
             return tempCarDays;
@@ -78,9 +91,14 @@ namespace StellaFiesta.Client.CoreStandard
             carBookings = await carTimesApi.GetCarTimesAsync();
         }
 
-        private void DateSelected(DateTime date)
+        private void BookingDateSelected(CarDayViewModel date)
         {
-            UpdateCarDays(date);
+            navigationService.NavigateToBooking(date.Day);
+        }
+
+        private void MonthSelected(DateTime dateInMonth)
+        {
+            UpdateCarDays(dateInMonth);
         }
 
         private void UpdateCarDays(DateTime date)

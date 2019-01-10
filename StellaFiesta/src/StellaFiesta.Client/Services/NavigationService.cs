@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using StellaFiesta.Client.Core;
+using StellaFiesta.Client.CoreStandard;
 using StellaFiesta.Client.Features.Account;
 using StellaFiesta.Client.Features.Calendar;
 using StellaFiesta.Client.Features.Common;
@@ -49,25 +51,15 @@ namespace StellaFiesta.Client
             NavigateTo(nameof(PlaygroundView));
         }
 
-        public void NavigateToBooking()
+        public void NavigateToBooking(DateTime dateTime)
         {
-            var parameter = new Dictionary<string, string>();
-            NavigateTo(nameof(BookingView), parameter);
+            var dateTimeAsTicks = dateTime.Ticks.ToString();
+            var parms = new Dictionary<string, string>()
+            {
+                {  BookingViewModel.BookingDateInTicksParameterKey, dateTimeAsTicks }
+            };
+
+            NavigateTo(nameof(BookingView), parms);
         }
-
-        ////public void NavigateToDataMagazine(string directory = null)
-        ////{
-        ////    if (directory == null)
-        ////    {
-        ////        NavigateTo(nameof(DataMagazineView));
-        ////    }
-        ////    else
-        ////    {
-        ////        var parms = new Dictionary<string, string>();
-        ////        parms.Add(DataMagazineViewModel.RelativeDirectoryParameterKey, directory);
-
-        ////        NavigateTo(nameof(DataMagazineView), parameter: parms);
-        ////    }
-        ////}
     }
 }

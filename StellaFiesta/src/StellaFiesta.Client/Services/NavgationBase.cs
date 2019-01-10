@@ -21,7 +21,9 @@ namespace StellaFiesta.Client
 
         public void GoBack() => MainPage.Navigation.PopAsync();
 
-        public void NavigateTo(string pageKey, Dictionary<string, string> parameter = null,
+        public void NavigateTo(
+            string pageKey,
+            Dictionary<string, string> parameter = null,
             HistoryBehavior historyBehavior = HistoryBehavior.Default)
         {
             Type pageType;

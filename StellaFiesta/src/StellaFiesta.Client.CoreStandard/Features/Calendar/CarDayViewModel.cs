@@ -13,6 +13,8 @@ namespace StellaFiesta.Client.CoreStandard
             Day = day;
             IsBooked = isBooked;
             ImageUrl = imageUrl;
+
+            IsValidBookingDate = Day.Date >= DateTime.Now.Date;
         }
 
         public string Name { get; set; }
@@ -22,5 +24,7 @@ namespace StellaFiesta.Client.CoreStandard
         public bool IsBooked { get; set; }
 
         public string ImageUrl { get; set; }
+
+        public bool IsValidBookingDate { get; set; }
     }
 }

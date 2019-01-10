@@ -1,7 +1,11 @@
-﻿namespace StellaFiesta.Client.Core
+﻿using System;
+
+namespace StellaFiesta.Client.Core
 {
     public interface INavigationService
     {
+        void GoBack();
+
         void NavigateToHome();
 
         void NavigateToAbout();
@@ -14,6 +18,6 @@
 
         void NavigateToPlayground();
 
-        void NavigateToBooking();
+        void NavigateToBooking(DateTime dateTime);
     }
 }
