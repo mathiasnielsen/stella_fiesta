@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using StellaFiesta.Api;
 using StellaFiesta.Client.Core;
 using StellaFiesta.Client.CoreStandard.Utilities;
 
@@ -10,14 +11,21 @@ namespace StellaFiesta.Client.CoreStandard
     {
         public const string BookingDateInTicksParameterKey = nameof(BookingDateInTicksParameterKey);
 
+        private readonly ICarTimesApi carTimesApi;
         private readonly INavigationService navigationService;
+        private readonly IAuthenticationService authenticationService;
 
         private DateTime _bookingDate;
         private string _dateTitle;
 
-        public BookingViewModel(INavigationService navigationService)
+        public BookingViewModel(
+            INavigationService navigationService,
+            ICarTimesApi carTimesApi,
+            IAuthenticationService authenticationService)
         {
             this.navigationService = navigationService;
+            this.carTimesApi = carTimesApi;
+            this.authenticationService = authenticationService;
 
             AcceptBookingCommand = new RelayCommand(AcceptBooking);
         }
@@ -50,9 +58,20 @@ namespace StellaFiesta.Client.CoreStandard
             return $"{day} ({weekdayName}), {month}, {year}";
         }
 
-        private void AcceptBooking()
+        private async void AcceptBooking()
         {
-            navigationService.GoBack();
+            using (LoadingManager.CreateLoadingScope())
+            {
+                var user = await authenticationService.GetProfileAsync();
+                var carBooking = new CarBooking()
+                {
+                    BookerName = user.Name,
+                    BookingStartDate = _bookingDate,
+                    BookingEndDate = _bookingDate.AddDays(1),
+                };
+
+                await carTimesApi.SendBookingAsync(carBooking);
+            }
         }
     }
 }

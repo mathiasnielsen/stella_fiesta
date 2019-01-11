@@ -36,7 +36,8 @@ namespace StellaFiesta.Client.CoreStandard
             where TResponse : class where TContent : class
         {
             var client = httpClientFactory.CreateHttpClient();
-            var response = await client.PostAsync(url, CreateJsonContent<TContent>(bodyParameter));
+            var jsonContent = CreateJsonContent<TContent>(bodyParameter);
+            var response = await client.PostAsync(url, jsonContent);
             return await HandleResponse<TResponse>(response);
         }
 
@@ -94,7 +95,8 @@ namespace StellaFiesta.Client.CoreStandard
             return new StringContent(content, Encoding.UTF8, "application/json");
         }
 
-        private static async Task<TResponse> HandleResponse<TResponse>(HttpResponseMessage response) where TResponse : class
+        private static async Task<TResponse> HandleResponse<TResponse>(HttpResponseMessage response)
+            where TResponse : class
         {
             var contentAsString = await response.Content.ReadAsStringAsync();
 
@@ -104,7 +106,8 @@ namespace StellaFiesta.Client.CoreStandard
 
                 if (response.IsSuccessStatusCode)
                 {
-                    return JsonConvert.DeserializeObject<TResponse>(contentAsString);
+                    var content = JsonConvert.DeserializeObject<TResponse>(contentAsString);
+                    return content;
                 }
             }
             catch

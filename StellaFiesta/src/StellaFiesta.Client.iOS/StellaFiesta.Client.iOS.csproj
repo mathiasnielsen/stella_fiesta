@@ -102,6 +102,7 @@
     <None Include="Resources\Images\ic_facebook_drawing.jpg" />
     <Compile Include="Renderes\Pages\SignInPageRenderer.cs" />
     <Compile Include="Renderes\Pages\PlaygroundPageRenderer.cs" />
+    <Compile Include="Renderes\Transitions\TransitionNavigationPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -176,6 +177,7 @@
     <Folder Include="Resources\Images\" />
     <Folder Include="Assets.xcassets\ic_facebook.imageset\" />
     <Folder Include="Renderes\Pages\" />
+    <Folder Include="Renderes\Transitions\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="car.json" />

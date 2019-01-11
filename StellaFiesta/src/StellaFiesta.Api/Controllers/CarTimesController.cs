@@ -24,7 +24,7 @@ namespace StellaFiesta.Api.Controllers
             {
                 var carDays = _context.CarBookings;
                 var carBookings = carDays.ToList();
-                return carDays;
+                return carBookings;
             }
             catch (Exception ex)
             {
@@ -33,22 +33,7 @@ namespace StellaFiesta.Api.Controllers
             }
         }
 
-        [HttpPost]
-        public async Task AddBookingAsync(CarBooking carDay)
-        {
-            try
-            {
-                await _context.CarBookings.AddAsync(carDay);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine("Failed to post, ex:" + ex.Message);
-                throw ex;
-            }
-        }
-
-        [HttpPost]
+        [HttpPost("bookings")]
         public async Task AddBookingAsync(CarBooking carDay)
         {
             try

@@ -8,5 +8,7 @@ namespace StellaFiesta.Client.CoreStandard
     public interface ICarTimesApi
     {
         Task<List<CarBooking>> GetCarTimesAsync();
+
+        Task<bool> SendBookingAsync(CarBooking booking);
     }
 }

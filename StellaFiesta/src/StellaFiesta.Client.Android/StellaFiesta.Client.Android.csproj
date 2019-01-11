@@ -69,6 +69,7 @@
     <Compile Include="Services\FacebookService.cs" />
     <Compile Include="Renderers\SignInPageRenderer.cs" />
     <Compile Include="Setup.cs" />
+    <Compile Include="Renderers\Transitions\TransitionNavigationPageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -94,6 +95,20 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\drawable\ic_car.xml" />
     <AndroidResource Include="Resources\values\strings.xml" />
+    <AndroidResource Include="Resources\anim\scale_out.xml" />
+    <AndroidResource Include="Resources\anim\scale_in.xml" />
+    <AndroidResource Include="Resources\anim\flip_out.xml" />
+    <AndroidResource Include="Resources\anim\flip_in.xml" />
+    <AndroidResource Include="Resources\anim\fade_out.xml" />
+    <AndroidResource Include="Resources\anim\fade_in.xml" />
+    <AndroidResource Include="Resources\anim\exit_top.xml" />
+    <AndroidResource Include="Resources\anim\exit_right.xml" />
+    <AndroidResource Include="Resources\anim\exit_left.xml" />
+    <AndroidResource Include="Resources\anim\exit_bottom.xml" />
+    <AndroidResource Include="Resources\anim\enter_top.xml" />
+    <AndroidResource Include="Resources\anim\enter_right.xml" />
+    <AndroidResource Include="Resources\anim\enter_left.xml" />
+    <AndroidResource Include="Resources\anim\enter_bottom.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -104,6 +119,8 @@
     <Folder Include="Renderers\" />
     <Folder Include="Effects\" />
     <Folder Include="Services\" />
+    <Folder Include="Renderers\Transitions\" />
+    <Folder Include="Resources\anim\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StellaFiesta.Client\StellaFiesta.Client.csproj">

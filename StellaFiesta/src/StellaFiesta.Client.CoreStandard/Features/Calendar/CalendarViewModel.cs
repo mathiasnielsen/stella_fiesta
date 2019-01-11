@@ -52,17 +52,22 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref allMonths, value); }
         }
 
-        public override async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
+        public override Task OnViewInitialized(Dictionary<string, string> navigationParameters)
+        {
+            UpdateCarDays(DateTime.Now);
+
+            AllMonths = CalendarInfoProvider.GetAllMonths();
+            SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
+
+            return base.OnViewInitialized(navigationParameters);
+        }
+
+        public override async Task OnLoadAsync()
         {
             using (LoadingManager.CreateLoadingScope())
             {
-                UpdateCarDays(DateTime.Now);
-
                 // All bookings
                 await Task.WhenAll(RetrieveCarTimesAsync(), Task.Delay(MinimumTaskTimeInMs));
-
-                AllMonths = CalendarInfoProvider.GetAllMonths();
-                SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
 
                 UpdateCarDays(DateTime.Now);
             }
