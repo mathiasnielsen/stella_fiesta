@@ -10,7 +10,7 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public class CarTimesApi : ICarTimesApi
     {
-        private const string baseUrl = "http://stellafiesta.azurewebsites.net/api/carbooking/";
+        private const string BaseUrl = "http://stellafiesta.azurewebsites.net/api/carbooking/";
         private const string MediaType = "application/json";
 
         private readonly IHttpRequestExecutor executor;
@@ -24,7 +24,7 @@ namespace StellaFiesta.Client.CoreStandard
         {
             try
             {
-                var carTimes = await executor.Get<List<CarBooking>>(baseUrl + "bookings");
+                var carTimes = await executor.Get<List<CarBooking>>(BaseUrl + "bookings");
                 return carTimes;
             }
             catch (Exception ex)
@@ -37,7 +37,23 @@ namespace StellaFiesta.Client.CoreStandard
         {
             try
             {
-                var result = await executor.Post<CarBooking, CarBooking>(baseUrl + "bookings", booking);
+                var result = await executor.Post<CarBooking, CarBooking>(BaseUrl + "bookings", booking);
+                return result != null;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Failed to send booking, ex: " + ex.Message);
+                ////throw new Exception("Failed sending booking, ex: " + ex.Message);
+            }
+
+            return false;
+        }
+
+        public async Task<bool> RemoveBookingAsync(CarBooking booking)
+        {
+            try
+            {
+                var result = await executor.Post<CarBooking, CarBooking>(BaseUrl + "bookings", booking);
                 return result != null;
             }
             catch (Exception ex)

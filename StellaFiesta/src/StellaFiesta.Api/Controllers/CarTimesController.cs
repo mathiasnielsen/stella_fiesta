@@ -18,7 +18,7 @@ namespace StellaFiesta.Api.Controllers
 
         // GET api/values
         [HttpGet("bookings")]
-        public IEnumerable<CarBooking> Get()
+        public IEnumerable<CarBooking> GetAllBookings()
         {
             try
             {
@@ -34,12 +34,29 @@ namespace StellaFiesta.Api.Controllers
         }
 
         [HttpPost("bookings")]
-        public async Task AddBookingAsync(CarBooking carDay)
+        public async Task<int> AddBookingAsync(CarBooking carDay)
         {
             try
             {
-                await _context.CarBookings.AddAsync(carDay);
-                _context.SaveChanges();
+                _context.CarBookings.Add(carDay);
+                var result = await _context.SaveChangesAsync();
+                return result;
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Failed to post, ex:" + ex.Message);
+                throw ex;
+            }
+        }
+
+        [HttpDelete("bookings")]
+        public async Task<int> RemoveBookingAsync(CarBooking carDay)
+        {
+            try
+            {
+                _context.CarBookings.Remove(carDay);
+                var result = await _context.SaveChangesAsync();
+                return result;
             }
             catch (Exception ex)
             {

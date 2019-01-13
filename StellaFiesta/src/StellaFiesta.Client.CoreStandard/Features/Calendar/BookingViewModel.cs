@@ -15,8 +15,8 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly INavigationService navigationService;
         private readonly IAuthenticationService authenticationService;
 
-        private DateTime _bookingDate;
-        private string _dateTitle;
+        private DateTime bookingDate;
+        private string dateTitle;
 
         public BookingViewModel(
             INavigationService navigationService,
@@ -34,16 +34,16 @@ namespace StellaFiesta.Client.CoreStandard
 
         public string DateTitle
         {
-            get { return _dateTitle; }
-            set { Set(ref _dateTitle, value); }
+            get { return dateTitle; }
+            set { Set(ref dateTitle, value); }
         }
 
         public override Task OnViewInitialized(Dictionary<string, string> navigationParameters)
         {
-            _bookingDate = NavigationParameterParser.StringDateTicksToDateTime(
+            bookingDate = NavigationParameterParser.StringDateTicksToDateTime(
                  navigationParameters[BookingDateInTicksParameterKey]);
 
-            DateTitle = GetDateInText(_bookingDate);
+            DateTitle = GetDateInText(bookingDate);
 
             return base.OnViewInitialized(navigationParameters);
         }
@@ -66,8 +66,8 @@ namespace StellaFiesta.Client.CoreStandard
                 var carBooking = new CarBooking()
                 {
                     BookerName = user.Name,
-                    BookingStartDate = _bookingDate,
-                    BookingEndDate = _bookingDate.AddDays(1),
+                    BookingStartDate = bookingDate,
+                    BookingEndDate = bookingDate.AddDays(1),
                 };
 
                 await carTimesApi.SendBookingAsync(carBooking);

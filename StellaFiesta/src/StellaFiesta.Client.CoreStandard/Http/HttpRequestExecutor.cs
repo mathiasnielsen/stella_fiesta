@@ -41,20 +41,11 @@ namespace StellaFiesta.Client.CoreStandard
             return await HandleResponse<TResponse>(response);
         }
 
-        public async Task<TResponse> Post<TResponse>(string url, IEnumerable<KeyValuePair<string, string>> bodyParameter)
-            where TResponse : class
+        public async Task<TResponse> Delete<TContent, TResponse>(string url, TContent bodyParameter)
+            where TResponse : class where TContent : class
         {
             var client = httpClientFactory.CreateHttpClient();
-            var content = new FormUrlEncodedContent(bodyParameter);
-            var response = await client.PostAsync(url, content);
-            return await HandleResponse<TResponse>(response);
-        }
-
-        public async Task<TResponse> Post<TResponse>(string url, byte[] bodyParameter)
-            where TResponse : class
-        {
-            var client = httpClientFactory.CreateHttpClient();
-            var response = await client.PostAsync(url, new ByteArrayContent(bodyParameter));
+            var response = await client.DeleteAsync(url);
             return await HandleResponse<TResponse>(response);
         }
 

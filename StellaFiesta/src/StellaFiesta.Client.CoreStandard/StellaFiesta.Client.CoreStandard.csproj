@@ -28,4 +28,7 @@
   <ItemGroup>
     <ProjectReference Include="..\StellaFiesta.Models\StellaFiesta.Models.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="StellaFiesta.Client.CoreStandard.Tests\obj\Debug\netcoreapp2.0\StellaFiesta.Client.CoreStandard.Tests.assets.cache" />
+  </ItemGroup>
 </Project>
