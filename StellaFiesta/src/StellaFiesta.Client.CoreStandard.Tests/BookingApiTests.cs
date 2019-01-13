@@ -64,7 +64,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
 
             var didRemoveBooking = await bookingApi.RemoveBookingAsync(newBooking.ID);
             var bookingsAfterRemove = await bookingApi.GetCarTimesAsync();
-            var newBookingStillExists = bookings.Exists(
+            var newBookingStillExists = bookingsAfterRemove.Exists(
                 x => x.BookerName == carBooking.BookerName);
 
             Assert.True(didRemoveBooking);
