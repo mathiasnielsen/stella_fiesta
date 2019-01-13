@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -9,6 +10,7 @@ namespace StellaFiesta.Api.Controllers
     [Route("api/carbooking")]
     public class CarTimesController : Controller
     {
+#pragma warning disable CS1701 // Assuming assembly reference matches identity
         private readonly StellaFiestaContext _context;
 
         public CarTimesController(StellaFiestaContext context)
@@ -22,8 +24,8 @@ namespace StellaFiesta.Api.Controllers
         {
             try
             {
-                var carDays = _context.CarBookings;
-                var carBookings = carDays.ToList();
+                var bookings = _context.CarBookings;
+                var carBookings = bookings.ToList();
                 return carBookings;
             }
             catch (Exception ex)
@@ -34,29 +36,35 @@ namespace StellaFiesta.Api.Controllers
         }
 
         [HttpPost("bookings")]
-        public async Task<int> AddBookingAsync(CarBooking carDay)
+        public async Task<bool> AddBookingAsync([FromBody] CarBooking carDay)
         {
             try
             {
                 _context.CarBookings.Add(carDay);
                 var result = await _context.SaveChangesAsync();
-                return result;
+                return result > 0;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Failed to post, ex:" + ex.Message);
+                Debug.WriteLine("Failed to post, ex:" + ex.Message);
                 throw ex;
             }
         }
 
-        [HttpDelete("bookings")]
-        public async Task<int> RemoveBookingAsync(CarBooking carDay)
+        [HttpDelete("bookings/{id}")]
+        public async Task<bool> RemoveBookingAsync(int id)
         {
             try
             {
-                _context.CarBookings.Remove(carDay);
-                var result = await _context.SaveChangesAsync();
-                return result;
+                var carBooking = _context.CarBookings.FirstOrDefault(x => x.ID == id);
+                if (carBooking != null)
+                {
+                    _context.CarBookings.Remove(carBooking);
+                    var result = await _context.SaveChangesAsync();
+                    return result > 0;
+                }
+
+                return false;
             }
             catch (Exception ex)
             {
@@ -64,5 +72,6 @@ namespace StellaFiesta.Api.Controllers
                 throw ex;
             }
         }
+#pragma warning restore CS1701 // Assuming assembly reference matches identity
     }
 }

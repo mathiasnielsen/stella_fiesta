@@ -8,8 +8,14 @@ namespace StellaFiesta.Client.CoreStandard
     {
         Task<TResponse> Put<TResponse>(string url, IEnumerable<KeyValuePair<string, string>> bodyParameter) where TResponse : class;
 
+        Task<bool> Post<TContent>(string url, TContent bodyParameter)
+            where TContent : class;
+
         Task<TResponse> Post<TContent, TResponse>(string url, TContent bodyParameter)
-            where TResponse : class where TContent : class;
+            where TResponse : class
+            where TContent : class;
+
+        Task<bool> DeleteAsync(string url);
 
         Task<TResponse> Get<TResponse>(string url)
             where TResponse : class;

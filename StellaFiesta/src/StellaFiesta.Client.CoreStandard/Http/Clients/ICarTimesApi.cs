@@ -9,8 +9,8 @@ namespace StellaFiesta.Client.CoreStandard
     {
         Task<List<CarBooking>> GetCarTimesAsync();
 
-        Task<bool> SendBookingAsync(CarBooking booking);
+        Task<bool> MakingBookingAsync(CarBooking booking);
 
-        Task<bool> RemoveBookingAsync(CarBooking booking);
+        Task<bool> RemoveBookingAsync(int id);
     }
 }

@@ -70,7 +70,7 @@ namespace StellaFiesta.Client.CoreStandard
                     BookingEndDate = bookingDate.AddDays(1),
                 };
 
-                await carTimesApi.SendBookingAsync(carBooking);
+                await carTimesApi.MakingBookingAsync(carBooking);
             }
         }
     }

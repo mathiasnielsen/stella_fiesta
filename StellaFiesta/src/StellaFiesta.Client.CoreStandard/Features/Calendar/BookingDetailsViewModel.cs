@@ -43,7 +43,7 @@ namespace StellaFiesta.Client.CoreStandard
             using (LoadingManager.CreateLoadingScope())
             {
                 var user = await authenticationService.GetProfileAsync();
-                await carTimesApi.RemoveBookingAsync(booking);
+                await carTimesApi.RemoveBookingAsync(booking.ID);
             }
         }
     }

@@ -10,7 +10,9 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public class CarTimesApi : ICarTimesApi
     {
-        private const string BaseUrl = "http://stellafiesta.azurewebsites.net/api/carbooking/";
+        private const string LocalBaseUrl = "http://localhost:32264/api/carbooking/";
+        private const string AzureBaseUrl = "http://stellafiesta.azurewebsites.net/api/carbooking/";
+        private const string BaseUrl = LocalBaseUrl;
         private const string MediaType = "application/json";
 
         private readonly IHttpRequestExecutor executor;
@@ -33,12 +35,12 @@ namespace StellaFiesta.Client.CoreStandard
             }
         }
 
-        public async Task<bool> SendBookingAsync(CarBooking booking)
+        public async Task<bool> MakingBookingAsync(CarBooking booking)
         {
             try
             {
-                var result = await executor.Post<CarBooking, CarBooking>(BaseUrl + "bookings", booking);
-                return result != null;
+                var didBook = await executor.Post(BaseUrl + "bookings", booking);
+                return didBook;
             }
             catch (Exception ex)
             {
@@ -49,12 +51,12 @@ namespace StellaFiesta.Client.CoreStandard
             return false;
         }
 
-        public async Task<bool> RemoveBookingAsync(CarBooking booking)
+        public async Task<bool> RemoveBookingAsync(int id)
         {
             try
             {
-                var result = await executor.Post<CarBooking, CarBooking>(BaseUrl + "bookings", booking);
-                return result != null;
+                var didRemoveBooking = await executor.DeleteAsync($"{BaseUrl}bookings/{id}");
+                return didRemoveBooking;
             }
             catch (Exception ex)
             {

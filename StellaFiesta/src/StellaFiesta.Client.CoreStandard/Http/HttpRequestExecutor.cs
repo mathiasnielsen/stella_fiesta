@@ -32,8 +32,20 @@ namespace StellaFiesta.Client.CoreStandard
             return await HandleResponse<TResponse>(response);
         }
 
+        public async Task<bool> Post<TContent>(string url, TContent bodyParameter)
+            where TContent : class
+        {
+            var client = httpClientFactory.CreateHttpClient();
+            var jsonContent = CreateJsonContent<TContent>(bodyParameter);
+            var response = await client.PostAsync(url, jsonContent);
+            var contentAsString = await response.Content.ReadAsStringAsync();
+            var didPost = JsonConvert.DeserializeObject<bool>(contentAsString);
+            return response.IsSuccessStatusCode && didPost;
+        }
+
         public async Task<TResponse> Post<TContent, TResponse>(string url, TContent bodyParameter)
-            where TResponse : class where TContent : class
+            where TResponse : class
+            where TContent : class
         {
             var client = httpClientFactory.CreateHttpClient();
             var jsonContent = CreateJsonContent<TContent>(bodyParameter);
@@ -41,12 +53,13 @@ namespace StellaFiesta.Client.CoreStandard
             return await HandleResponse<TResponse>(response);
         }
 
-        public async Task<TResponse> Delete<TContent, TResponse>(string url, TContent bodyParameter)
-            where TResponse : class where TContent : class
+        public async Task<bool> DeleteAsync(string url)
         {
             var client = httpClientFactory.CreateHttpClient();
             var response = await client.DeleteAsync(url);
-            return await HandleResponse<TResponse>(response);
+            var contentAsString = await response.Content.ReadAsStringAsync();
+            var didDelete = JsonConvert.DeserializeObject<bool>(contentAsString);
+            return response.IsSuccessStatusCode && didDelete;
         }
 
         public async Task<TResponse> Get<TResponse>(string url)
