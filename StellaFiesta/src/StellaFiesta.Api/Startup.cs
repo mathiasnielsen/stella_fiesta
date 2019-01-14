@@ -38,9 +38,13 @@ namespace StellaFiesta.Api
 #endif
 
             services.AddDbContext<StellaFiestaContext>(opt =>
-                opt.UseSqlServer(connectionString));
+            {
+                opt.UseSqlServer(connectionString);
+            });
+
 
             services.AddMvc();
+            services.AddSession();
 
             ////services.AddMvc()
             ////.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -56,6 +60,7 @@ namespace StellaFiesta.Api
             }
 
             app.UseMvc();
+            app.UseSession();
         }
     }
 }

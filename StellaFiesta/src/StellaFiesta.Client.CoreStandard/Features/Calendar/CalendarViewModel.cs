@@ -96,9 +96,17 @@ namespace StellaFiesta.Client.CoreStandard
             carBookings = await carTimesApi.GetCarTimesAsync();
         }
 
-        private void BookingDateSelected(CarDayViewModel date)
+        private void BookingDateSelected(CarDayViewModel bookingOrDayToBook)
         {
-            navigationService.NavigateToBooking(date.Day);
+            if (bookingOrDayToBook.IsBooked)
+            {
+                var booking = carBookings.FirstOrDefault(x => x.ID == bookingOrDayToBook.BookingId);
+                navigationService.NavigateToBookingDetails(booking);
+            }
+            else
+            {
+                navigationService.NavigateToBooking(bookingOrDayToBook.Day);
+            }
         }
 
         private void MonthSelected(DateTime dateInMonth)
@@ -126,6 +134,7 @@ namespace StellaFiesta.Client.CoreStandard
                 if (booking != null)
                 {
                     carDay.IsBooked = true;
+                    carDay.BookingId = booking.ID;
                 }
             }
 

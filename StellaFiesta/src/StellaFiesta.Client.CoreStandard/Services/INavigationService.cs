@@ -1,4 +1,5 @@
 ﻿using System;
+using StellaFiesta.Api;
 
 namespace StellaFiesta.Client.Core
 {
@@ -19,5 +20,7 @@ namespace StellaFiesta.Client.Core
         void NavigateToPlayground();
 
         void NavigateToBooking(DateTime dateTime);
+
+        void NavigateToBookingDetails(CarBooking carBooking);
     }
 }

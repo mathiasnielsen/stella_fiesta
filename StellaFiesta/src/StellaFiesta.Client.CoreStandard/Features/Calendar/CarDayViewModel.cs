@@ -1,4 +1,5 @@
 ﻿using System;
+using StellaFiesta.Api;
 
 namespace StellaFiesta.Client.CoreStandard
 {
@@ -53,5 +54,7 @@ namespace StellaFiesta.Client.CoreStandard
             get { return isValidBookingDate; }
             set { Set(ref isValidBookingDate, value); }
         }
+
+        public int BookingId { get; set; }
     }
 }

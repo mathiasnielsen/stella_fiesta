@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using StellaFiesta.Api;
 using StellaFiesta.Client.Core;
 using StellaFiesta.Client.CoreStandard;
 using StellaFiesta.Client.Features.Account;
@@ -16,6 +18,7 @@ namespace StellaFiesta.Client
             Configure(nameof(AboutView), typeof(AboutView));
             Configure(nameof(CalendarView), typeof(CalendarView));
             Configure(nameof(BookingView), typeof(BookingView));
+            Configure(nameof(BookingDetailsView), typeof(BookingDetailsView));
             Configure(nameof(SignInView), typeof(SignInView));
             Configure(nameof(ProfileView), typeof(ProfileView));
             Configure(nameof(PlaygroundView), typeof(PlaygroundView));
@@ -60,6 +63,17 @@ namespace StellaFiesta.Client
             };
 
             NavigateTo(nameof(BookingView), parms);
+        }
+
+        public void NavigateToBookingDetails(CarBooking carBooking)
+        {
+            var carBookingAsJson = JsonConvert.SerializeObject(carBooking);
+            var parms = new Dictionary<string, string>()
+            {
+                {  BookingDetailsViewModel.BookingParameterKey, carBookingAsJson }
+            };
+
+            NavigateTo(nameof(BookingDetailsView), parms);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 
 namespace StellaFiesta.Api.Controllers
 {
@@ -16,6 +17,23 @@ namespace StellaFiesta.Api.Controllers
         public CarTimesController(StellaFiestaContext context)
         {
             _context = context;
+        }
+
+        [HttpGet("ping")]
+        public string PingAsync()
+        {
+            try
+            {
+                // Requires: using Microsoft.AspNetCore.Http;
+                var dateTimeInString = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+                HttpContext.Session.SetString("MyTimeStamp", dateTimeInString);
+            }
+            catch (Exception ex)
+            {
+            }
+
+            var timeStamp = HttpContext.Session.GetString("MyTimeStamp");
+            return $"You pinged me! {timeStamp}";
         }
 
         // GET api/values
