@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Api", "src\StellaFiesta.Api\StellaFiesta.Api.csproj", "{C30A32FC-2C6F-459B-8FC3-1FB732C2B452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Api.Tests", "src\StellaFiesta.Api.Tests\StellaFiesta.Api.Tests.csproj", "{7F78B66D-307A-40C8-969A-F0CF06605FE8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C30A32FC-2C6F-459B-8FC3-1FB732C2B452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C30A32FC-2C6F-459B-8FC3-1FB732C2B452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C30A32FC-2C6F-459B-8FC3-1FB732C2B452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C30A32FC-2C6F-459B-8FC3-1FB732C2B452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F78B66D-307A-40C8-969A-F0CF06605FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F78B66D-307A-40C8-969A-F0CF06605FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F78B66D-307A-40C8-969A-F0CF06605FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F78B66D-307A-40C8-969A-F0CF06605FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -43,16 +43,24 @@ namespace StellaFiesta.Api.Tests
             var controller = new CarTimesController(context);
 
             var carBooking = new CarBooking();
-            carBooking.BookerName = "Mathias";
+            carBooking.BookerName = "Mathias " + Guid.NewGuid();
             carBooking.BookingStartDate = DateTime.Now;
             carBooking.BookingEndDate = DateTime.Now.AddDays(1);
 
             var addResult = await controller.AddBookingAsync(carBooking);
-            var removeResult = await controller.RemoveBookingAsync(carBooking);
+            var allBookings = controller.GetAllBookings();
+            var carBookingId = allBookings.FirstOrDefault(x => x.BookerName == carBooking.BookerName).ID;
+            var removeResult = await controller.RemoveBookingAsync(carBookingId);
+            var updatedAllBookings = controller.GetAllBookings();
+            var oldBookingWhichShouldBeNull = updatedAllBookings.FirstOrDefault(x => x.BookerName == carBooking.BookerName);
             IEnumerable<CarBooking> bookings = controller.GetAllBookings();
 
             var hasBooking = bookings.ToList().Exists(x => x.BookingStartDate == carBooking.BookingStartDate);
-            Assert.True(hasBooking);
+
+            Assert.True(addResult); 
+            Assert.True(carBookingId >= 0);
+            Assert.True(removeResult);
+            Assert.True(oldBookingWhichShouldBeNull == null);
         }
 #pragma warning restore CS1701 // Assuming assembly reference matches identity
     }
