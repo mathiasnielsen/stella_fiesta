@@ -17,9 +17,15 @@ namespace StellaFiesta.Client.CoreStandard
 
         Task<bool> DeleteAsync(string url);
 
+        /// <summary>
+        /// Get class objects
+        /// </summary>
         Task<TResponse> Get<TResponse>(string url)
             where TResponse : class;
-
+           
+        /// <summary>
+        /// Use this to retrieve string data.
+        /// </summary>
         Task<string> GetContent(string url);
     }
 }

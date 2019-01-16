@@ -1,34 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using StellaFiesta.Api;
 
 namespace StellaFiesta.Client.CoreStandard
 {
-    public class CarTimesApi : ICarTimesApi
+    public class CarTimesApi : ApiBase, ICarTimesApi
     {
-        private const string LocalBaseUrl = "http://localhost:32264/api/carbooking/";
-        private const string AzureBaseUrl = "http://stellafiesta.azurewebsites.net/api/carbooking/";
-        private const string BaseUrl = LocalBaseUrl;
-        private const string MediaType = "application/json";
-
-        private readonly IHttpRequestExecutor executor;
+        private string route => $"{BaseUrl}/carbooking";
 
         public CarTimesApi(IHttpClientFactory httpClientFactory)
+            : base(httpClientFactory)
         {
-            executor = new HttpRequestExecutor(httpClientFactory);
         }
 
         public async Task<List<CarBooking>> GetCarTimesAsync()
         {
             try
             {
-                var carTimes = await executor.Get<List<CarBooking>>(BaseUrl + "bookings");
-                return carTimes;
+                var url = $"{route}/bookings";
+                var carTimes = await Executor.Get<IEnumerable<CarBooking>>(url);
+                return carTimes.ToList();
             }
             catch (Exception ex)
             {
-                throw new Exception("Failed getting cartimes, ex: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("Failed getting cartimes, ex: " + ex.Message);
+                throw;
             }
         }
 
@@ -36,7 +34,8 @@ namespace StellaFiesta.Client.CoreStandard
         {
             try
             {
-                var didBook = await executor.Post(BaseUrl + "bookings", booking);
+                var url = $"{route}/bookings";
+                var didBook = await Executor.Post(url, booking);
                 return didBook;
             }
             catch (Exception ex)
@@ -52,7 +51,8 @@ namespace StellaFiesta.Client.CoreStandard
         {
             try
             {
-                var didRemoveBooking = await executor.DeleteAsync($"{BaseUrl}bookings/{id}");
+                var url = $"{route}/bookings/{id}";
+                var didRemoveBooking = await Executor.DeleteAsync(url);
                 return didRemoveBooking;
             }
             catch (Exception ex)

@@ -1,12 +1,6 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Api", "src\StellaFiesta.Api\StellaFiesta.Api.csproj", "{F11013E3-81E1-42EE-B3BE-F2201BBD0554}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{720CFE8B-6B23-4B8B-9BB4-A1909F3ED46C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Api.Tests", "src\StellaFiesta.Api.Tests\StellaFiesta.Api.Tests.csproj", "{D18D1B04-B852-4B92-B752-45FF21260627}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{87574C33-B8B4-4440-9FE9-E067AF849A79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Client.Android", "src\StellaFiesta.Client.Android\StellaFiesta.Client.Android.csproj", "{B775B18F-CE9E-4D33-BC0B-175D134713FE}"
@@ -37,38 +31,6 @@ Global
 		AppStore|iPhone = AppStore|iPhone
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Release|iPhone.Build.0 = Release|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554}.AppStore|iPhone.Build.0 = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Release|iPhone.Build.0 = Release|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Ad-Hoc|iPhone.ActiveCfg = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.Ad-Hoc|iPhone.Build.0 = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.AppStore|iPhone.ActiveCfg = Debug|Any CPU
-		{D18D1B04-B852-4B92-B752-45FF21260627}.AppStore|iPhone.Build.0 = Debug|Any CPU
 		{B775B18F-CE9E-4D33-BC0B-175D134713FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B775B18F-CE9E-4D33-BC0B-175D134713FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B775B18F-CE9E-4D33-BC0B-175D134713FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -167,8 +129,6 @@ Global
 		{E566C34C-26AA-4BC8-8F7F-058FB0208CCB}.AppStore|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{F11013E3-81E1-42EE-B3BE-F2201BBD0554} = {720CFE8B-6B23-4B8B-9BB4-A1909F3ED46C}
-		{D18D1B04-B852-4B92-B752-45FF21260627} = {720CFE8B-6B23-4B8B-9BB4-A1909F3ED46C}
 		{B775B18F-CE9E-4D33-BC0B-175D134713FE} = {87574C33-B8B4-4440-9FE9-E067AF849A79}
 		{85C1CB64-34FC-4D3C-B709-8373C8C651D5} = {87574C33-B8B4-4440-9FE9-E067AF849A79}
 		{92DFC310-E3BF-49FC-B2EB-04BC965E7A7B} = {87574C33-B8B4-4440-9FE9-E067AF849A79}

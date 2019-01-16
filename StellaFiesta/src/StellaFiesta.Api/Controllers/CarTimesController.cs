@@ -4,14 +4,12 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
 
 namespace StellaFiesta.Api.Controllers
 {
     [Route("api/carbooking")]
-    public class CarTimesController : Controller
+    public class CarTimesController : ControllerBase
     {
-#pragma warning disable CS1701 // Assuming assembly reference matches identity
         private readonly StellaFiestaContext _context;
 
         public CarTimesController(StellaFiestaContext context)
@@ -73,6 +71,5 @@ namespace StellaFiesta.Api.Controllers
                 throw ex;
             }
         }
-#pragma warning restore CS1701 // Assuming assembly reference matches identity
     }
 }

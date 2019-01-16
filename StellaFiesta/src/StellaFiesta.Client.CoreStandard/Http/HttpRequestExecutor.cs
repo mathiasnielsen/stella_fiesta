@@ -66,7 +66,7 @@ namespace StellaFiesta.Client.CoreStandard
             where TResponse : class
         {
             var client = httpClientFactory.CreateHttpClient();
-            HttpResponseMessage response = await client.GetAsync(url);
+            var response = await client.GetAsync(url);
             return await HandleResponse<TResponse>(response);
         }
 
@@ -114,8 +114,9 @@ namespace StellaFiesta.Client.CoreStandard
                     return content;
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine("Could not handle the response, ex: " + ex.Message);
                 throw;
             }
 
