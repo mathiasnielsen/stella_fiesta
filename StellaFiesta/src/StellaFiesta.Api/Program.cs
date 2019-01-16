@@ -11,6 +11,9 @@ namespace StellaFiesta.Api
             BuildWebHost(args).Run();
         }
 
+        // TODO:
+        // https://docs.microsoft.com/da-dk/aspnet/core/host-and-deploy/iis/troubleshoot?view=aspnetcore-2.2
+
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                     ////.ConfigureAppConfiguration((context, config) => SetupConfig(context, config))
