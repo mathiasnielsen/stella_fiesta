@@ -19,23 +19,6 @@ namespace StellaFiesta.Api.Controllers
             _context = context;
         }
 
-        [HttpGet("ping")]
-        public string PingAsync()
-        {
-            try
-            {
-                // Requires: using Microsoft.AspNetCore.Http;
-                var dateTimeInString = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
-                HttpContext.Session.SetString("MyTimeStamp", dateTimeInString);
-            }
-            catch (Exception ex)
-            {
-            }
-
-            var timeStamp = HttpContext.Session.GetString("MyTimeStamp");
-            return $"You pinged me! {timeStamp}";
-        }
-
         // GET api/values
         [HttpGet("bookings")]
         public IEnumerable<CarBooking> GetAllBookings()

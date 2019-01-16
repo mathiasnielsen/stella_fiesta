@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace StellaFiesta.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/persons")]
     public class PersonsController : Controller
     {
         private readonly StellaFiestaContext _context;
@@ -15,10 +15,10 @@ namespace StellaFiesta.Api.Controllers
             _context = context;
         }
 
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("persons")]
+        public IEnumerable<string> GetPersons()
         {
+
             var allNames = _context.Persons.Select(x => x.LastName).ToList();
             return allNames;
         }
