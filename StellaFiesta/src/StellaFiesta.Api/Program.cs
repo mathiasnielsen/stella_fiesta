@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 namespace StellaFiesta.Api
 {
@@ -17,8 +18,15 @@ namespace StellaFiesta.Api
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                     ////.ConfigureAppConfiguration((context, config) => SetupConfig(context, config))
+                    ////.ConfigureLogging(ConfigLogging)
                     .UseStartup<Startup>()
                     .Build();
+
+        private static void ConfigLogging(WebHostBuilderContext hostingContext, ILoggingBuilder logging)
+        {
+            logging.ClearProviders();
+            logging.AddConsole();
+        }
 
         private static void SetupConfig(WebHostBuilderContext context, IConfigurationBuilder config)
         {

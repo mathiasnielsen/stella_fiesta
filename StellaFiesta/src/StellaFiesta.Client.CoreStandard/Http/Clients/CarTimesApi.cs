@@ -34,7 +34,7 @@ namespace StellaFiesta.Client.CoreStandard
         {
             try
             {
-                var url = $"{route}/bookings";
+                var url = $"{route}/makebooking";
                 var didBook = await Executor.Post(url, booking);
                 return didBook;
             }

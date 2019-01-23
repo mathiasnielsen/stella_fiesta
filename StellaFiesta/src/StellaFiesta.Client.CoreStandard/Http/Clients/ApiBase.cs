@@ -3,7 +3,7 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public abstract class ApiBase
     {
-        private const string ApiBaseUrl = "http://stellafiesta.azurewebsites.net/api";
+        private const string ApiBaseUrl = "https://stellafiesta.azurewebsites.net/api";
         private const string LocalBaseUrl = "http://localhost:32264/api";
 
         protected ApiBase(IHttpClientFactory httpClientFactory)
@@ -11,7 +11,7 @@ namespace StellaFiesta.Client.CoreStandard
             Executor = new HttpRequestExecutor(httpClientFactory);
         }
 
-        protected string BaseUrl => LocalBaseUrl;
+        protected string BaseUrl => ApiBaseUrl;
 
         protected string MediaType => "application/json";
 

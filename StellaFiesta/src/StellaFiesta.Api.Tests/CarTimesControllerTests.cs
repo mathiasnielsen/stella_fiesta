@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using StellaFiesta.Api.Controllers;
 using Xunit;
 
@@ -10,8 +11,9 @@ namespace StellaFiesta.Api.Tests
     public class CarTimesControllerTests
     {
 #pragma warning disable CS1701 // Assuming assembly reference matches identity
-        [Fact]
-        public async void CarTimesControllerTests_AddBooking()
+        private readonly CarTimesController _carTimesController;
+
+        public CarTimesControllerTests()
         {
             var connectionString = "Server=tcp:quickstart.database.windows.net,1433;Initial Catalog=StellaFiestaDB;Persist Security Info=False;User ID=mathias;Password=Stella4ever;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
@@ -20,44 +22,45 @@ namespace StellaFiesta.Api.Tests
             .Options;
 
             var context = new StellaFiestaContext(dbOption);
-            var controller = new CarTimesController(context);
+            var loggerFactory = new LoggerFactory();
+            var logger = loggerFactory.CreateLogger<CarTimesController>();
+            _carTimesController = new CarTimesController(context, logger);
+        }
 
-            var carBooking = new CarBooking();
-            carBooking.BookerName = "Mathias";
-            carBooking.BookingStartDate = DateTime.Now;
-            carBooking.BookingEndDate = DateTime.Now.AddDays(1);
+        [Fact]
+        public async void CarTimesControllerTests_AddBooking()
+        {
+            var carBooking = new CarBooking
+            {
+                BookerName = "Mathias",
+                BookingStartDate = DateTime.Now,
+                BookingEndDate = DateTime.Now.AddDays(1)
+            };
 
-            await controller.AddBookingAsync(carBooking);
+            await _carTimesController.AddBookingAsync(carBooking);
         }
 
         [Fact]
         public async void CarTimesControllerTests_AddAndRemoveBooking()
         {
-            var connectionString = "Server=tcp:quickstart.database.windows.net,1433;Initial Catalog=StellaFiestaDB;Persist Security Info=False;User ID=mathias;Password=Stella4ever;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            var carBooking = new CarBooking
+            {
+                BookerName = "Mathias " + Guid.NewGuid(),
+                BookingStartDate = DateTime.Now,
+                BookingEndDate = DateTime.Now.AddDays(1)
+            };
 
-            var dbOption = new DbContextOptionsBuilder<StellaFiestaContext>()
-            .UseSqlServer(connectionString)
-            .Options;
-
-            var context = new StellaFiestaContext(dbOption);
-            var controller = new CarTimesController(context);
-
-            var carBooking = new CarBooking();
-            carBooking.BookerName = "Mathias " + Guid.NewGuid();
-            carBooking.BookingStartDate = DateTime.Now;
-            carBooking.BookingEndDate = DateTime.Now.AddDays(1);
-
-            var addResult = await controller.AddBookingAsync(carBooking);
-            var allBookings = controller.GetAllBookings();
+            var addResult = await _carTimesController.AddBookingAsync(carBooking);
+            var allBookings = _carTimesController.GetAllBookings();
             var carBookingId = allBookings.FirstOrDefault(x => x.BookerName == carBooking.BookerName).ID;
-            var removeResult = await controller.RemoveBookingAsync(carBookingId);
-            var updatedAllBookings = controller.GetAllBookings();
+            var removeResult = await _carTimesController.RemoveBookingAsync(carBookingId);
+            var updatedAllBookings = _carTimesController.GetAllBookings();
             var oldBookingWhichShouldBeNull = updatedAllBookings.FirstOrDefault(x => x.BookerName == carBooking.BookerName);
-            IEnumerable<CarBooking> bookings = controller.GetAllBookings();
+            IEnumerable<CarBooking> bookings = _carTimesController.GetAllBookings();
 
             var hasBooking = bookings.ToList().Exists(x => x.BookingStartDate == carBooking.BookingStartDate);
 
-            Assert.True(addResult); 
+            Assert.True(addResult);
             Assert.True(carBookingId >= 0);
             Assert.True(removeResult);
             Assert.True(oldBookingWhichShouldBeNull == null);

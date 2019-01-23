@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace StellaFiesta.Api
 {
@@ -9,9 +11,22 @@ namespace StellaFiesta.Api
     {
         private const string StartTimeStamp = nameof(StartTimeStamp);
 
+        private readonly ILogger<CommonController> _logger;
+
+        public CommonController(ILogger<CommonController> logger)
+        {
+            _logger = logger;
+        }
+
         [HttpGet]
         public string Get()
         {
+            // This, we are able to find in Portal.Azure
+            _logger.LogInformation($"This is a log that i made... but can you find me?");
+
+            // This is nope... 
+            Trace.WriteLine("Is this in application insights?");
+
             // This is called when the server starts.
             return "It is up and running";
         }
