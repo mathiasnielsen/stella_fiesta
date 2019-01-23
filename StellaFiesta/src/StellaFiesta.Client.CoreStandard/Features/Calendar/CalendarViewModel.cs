@@ -17,7 +17,7 @@ namespace StellaFiesta.Client.CoreStandard
         private List<CarDayViewModel> carDays;
         private List<DateTime> supportedYears;
         private List<DateTime> allMonths;
-        private List<CarBooking> carBookings;
+        private List<CarBooking> bookings;
 
         public CalendarViewModel(
             ICarTimesApi carTimesApi,
@@ -73,7 +73,7 @@ namespace StellaFiesta.Client.CoreStandard
             }
         }
 
-        private List<CarDayViewModel> GetCarDays(DateTime selectedDate)
+        private List<CarDayViewModel> GetDaysInMonth(DateTime selectedDate)
         {
             var daysInMonth = CalendarInfoProvider.GetDaysInMonth(selectedDate);
             var tempCarDays = new List<CarDayViewModel>();
@@ -93,14 +93,14 @@ namespace StellaFiesta.Client.CoreStandard
 
         private async Task RetrieveCarTimesAsync()
         {
-            carBookings = await carTimesApi.GetCarTimesAsync();
+            bookings = await carTimesApi.GetCarTimesAsync();
         }
 
         private void BookingDateSelected(CarDayViewModel bookingOrDayToBook)
         {
             if (bookingOrDayToBook.IsBooked)
             {
-                var booking = carBookings.FirstOrDefault(x => x.ID == bookingOrDayToBook.BookingId);
+                var booking = bookings.FirstOrDefault(x => x.ID == bookingOrDayToBook.BookingId);
                 navigationService.NavigateToBookingDetails(booking);
             }
             else
@@ -116,29 +116,37 @@ namespace StellaFiesta.Client.CoreStandard
 
         private void UpdateCarDays(DateTime date)
         {
-            var tempCarDays = GetCarDays(date);
-            foreach (var carDay in tempCarDays)
+            var daysInMonth = GetDaysInMonth(date);
+            foreach (var dayInMonth in daysInMonth)
             {
-                var booking = carBookings?.FirstOrDefault(b =>
+                var potentialBooking = bookings?.FirstOrDefault(booking =>
                 {
-                    if (b.BookingStartDate == null || b.BookingEndDate == null)
+                    if (booking.BookingStartDate == null || booking.BookingEndDate == null)
                     {
                         return false;
                     }
 
-                    return
-                        b.BookingStartDate.Value.Ticks < carDay.Day.Ticks
-                        && b.BookingEndDate.Value.Ticks > carDay.Day.Ticks;
+                    var isCarDayBetweenBooking = booking.BookingStartDate <= dayInMonth.Day && booking.BookingEndDate >= dayInMonth.Day;
+                    if (isCarDayBetweenBooking)
+                    {
+                    }
+
+                    return isCarDayBetweenBooking;
                 });
 
-                if (booking != null)
+                if (potentialBooking != null)
                 {
-                    carDay.IsBooked = true;
-                    carDay.BookingId = booking.ID;
+                    dayInMonth.IsBooked = true;
+                    dayInMonth.BookingId = potentialBooking.ID;
+                }
+                else
+                {
+                    dayInMonth.IsBooked = false;
+                    dayInMonth.BookingId = 0;
                 }
             }
 
-            CarDays = tempCarDays;
+            CarDays = daysInMonth;
         }
     }
 }
