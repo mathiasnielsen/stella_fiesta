@@ -41,7 +41,6 @@ namespace StellaFiesta.Client.CoreStandard
             catch (Exception ex)
             {
                 System.Diagnostics.Debug.WriteLine("Failed to send booking, ex: " + ex.Message);
-                ////throw new Exception("Failed sending booking, ex: " + ex.Message);
             }
 
             return false;
@@ -57,8 +56,7 @@ namespace StellaFiesta.Client.CoreStandard
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Failed to send booking, ex: " + ex.Message);
-                ////throw new Exception("Failed sending booking, ex: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("Failed to remove booking, ex: " + ex.Message);
             }
 
             return false;

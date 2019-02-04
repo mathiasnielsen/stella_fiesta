@@ -3,7 +3,7 @@ using StellaFiesta.Api;
 
 namespace StellaFiesta.Client.CoreStandard
 {
-    public class CarDayViewModel : ViewModelBase
+    public class BookingDayViewModel : ViewModelBase
     {
         private string name;
         private DateTime day;
@@ -11,7 +11,7 @@ namespace StellaFiesta.Client.CoreStandard
         private bool isValidBookingDate;
         private string imageUrl;
 
-        public CarDayViewModel(
+        public BookingDayViewModel(
             string name,
             DateTime day,
             bool isBooked,

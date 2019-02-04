@@ -10,8 +10,8 @@ namespace StellaFiesta.Api
 
         public string BookerName { get; set; }
 
-        public DateTime? BookingStartDate { get; set; }
+        public DateTime BookingStartDate { get; set; }
 
-        public DateTime? BookingEndDate { get; set; }
+        public DateTime BookingEndDate { get; set; }
     }
 }

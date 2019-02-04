@@ -11,13 +11,15 @@
         <ResourceDictionary>
             <cvt:EmbeddedImageConverter 
                 x:Key="irConverter"
-                ResolvingAssemblyType="{x:Type data:CarDayViewModel}" />
+                ResolvingAssemblyType="{x:Type data:BookingDayViewModel}" />
             <cvt:WeekDayToColorConverter 
                 x:Key="weekDayToColorConverter" />
             <cvt:DebugConverter 
                 x:Key="debugConverter" />
             <cvt:BookingStateToTextBoolConverter
                 x:Key="bookingStateToTextBoolConverter" />
+            <cvt:DateTimeToDayNumberConverter
+                x:Key="dateTimeToDayNumberConverter" />
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -48,6 +50,11 @@
                                     HeightRequest="48"
                                     Orientation="Horizontal"
                                     BackgroundColor="{Binding Day, Converter={StaticResource weekDayToColorConverter}}">
+                                    <Label
+                                        Text="{Binding Day, Converter={StaticResource dateTimeToDayNumberConverter}}"
+                                        LineBreakMode="TailTruncation"
+                                        WidthRequest="48"
+                                        HorizontalOptions="Start"/>
                                     <Label
                                         Text="{Binding Name}"
                                         LineBreakMode="TailTruncation"

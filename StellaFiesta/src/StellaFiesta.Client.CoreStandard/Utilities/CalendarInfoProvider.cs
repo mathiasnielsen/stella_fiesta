@@ -12,7 +12,7 @@ namespace StellaFiesta.Client.CoreStandard
             var daysInMonthCount = DateTime.DaysInMonth(dateTime.Year, dateTime.Month);
             for (int dayIndex = 0; dayIndex < daysInMonthCount; dayIndex++)
             {
-                var dayTime = new DateTime(dateTime.Year, dateTime.Month, dayIndex + 1);
+                var dayTime = new DateTime(dateTime.Year, dateTime.Month, dayIndex + 1, 12, 0, 0);
                 daysInMonth.Add(dayTime);
             }
 

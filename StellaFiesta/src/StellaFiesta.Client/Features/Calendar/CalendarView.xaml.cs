@@ -41,7 +41,7 @@ namespace StellaFiesta.Client.Features.Calendar
 
         private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var item = (CarDayViewModel)e.Item;
+            var item = (BookingDayViewModel)e.Item;
             ViewModel.BookingDateSelectedCommand.Execute(item);
         }
     }

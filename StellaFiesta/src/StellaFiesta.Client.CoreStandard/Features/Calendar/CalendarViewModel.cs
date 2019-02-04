@@ -14,7 +14,7 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly ICarTimesApi carTimesApi;
         private readonly INavigationService navigationService;
 
-        private List<CarDayViewModel> carDays;
+        private List<BookingDayViewModel> carDays;
         private List<DateTime> supportedYears;
         private List<DateTime> allMonths;
         private List<CarBooking> bookings;
@@ -27,14 +27,14 @@ namespace StellaFiesta.Client.CoreStandard
             this.navigationService = navigationService;
 
             MonthSelectedCommand = new RelayCommand<DateTime>(MonthSelected);
-            BookingDateSelectedCommand = new RelayCommand<CarDayViewModel>(BookingDateSelected);
+            BookingDateSelectedCommand = new RelayCommand<BookingDayViewModel>(BookingDateSelected);
         }
 
         public RelayCommand<DateTime> MonthSelectedCommand { get; }
 
-        public RelayCommand<CarDayViewModel> BookingDateSelectedCommand { get; }
+        public RelayCommand<BookingDayViewModel> BookingDateSelectedCommand { get; }
 
-        public List<CarDayViewModel> CarDays
+        public List<BookingDayViewModel> CarDays
         {
             get { return carDays; }
             set { Set(ref carDays, value); }
@@ -73,15 +73,15 @@ namespace StellaFiesta.Client.CoreStandard
             }
         }
 
-        private List<CarDayViewModel> GetDaysInMonth(DateTime selectedDate)
+        private List<BookingDayViewModel> GetDaysInMonth(DateTime selectedDate)
         {
             var daysInMonth = CalendarInfoProvider.GetDaysInMonth(selectedDate);
-            var tempCarDays = new List<CarDayViewModel>();
+            var tempCarDays = new List<BookingDayViewModel>();
             var currentDate = DateTime.Now.Date;
             foreach (var day in daysInMonth)
             {
                 tempCarDays.Add(
-                    new CarDayViewModel(
+                    new BookingDayViewModel(
                         day.DayOfWeek.ToString(),
                         day,
                         isBooked: false,
@@ -96,11 +96,11 @@ namespace StellaFiesta.Client.CoreStandard
             bookings = await carTimesApi.GetCarTimesAsync();
         }
 
-        private void BookingDateSelected(CarDayViewModel bookingOrDayToBook)
+        private void BookingDateSelected(BookingDayViewModel bookingOrDayToBook)
         {
             if (bookingOrDayToBook.IsBooked)
             {
-                var booking = bookings.FirstOrDefault(x => x.ID == bookingOrDayToBook.BookingId);
+                var booking = bookings.FirstOrDefault(x => x.BookingStartDate == bookingOrDayToBook.Day);
                 navigationService.NavigateToBookingDetails(booking);
             }
             else
@@ -119,25 +119,11 @@ namespace StellaFiesta.Client.CoreStandard
             var daysInMonth = GetDaysInMonth(date);
             foreach (var dayInMonth in daysInMonth)
             {
-                var potentialBooking = bookings?.FirstOrDefault(booking =>
-                {
-                    if (booking.BookingStartDate == null || booking.BookingEndDate == null)
-                    {
-                        return false;
-                    }
-
-                    var isCarDayBetweenBooking = booking.BookingStartDate <= dayInMonth.Day && booking.BookingEndDate >= dayInMonth.Day;
-                    if (isCarDayBetweenBooking)
-                    {
-                    }
-
-                    return isCarDayBetweenBooking;
-                });
-
-                if (potentialBooking != null)
+                var booking = bookings?.FirstOrDefault(x => x.BookingStartDate == dayInMonth.Day);
+                if (booking != null)
                 {
                     dayInMonth.IsBooked = true;
-                    dayInMonth.BookingId = potentialBooking.ID;
+                    dayInMonth.BookingId = booking.ID;
                 }
                 else
                 {
