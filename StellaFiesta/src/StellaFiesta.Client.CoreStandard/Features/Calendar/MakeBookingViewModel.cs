@@ -14,6 +14,7 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly ICarTimesApi carTimesApi;
         private readonly INavigationService navigationService;
         private readonly IAuthenticationService authenticationService;
+        private readonly IToastService toastService;
 
         private DateTime bookingDate;
         private string dateTitle;
@@ -21,11 +22,13 @@ namespace StellaFiesta.Client.CoreStandard
         public MakeBookingViewModel(
             INavigationService navigationService,
             ICarTimesApi carTimesApi,
-            IAuthenticationService authenticationService)
+            IAuthenticationService authenticationService,
+            IToastService toastService)
         {
             this.navigationService = navigationService;
             this.carTimesApi = carTimesApi;
             this.authenticationService = authenticationService;
+            this.toastService = toastService;
 
             MakeBookingCommand = new RelayCommand(MakeBooking);
         }
@@ -61,6 +64,14 @@ namespace StellaFiesta.Client.CoreStandard
                 };
 
                 var didMakeBooking = await carTimesApi.MakingBookingAsync(carBooking);
+                if (didMakeBooking)
+                {
+                    toastService.ShortAlert("Booking as been made");
+                }
+                else
+                {
+                    toastService.ShortAlert("Failed to make the booking");
+                }
             }
         }
     }

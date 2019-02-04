@@ -15,6 +15,7 @@ namespace StellaFiesta.Client.Droid
         private void Register(Context context)
         {
             App.Container.RegisterSingleton<IAuthenticationService, AuthenticationService>();
+            App.Container.RegisterSingleton<IToastService, ToastService>();
         }
     }
 }

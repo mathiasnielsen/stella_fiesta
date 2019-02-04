@@ -69,6 +69,7 @@
     <Compile Include="Renderers\SignInPageRenderer.cs" />
     <Compile Include="Setup.cs" />
     <Compile Include="Renderers\Transitions\TransitionNavigationPageRenderer.cs" />
+    <Compile Include="Services\ToastService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

@@ -102,6 +102,7 @@
     <Compile Include="Renderes\Pages\SignInPageRenderer.cs" />
     <Compile Include="Renderes\Pages\PlaygroundPageRenderer.cs" />
     <Compile Include="Renderes\Transitions\TransitionNavigationPageRenderer.cs" />
+    <Compile Include="Services\ToastService.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

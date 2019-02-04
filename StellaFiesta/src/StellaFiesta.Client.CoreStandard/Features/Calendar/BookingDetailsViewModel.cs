@@ -14,6 +14,7 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly INavigationService navigationService;
         private readonly IAuthenticationService authenticationService;
         private readonly IDialogService dialogService;
+        private readonly IToastService toastService;
 
         private CarBooking booking;
         private string dateTitle;
@@ -22,12 +23,14 @@ namespace StellaFiesta.Client.CoreStandard
             INavigationService navigationService,
             ICarTimesApi carTimesApi,
             IAuthenticationService authenticationService,
-            IDialogService dialogService)
+            IDialogService dialogService,
+            IToastService toastService)
         {
             this.navigationService = navigationService;
             this.carTimesApi = carTimesApi;
             this.authenticationService = authenticationService;
             this.dialogService = dialogService;
+            this.toastService = toastService;
 
             CancelBookingCommand = new RelayCommand(CancelBooking);
         }
@@ -60,6 +63,14 @@ namespace StellaFiesta.Client.CoreStandard
                 {
                     var user = await authenticationService.GetProfileAsync();
                     var didRemove = await carTimesApi.RemoveBookingAsync(booking.ID);
+                    if (didRemove)
+                    {
+                        toastService.ShortAlert("Booking as been cancelled");
+                    }
+                    else
+                    {
+                        toastService.ShortAlert("Failed to cancel the booking");
+                    }
                 }
             }
         }
