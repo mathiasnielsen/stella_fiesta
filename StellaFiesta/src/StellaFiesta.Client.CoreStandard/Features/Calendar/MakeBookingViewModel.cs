@@ -59,6 +59,7 @@ namespace StellaFiesta.Client.CoreStandard
                 var carBooking = new CarBooking()
                 {
                     BookerName = user.Name,
+                    BookerId = user.UserId,
                     BookingStartDate = bookingDate,
                     BookingEndDate = bookingDate.AddDays(1),
                 };

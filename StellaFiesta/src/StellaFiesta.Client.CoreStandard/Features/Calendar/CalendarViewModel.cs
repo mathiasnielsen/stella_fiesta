@@ -77,7 +77,7 @@ namespace StellaFiesta.Client.CoreStandard
                 // All bookings
                 await Task.WhenAll(RetrieveCarTimesAsync(), Task.Delay(MinimumTaskTimeInMs));
 
-                UpdateBookingDaysInMonthOfDay(DateTime.Now);
+                UpdateBookingDaysInMonthOfDay(CurrentDisplayedDate);
             }
         }
 

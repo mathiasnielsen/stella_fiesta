@@ -28,16 +28,25 @@ namespace StellaFiesta.Api.Tests
         }
 
         [Fact]
+        public void CarTimesControllerTests_GetBookings()
+        {
+            var bookings = _carTimesController.GetAllBookings();
+            Assert.True(bookings != null);
+        }
+
+        [Fact]
         public async void CarTimesControllerTests_AddBooking()
         {
             var carBooking = new CarBooking
             {
                 BookerName = "Mathias",
                 BookingStartDate = DateTime.Now,
-                BookingEndDate = DateTime.Now.AddDays(1)
+                BookingEndDate = DateTime.Now.AddDays(1),
+                BookerId = "1234",
             };
 
-            await _carTimesController.AddBookingAsync(carBooking);
+            var didBook = await _carTimesController.AddBookingAsync(carBooking);
+            Assert.True(didBook);
         }
 
         [Fact]
@@ -47,7 +56,8 @@ namespace StellaFiesta.Api.Tests
             {
                 BookerName = "Mathias " + Guid.NewGuid(),
                 BookingStartDate = DateTime.Now,
-                BookingEndDate = DateTime.Now.AddDays(1)
+                BookingEndDate = DateTime.Now.AddDays(1),
+                BookerId = "1234",
             };
 
             var addResult = await _carTimesController.AddBookingAsync(carBooking);

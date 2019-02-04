@@ -38,6 +38,8 @@ namespace StellaFiesta.Client.CoreStandard
             var client = httpClientFactory.CreateHttpClient();
             var jsonContent = CreateJsonContent<TContent>(bodyParameter);
             var response = await client.PostAsync(url, jsonContent);
+            response.EnsureSuccessStatusCode();
+
             var contentAsString = await response.Content.ReadAsStringAsync();
             var didPost = JsonConvert.DeserializeObject<bool>(contentAsString);
             return response.IsSuccessStatusCode && didPost;

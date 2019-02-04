@@ -18,6 +18,7 @@ namespace StellaFiesta.Client.CoreStandard
 
         private CarBooking booking;
         private string dateTitle;
+        private bool isBooker;
 
         public BookingDetailsViewModel(
             INavigationService navigationService,
@@ -43,7 +44,13 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref dateTitle, value); }
         }
 
-        public override Task OnViewInitialized(Dictionary<string, string> navigationParameters)
+        public bool IsBooker
+        {
+            get { return isBooker; }
+            set { Set(ref isBooker, value); }
+        }
+
+        public override async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
         {
             booking = NavigationParameterParser.JsonConvertParameter<CarBooking>(
                 navigationParameters[BookingParameterKey]);
@@ -51,7 +58,8 @@ namespace StellaFiesta.Client.CoreStandard
             var bookingTitle = DateTimeToStringHelper.GetTitleFromDate(booking.BookingStartDate);
             DateTitle = $"{bookingTitle}{System.Environment.NewLine}by {booking.BookerName}";
 
-            return base.OnViewInitialized(navigationParameters);
+            var user = await authenticationService.GetProfileAsync();
+            IsBooker = booking.BookerId == user.UserId;
         }
 
         private async void CancelBooking()
