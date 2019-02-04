@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using StellaFiesta.Client.CoreStandard;
 using Xamarin.Forms;
 
@@ -19,10 +21,10 @@ namespace StellaFiesta.Client.Features.Calendar
         {
             base.OnAppearing();
 
-            custom_date_picker.MinimumDate = DateTime.Now;
-            custom_date_picker.MaximumDate = DateTime.Now.AddYears(3);
+            date_picker.MinimumDate = DateTime.Now;
+            date_picker.MaximumDate = DateTime.Now.AddYears(1);
 
-            custom_date_picker.FinishedSelection += OnMonthSelected;
+            date_picker.DateSelected += OnDateSelected;
             date_list.ItemTapped += OnItemTapped;
         }
 
@@ -30,19 +32,32 @@ namespace StellaFiesta.Client.Features.Calendar
         {
             base.OnDisappearing();
 
-            custom_date_picker.FinishedSelection -= OnMonthSelected;
+            date_picker.DateSelected -= OnDateSelected;
             date_list.ItemTapped -= OnItemTapped;
         }
 
-        private void OnMonthSelected(object sender, DateTime e)
+        private void OnDateSelected(object sender, DateChangedEventArgs e)
         {
-            ViewModel.MonthSelectedCommand.Execute(e);
+            ViewModel.MonthSelectedCommand.Execute(e.NewDate);
+            ScrollToSelectedDate(e.NewDate);
         }
 
         private void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
             var item = (BookingDayViewModel)e.Item;
-            ViewModel.BookingDateSelectedCommand.Execute(item);
+            if (item.IsValidBookingDate)
+            {
+                ViewModel.BookingDateSelectedCommand.Execute(item);
+            }
+        }
+
+        private void ScrollToSelectedDate(DateTime date)
+        {
+            if (date_list.ItemsSource is List<BookingDayViewModel> bookings)
+            {
+                var item = bookings.FirstOrDefault(x => x.Day.Day == date.Day);
+                date_list.ScrollTo(item, ScrollToPosition.MakeVisible, true);
+            }
         }
     }
 }

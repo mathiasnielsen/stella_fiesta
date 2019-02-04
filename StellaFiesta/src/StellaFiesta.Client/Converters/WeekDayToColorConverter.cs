@@ -10,9 +10,16 @@ namespace StellaFiesta.Client.Converters
         {
             if (value is DateTime date)
             {
-                if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+                var isWeekendDay = date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+                var isPast = date.Date < DateTime.Now.Date;
+                if (isPast)
                 {
-                    return Color.Gray.MultiplyAlpha(0.2);
+                    return Color.Gray.MultiplyAlpha(0.8);
+                }
+
+                if (isWeekendDay)
+                {
+                    return Color.Gray.MultiplyAlpha(0.1);
                 }
             }
 

@@ -6,13 +6,12 @@
     xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
     xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions"
     x:Class="StellaFiesta.Client.Features.Common.HomeView"
-    Title="Home">
+    Title="Welcome to Stella">
     <ContentPage.Content>
         <Grid>
             <StackLayout
-                Orientation="Vertical">
-                <Label
-                    Text="Welcome to Stella"/>
+                Orientation="Vertical"
+                Padding="{StaticResource PageContentPadding}">
                 <abstractions:SvgImage
                     x:Name="profile_svgImage"
                     SvgPath=""

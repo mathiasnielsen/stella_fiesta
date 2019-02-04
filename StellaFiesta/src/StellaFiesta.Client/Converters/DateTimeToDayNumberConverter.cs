@@ -10,7 +10,7 @@ namespace StellaFiesta.Client.Converters
         {
             if (value is DateTime date)
             {
-                return date.Day;
+                return $"{date.Day}.";
             }
 
             throw new ArgumentException("Value is not of the type DateTime.");

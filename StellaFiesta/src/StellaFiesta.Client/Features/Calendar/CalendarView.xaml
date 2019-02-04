@@ -31,16 +31,15 @@
                 </Grid.RowDefinitions>
                 <ContentView
                     Padding="10, 10, 10, 10">
-                    <controls:CustomDatePicker
-                        x:Name="custom_date_picker"
-                        NumberOfComponents="2"/>
+                    <DatePicker
+                        x:Name="date_picker"/>
                 </ContentView>
                 <ListView
                     x:Name="date_list"
                     Grid.Row="1"
                     SelectionMode="None"
                     SeparatorVisibility="None"
-                    ItemsSource="{Binding CarDays, Converter={StaticResource debugConverter}}">
+                    ItemsSource="{Binding BookingDaysInMonth, Converter={StaticResource debugConverter}}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell
@@ -53,7 +52,8 @@
                                     <Label
                                         Text="{Binding Day, Converter={StaticResource dateTimeToDayNumberConverter}}"
                                         LineBreakMode="TailTruncation"
-                                        WidthRequest="48"
+                                        WidthRequest="24"
+                                        VerticalOptions="CenterAndExpand"
                                         HorizontalOptions="Start"/>
                                     <Label
                                         Text="{Binding Name}"

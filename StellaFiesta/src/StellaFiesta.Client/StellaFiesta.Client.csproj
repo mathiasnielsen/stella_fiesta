@@ -46,4 +46,18 @@
     <EmbeddedResource Include="Assets\Images\forden.jpg" />
     <EmbeddedResource Include="Assets\Images\tiger.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Colors %28copy%29.xaml.cs">
+      <DependentUpon>TextStyles.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\PageLayouts.xaml.cs">
+      <DependentUpon>PageLayouts.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\TextStyles.xaml.cs">
+      <DependentUpon>TextStyles.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
 </Project>

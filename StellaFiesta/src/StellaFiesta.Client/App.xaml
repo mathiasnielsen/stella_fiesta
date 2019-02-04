@@ -11,11 +11,9 @@
             <ResourceDictionary.MergedDictionaries>
                 <resources:PageTemplates/>
                 <resources:Colors/>
+                <resources:PageLayouts/>
+                <resources:TextStyles/>
             </ResourceDictionary.MergedDictionaries>
-
-            <Style TargetType="Label">
-                <Setter Property="FontSize" Value="12"/>
-            </Style>
             
         </ResourceDictionary>
         

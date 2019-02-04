@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="StellaFiesta.Client.Resources.TextStyles">
+    
+    <!-- Font sizes -->
+    <x:Double
+        x:Key="FontSizeTitle">18</x:Double>
+    <x:Double
+        x:Key="FontSizeNormal">12</x:Double>
+    
+    <!-- IMPLICIT STYLES -->
+    <Style
+        TargetType="Label">
+        <Setter
+            Property="FontSize"
+            Value="{StaticResource FontSizeNormal}" />
+    </Style>
+    
+    <!-- EXPLICIT STYLES -->
+   
+    <Style
+        TargetType="Label"
+        x:Key="TextBaseStyle">
+        <Setter
+            Property="FontSize"
+            Value="{StaticResource FontSizeNormal}" />
+        <Setter
+            Property="TextColor"
+            Value="Black" />
+    </Style>
+    
+    <Style
+        TargetType="Label"
+        x:Key="TitleStyle"
+        BasedOn="{StaticResource TextBaseStyle}">
+        <Setter
+            Property="FontSize"
+            Value="{StaticResource FontSizeTitle}" />
+    </Style>
+
+</ResourceDictionary>

@@ -14,10 +14,11 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly ICarTimesApi carTimesApi;
         private readonly INavigationService navigationService;
 
-        private List<BookingDayViewModel> carDays;
+        private List<BookingDayViewModel> bookingDaysInMonth;
         private List<DateTime> supportedYears;
         private List<DateTime> allMonths;
         private List<CarBooking> bookings;
+        private DateTime currentDisplayedDate;
 
         public CalendarViewModel(
             ICarTimesApi carTimesApi,
@@ -26,7 +27,7 @@ namespace StellaFiesta.Client.CoreStandard
             this.carTimesApi = carTimesApi;
             this.navigationService = navigationService;
 
-            MonthSelectedCommand = new RelayCommand<DateTime>(MonthSelected);
+            MonthSelectedCommand = new RelayCommand<DateTime>(DateSelected);
             BookingDateSelectedCommand = new RelayCommand<BookingDayViewModel>(BookingDateSelected);
         }
 
@@ -34,10 +35,10 @@ namespace StellaFiesta.Client.CoreStandard
 
         public RelayCommand<BookingDayViewModel> BookingDateSelectedCommand { get; }
 
-        public List<BookingDayViewModel> CarDays
+        public List<BookingDayViewModel> BookingDaysInMonth
         {
-            get { return carDays; }
-            set { Set(ref carDays, value); }
+            get { return bookingDaysInMonth; }
+            set { Set(ref bookingDaysInMonth, value); }
         }
 
         public List<DateTime> SupportedYears
@@ -52,9 +53,16 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref allMonths, value); }
         }
 
+        public DateTime CurrentDisplayedDate
+        {
+            get { return currentDisplayedDate; }
+            set { Set(ref currentDisplayedDate, value); }
+        }
+
         public override Task OnViewInitialized(Dictionary<string, string> navigationParameters)
         {
-            UpdateCarDays(DateTime.Now);
+            CurrentDisplayedDate = DateTime.Now;
+            UpdateBookingDaysInMonthOfDay(CurrentDisplayedDate);
 
             AllMonths = CalendarInfoProvider.GetAllMonths();
             SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
@@ -69,18 +77,18 @@ namespace StellaFiesta.Client.CoreStandard
                 // All bookings
                 await Task.WhenAll(RetrieveCarTimesAsync(), Task.Delay(MinimumTaskTimeInMs));
 
-                UpdateCarDays(DateTime.Now);
+                UpdateBookingDaysInMonthOfDay(DateTime.Now);
             }
         }
 
         private List<BookingDayViewModel> GetDaysInMonth(DateTime selectedDate)
         {
             var daysInMonth = CalendarInfoProvider.GetDaysInMonth(selectedDate);
-            var tempCarDays = new List<BookingDayViewModel>();
+            var tempBookingDays = new List<BookingDayViewModel>();
             var currentDate = DateTime.Now.Date;
             foreach (var day in daysInMonth)
             {
-                tempCarDays.Add(
+                tempBookingDays.Add(
                     new BookingDayViewModel(
                         day.DayOfWeek.ToString(),
                         day,
@@ -88,7 +96,7 @@ namespace StellaFiesta.Client.CoreStandard
                         imageUrl: "StellaFiesta.Client.CoreStandard.Images.nepal.png"));
             }
 
-            return tempCarDays;
+            return tempBookingDays;
         }
 
         private async Task RetrieveCarTimesAsync()
@@ -109,12 +117,13 @@ namespace StellaFiesta.Client.CoreStandard
             }
         }
 
-        private void MonthSelected(DateTime dateInMonth)
+        private void DateSelected(DateTime date)
         {
-            UpdateCarDays(dateInMonth);
+            CurrentDisplayedDate = date;
+            UpdateBookingDaysInMonthOfDay(CurrentDisplayedDate);
         }
 
-        private void UpdateCarDays(DateTime date)
+        private void UpdateBookingDaysInMonthOfDay(DateTime date)
         {
             var daysInMonth = GetDaysInMonth(date);
             foreach (var dayInMonth in daysInMonth)
@@ -132,7 +141,7 @@ namespace StellaFiesta.Client.CoreStandard
                 }
             }
 
-            CarDays = daysInMonth;
+            BookingDaysInMonth = daysInMonth;
         }
     }
 }
