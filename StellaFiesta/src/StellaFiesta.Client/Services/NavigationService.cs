@@ -59,7 +59,7 @@ namespace StellaFiesta.Client
             var dateTimeAsTicks = dateTime.Ticks.ToString();
             var parms = new Dictionary<string, string>()
             {
-                {  BookingViewModel.BookingDateInTicksParameterKey, dateTimeAsTicks }
+                {  MakeBookingViewModel.BookingDateInTicksParameterKey, dateTimeAsTicks }
             };
 
             NavigateTo(nameof(BookingView), parms);

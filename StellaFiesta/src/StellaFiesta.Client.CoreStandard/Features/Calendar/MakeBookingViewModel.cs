@@ -7,7 +7,7 @@ using StellaFiesta.Client.CoreStandard.Utilities;
 
 namespace StellaFiesta.Client.CoreStandard
 {
-    public class BookingViewModel : BindableViewModelBase
+    public class MakeBookingViewModel : BindableViewModelBase
     {
         public const string BookingDateInTicksParameterKey = nameof(BookingDateInTicksParameterKey);
 
@@ -18,7 +18,7 @@ namespace StellaFiesta.Client.CoreStandard
         private DateTime bookingDate;
         private string dateTitle;
 
-        public BookingViewModel(
+        public MakeBookingViewModel(
             INavigationService navigationService,
             ICarTimesApi carTimesApi,
             IAuthenticationService authenticationService)
@@ -27,10 +27,10 @@ namespace StellaFiesta.Client.CoreStandard
             this.carTimesApi = carTimesApi;
             this.authenticationService = authenticationService;
 
-            AcceptBookingCommand = new RelayCommand(AcceptBooking);
+            MakeBookingCommand = new RelayCommand(MakeBooking);
         }
 
-        public RelayCommand AcceptBookingCommand { get; }
+        public RelayCommand MakeBookingCommand { get; }
 
         public string DateTitle
         {
@@ -43,22 +43,12 @@ namespace StellaFiesta.Client.CoreStandard
             bookingDate = NavigationParameterParser.StringDateTicksToDateTime(
                  navigationParameters[BookingDateInTicksParameterKey]);
 
-            DateTitle = GetDateInText(bookingDate);
+            DateTitle = DateTimeToStringHelper.GetTitleFromDate(bookingDate);
 
             return base.OnViewInitialized(navigationParameters);
         }
 
-        private string GetDateInText(DateTime dateTime)
-        {
-            var day = dateTime.GetDayNumberInMonth();
-            var weekdayName = dateTime.GetWeekdayName();
-            var month = dateTime.GetMonthName();
-            var year = dateTime.GetYear();
-
-            return $"{day} ({weekdayName}), {month}, {year}";
-        }
-
-        private async void AcceptBooking()
+        private async void MakeBooking()
         {
             using (LoadingManager.CreateLoadingScope())
             {
@@ -70,7 +60,7 @@ namespace StellaFiesta.Client.CoreStandard
                     BookingEndDate = bookingDate.AddDays(1),
                 };
 
-                await carTimesApi.MakingBookingAsync(carBooking);
+                var didMakeBooking = await carTimesApi.MakingBookingAsync(carBooking);
             }
         }
     }

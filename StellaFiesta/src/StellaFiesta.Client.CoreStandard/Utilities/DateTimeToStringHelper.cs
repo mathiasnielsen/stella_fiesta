@@ -23,5 +23,15 @@ namespace StellaFiesta.Client.CoreStandard.Utilities
         {
             return dateTime.ToString("yyyy");
         }
+
+        public static string GetTitleFromDate(DateTime dateTime)
+        {
+            var day = dateTime.GetDayNumberInMonth();
+            var weekdayName = dateTime.GetWeekdayName();
+            var month = dateTime.GetMonthName();
+            var year = dateTime.GetYear();
+
+            return $"{day} ({weekdayName}), {month}, {year}";
+        }
     }
 }

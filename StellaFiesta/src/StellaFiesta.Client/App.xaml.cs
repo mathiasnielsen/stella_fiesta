@@ -68,6 +68,7 @@ namespace StellaFiesta.Client
             _container.RegisterSingleton<INavigationService, NavigationService>();
             _container.RegisterSingleton<ICarTimesApi, CarTimesApi>();
             _container.RegisterSingleton<IHttpClientFactory, HttpClientFactory>();
+            _container.RegisterSingleton<IDialogService, DialogService>();
         }
     }
 }

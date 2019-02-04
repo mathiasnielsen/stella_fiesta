@@ -5,7 +5,8 @@
     xmlns:local="clr-namespace:StellaFiesta.Client.Features.Calendar;assembly=StellaFiesta.Client"
     x:Class="StellaFiesta.Client.Features.Calendar.BookingDetailsView">
     <ContentPage.Content>
-        <Grid>
+        <Grid
+            Padding="{StaticResource PageContentHorizontalPadding}">
             <Grid.RowDefinitions>
                 <RowDefinition
                     Height="*"/>
@@ -14,11 +15,16 @@
             </Grid.RowDefinitions>
             
             <Label
-                Text="{Binding DateTitle}"/>
+                Style="{StaticResource TitleStyle}"
+                Margin="{StaticResource PageContentTopContentPadding}"
+                Text="{Binding DateTitle}"
+                HorizontalTextAlignment="Center"
+                HorizontalOptions="FillAndExpand"/>
             
             <Button
                 Grid.Row="1"
-                Text="Accept"
+                Text="Cancel booking"
+                TextColor="Red"
                 Command="{Binding CancelBookingCommand}"/>
             
         </Grid>

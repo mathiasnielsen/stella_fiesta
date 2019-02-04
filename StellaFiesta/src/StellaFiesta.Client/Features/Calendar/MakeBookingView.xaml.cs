@@ -3,7 +3,7 @@ using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.Features.Calendar
 {
-    public abstract class BookingViewBase : BindableViewBase<BookingViewModel>
+    public abstract class BookingViewBase : BindableViewBase<MakeBookingViewModel>
     {
     }
 
