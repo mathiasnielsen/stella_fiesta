@@ -103,6 +103,8 @@
     <Compile Include="Renderes\Pages\PlaygroundPageRenderer.cs" />
     <Compile Include="Renderes\Transitions\TransitionNavigationPageRenderer.cs" />
     <Compile Include="Services\ToastService.cs" />
+    <Compile Include="Services\Toasts\ToastViewController.cs" />
+    <Compile Include="Utitlities\AutoLayoutToolBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -178,6 +180,8 @@
     <Folder Include="Assets.xcassets\ic_facebook.imageset\" />
     <Folder Include="Renderes\Pages\" />
     <Folder Include="Renderes\Transitions\" />
+    <Folder Include="Services\Toasts\" />
+    <Folder Include="Utitlities\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="car.json" />

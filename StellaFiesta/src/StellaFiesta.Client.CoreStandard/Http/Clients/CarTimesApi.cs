@@ -16,11 +16,12 @@ namespace StellaFiesta.Client.CoreStandard
         {
         }
 
-        public async Task<ResultBlock<List<CarBooking>>> GetBookingsAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ResultBlock<List<CarBooking>>> GetBookingsAsync(
+            CancellationToken token = default(CancellationToken))
         {
             try
             {
-                cancellationToken.ThrowIfCancellationRequested();
+                token.ThrowIfCancellationRequested();
 
                 var url = $"{route}/bookings";
                 var carTimes = await Executor.Get<IEnumerable<CarBooking>>(url);
@@ -34,10 +35,14 @@ namespace StellaFiesta.Client.CoreStandard
             }
         }
 
-        public async Task<bool> MakingBookingAsync(CarBooking booking)
+        public async Task<bool> MakingBookingAsync(
+            CarBooking booking,
+            CancellationToken token = default(CancellationToken))
         {
             try
             {
+                token.ThrowIfCancellationRequested();
+
                 var url = $"{route}/makebooking";
                 var didBook = await Executor.Post(url, booking);
                 return didBook;
@@ -50,10 +55,12 @@ namespace StellaFiesta.Client.CoreStandard
             return false;
         }
 
-        public async Task<bool> RemoveBookingAsync(int id)
+        public async Task<bool> RemoveBookingAsync(int id, CancellationToken token = default(CancellationToken))
         {
             try
             {
+                token.ThrowIfCancellationRequested();
+
                 var url = $"{route}/bookings/{id}";
                 var didRemoveBooking = await Executor.DeleteAsync(url);
                 return didRemoveBooking;

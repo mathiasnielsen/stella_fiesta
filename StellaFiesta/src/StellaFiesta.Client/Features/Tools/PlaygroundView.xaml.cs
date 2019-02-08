@@ -1,9 +1,12 @@
-﻿
-using Xamarin.Forms;
+﻿using StellaFiesta.Client.CoreStandard;
 
-namespace StellaFiesta.Client
+namespace StellaFiesta.Client.Tools
 {
-    public partial class PlaygroundView : ContentPage
+    public abstract class PlaygroundViewBase : BindableViewBase<PlaygroundViewModel>
+    {
+    }
+
+    public partial class PlaygroundView : PlaygroundViewBase
     {
         public PlaygroundView()
         {

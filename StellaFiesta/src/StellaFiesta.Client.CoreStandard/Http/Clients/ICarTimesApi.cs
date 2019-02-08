@@ -8,10 +8,11 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public interface ICarTimesApi
     {
-        Task<ResultBlock<List<CarBooking>>> GetBookingsAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<ResultBlock<List<CarBooking>>> GetBookingsAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<bool> MakingBookingAsync(CarBooking booking);
+        Task<bool> MakingBookingAsync(CarBooking booking, CancellationToken token = default(CancellationToken));
 
-        Task<bool> RemoveBookingAsync(int id);
+        Task<bool> RemoveBookingAsync(int id, CancellationToken token = default(CancellationToken));
     }
 }

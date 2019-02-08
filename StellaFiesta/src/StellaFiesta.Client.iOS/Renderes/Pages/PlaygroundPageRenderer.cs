@@ -1,5 +1,5 @@
-﻿using StellaFiesta.Client;
-using StellaFiesta.Client.iOS;
+﻿using StellaFiesta.Client.iOS;
+using StellaFiesta.Client.Tools;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
