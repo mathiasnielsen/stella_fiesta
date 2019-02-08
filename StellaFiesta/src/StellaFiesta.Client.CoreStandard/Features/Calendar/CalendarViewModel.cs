@@ -15,6 +15,7 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly ICarTimesApi carTimesApi;
         private readonly INavigationService navigationService;
         private readonly IToastService toastService;
+        private readonly IConnectivityService connectivityService;
 
         private List<BookingDayViewModel> bookingDaysInMonth;
         private List<DateTime> supportedYears;
@@ -27,11 +28,13 @@ namespace StellaFiesta.Client.CoreStandard
         public CalendarViewModel(
             ICarTimesApi carTimesApi,
             INavigationService navigationService,
-            IToastService toastService)
+            IToastService toastService,
+            IConnectivityService connectivityService)
         {
             this.carTimesApi = carTimesApi;
             this.navigationService = navigationService;
             this.toastService = toastService;
+            this.connectivityService = connectivityService;
 
             MonthSelectedCommand = new RelayCommand<DateTime>(DateSelected);
             BookingDateSelectedCommand = new RelayCommand<BookingDayViewModel>(BookingDateSelected);
