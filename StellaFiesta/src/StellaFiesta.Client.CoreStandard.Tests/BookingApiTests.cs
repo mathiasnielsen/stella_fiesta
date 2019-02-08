@@ -14,7 +14,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
         public async Task BookingApiTests_GetBookings()
         {
             var bookingApi = Container.Resolve<ICarTimesApi>();
-            var bookings = await bookingApi.GetCarTimesAsync();
+            var bookings = await bookingApi.GetBookingsAsync();
             Assert.True(bookings.Any());
         }
 
@@ -30,7 +30,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
             };
 
             var didBook = await bookingApi.MakingBookingAsync(carBooking);
-            var bookings = await bookingApi.GetCarTimesAsync();
+            var bookings = await bookingApi.GetBookingsAsync();
             var didFindBooking = bookings.Exists(
                 x => x.BookerName == carBooking.BookerName);
 
@@ -50,7 +50,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
             };
 
             var didBook = await bookingApi.MakingBookingAsync(carBooking);
-            var bookings = await bookingApi.GetCarTimesAsync();
+            var bookings = await bookingApi.GetBookingsAsync();
             var newBooking = bookings.FirstOrDefault(
                 x => x.BookerName == carBooking.BookerName);
 
@@ -58,7 +58,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
             Assert.True(newBooking != null);
 
             var didRemoveBooking = await bookingApi.RemoveBookingAsync(newBooking.ID);
-            var bookingsAfterRemove = await bookingApi.GetCarTimesAsync();
+            var bookingsAfterRemove = await bookingApi.GetBookingsAsync();
             var newBookingStillExists = bookingsAfterRemove.Exists(
                 x => x.BookerName == carBooking.BookerName);
 

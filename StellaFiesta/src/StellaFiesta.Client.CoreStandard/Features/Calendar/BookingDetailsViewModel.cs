@@ -74,6 +74,7 @@ namespace StellaFiesta.Client.CoreStandard
                     if (didRemove)
                     {
                         toastService.ShortAlert("Booking as been cancelled");
+                        navigationService.GoBack();
                     }
                     else
                     {

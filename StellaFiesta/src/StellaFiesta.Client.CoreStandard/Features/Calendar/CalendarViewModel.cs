@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using StellaFiesta.Api;
 using StellaFiesta.Client.Core;
@@ -13,19 +14,24 @@ namespace StellaFiesta.Client.CoreStandard
 
         private readonly ICarTimesApi carTimesApi;
         private readonly INavigationService navigationService;
+        private readonly IToastService toastService;
 
         private List<BookingDayViewModel> bookingDaysInMonth;
         private List<DateTime> supportedYears;
         private List<DateTime> allMonths;
         private List<CarBooking> bookings;
         private DateTime currentDisplayedDate;
+        private bool didGetBookings;
+        private CancellationTokenSource cancellationTokenSource;
 
         public CalendarViewModel(
             ICarTimesApi carTimesApi,
-            INavigationService navigationService)
+            INavigationService navigationService,
+            IToastService toastService)
         {
             this.carTimesApi = carTimesApi;
             this.navigationService = navigationService;
+            this.toastService = toastService;
 
             MonthSelectedCommand = new RelayCommand<DateTime>(DateSelected);
             BookingDateSelectedCommand = new RelayCommand<BookingDayViewModel>(BookingDateSelected);
@@ -59,6 +65,12 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref currentDisplayedDate, value); }
         }
 
+        public bool DidGetBookings
+        {
+            get { return didGetBookings; }
+            set { Set(ref didGetBookings, value); }
+        }
+
         public override Task OnViewInitialized(Dictionary<string, string> navigationParameters)
         {
             CurrentDisplayedDate = DateTime.Now;
@@ -72,13 +84,19 @@ namespace StellaFiesta.Client.CoreStandard
 
         public override async Task OnLoadAsync()
         {
+            cancellationTokenSource = new CancellationTokenSource();
             using (LoadingManager.CreateLoadingScope())
             {
                 // All bookings
                 await Task.WhenAll(RetrieveCarTimesAsync(), Task.Delay(MinimumTaskTimeInMs));
-
                 UpdateBookingDaysInMonthOfDay(CurrentDisplayedDate);
             }
+        }
+
+        public override Task OnUnloadAsync()
+        {
+            cancellationTokenSource.Cancel();
+            return base.OnUnloadAsync();
         }
 
         private List<BookingDayViewModel> GetDaysInMonth(DateTime selectedDate)
@@ -101,7 +119,16 @@ namespace StellaFiesta.Client.CoreStandard
 
         private async Task RetrieveCarTimesAsync()
         {
-            bookings = await carTimesApi.GetCarTimesAsync();
+            var bookingsResult = await carTimesApi.GetBookingsAsync(cancellationTokenSource.Token);
+            DidGetBookings = bookingsResult.IsSuccess;
+            if (DidGetBookings)
+            {
+                bookings = bookingsResult.Data;
+            }
+            else
+            {
+                toastService.LongAlert("Failed to retrieve current bookings");
+            }
         }
 
         private void BookingDateSelected(BookingDayViewModel bookingOrDayToBook)

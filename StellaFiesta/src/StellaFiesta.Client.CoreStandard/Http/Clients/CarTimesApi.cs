@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using StellaFiesta.Api;
 
@@ -15,18 +16,21 @@ namespace StellaFiesta.Client.CoreStandard
         {
         }
 
-        public async Task<List<CarBooking>> GetCarTimesAsync()
+        public async Task<ResultBlock<List<CarBooking>>> GetBookingsAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
             try
             {
+                cancellationToken.ThrowIfCancellationRequested();
+
                 var url = $"{route}/bookings";
                 var carTimes = await Executor.Get<IEnumerable<CarBooking>>(url);
-                return carTimes.ToList();
+                var result = new ResultBlock<List<CarBooking>>(true, carTimes.ToList());
+                return result;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("Failed getting cartimes, ex: " + ex.Message);
-                throw;
+                System.Diagnostics.Debug.WriteLine("Failed getting bookings, ex: " + ex.Message);
+                return new ResultBlock<List<CarBooking>>(false, null);
             }
         }
 

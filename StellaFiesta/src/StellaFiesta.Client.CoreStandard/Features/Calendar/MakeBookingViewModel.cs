@@ -68,6 +68,7 @@ namespace StellaFiesta.Client.CoreStandard
                 if (didMakeBooking)
                 {
                     toastService.ShortAlert("Booking as been made");
+                    navigationService.GoBack();
                 }
                 else
                 {
