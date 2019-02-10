@@ -52,7 +52,7 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref isBooker, value); }
         }
 
-        public override async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
+        public override async Task OnViewInitializedAsync(Dictionary<string, string> navigationParameters)
         {
             booking = NavigationParameterParser.JsonConvertParameter<CarBooking>(
                 navigationParameters[BookingParameterKey]);

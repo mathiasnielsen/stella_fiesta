@@ -17,8 +17,6 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly IToastService toastService;
 
         private List<BookingDayViewModel> bookingDaysInMonth;
-        private List<DateTime> supportedYears;
-        private List<DateTime> allMonths;
         private List<CarBooking> bookings;
         private DateTime currentDisplayedDate;
         private bool didGetBookings;
@@ -29,7 +27,7 @@ namespace StellaFiesta.Client.CoreStandard
             INavigationService navigationService,
             IToastService toastService,
             IConnectivityService connectivityService)
-            : base (connectivityService)
+            : base(connectivityService)
         {
             this.bookingApi = bookingApi;
             this.navigationService = navigationService;
@@ -37,6 +35,9 @@ namespace StellaFiesta.Client.CoreStandard
 
             MonthSelectedCommand = new RelayCommand<DateTime>(DateSelected);
             BookingDateSelectedCommand = new RelayCommand<BookingDayViewModel>(BookingDateSelected);
+
+            CurrentDisplayedDate = DateTime.Now;
+            UpdateBookingDaysInMonthOfDay(CurrentDisplayedDate);
         }
 
         public RelayCommand<DateTime> MonthSelectedCommand { get; }
@@ -49,18 +50,6 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref bookingDaysInMonth, value); }
         }
 
-        public List<DateTime> SupportedYears
-        {
-            get { return supportedYears; }
-            set { Set(ref supportedYears, value); }
-        }
-
-        public List<DateTime> AllMonths
-        {
-            get { return allMonths; }
-            set { Set(ref allMonths, value); }
-        }
-
         public DateTime CurrentDisplayedDate
         {
             get { return currentDisplayedDate; }
@@ -71,17 +60,6 @@ namespace StellaFiesta.Client.CoreStandard
         {
             get { return didGetBookings; }
             set { Set(ref didGetBookings, value); }
-        }
-
-        public override Task OnViewInitialized(Dictionary<string, string> navigationParameters)
-        {
-            CurrentDisplayedDate = DateTime.Now;
-            UpdateBookingDaysInMonthOfDay(CurrentDisplayedDate);
-
-            AllMonths = CalendarInfoProvider.GetAllMonths();
-            SupportedYears = CalendarInfoProvider.GetYearsFromNowAndInFuture(3);
-
-            return base.OnViewInitialized(navigationParameters);
         }
 
         public override async Task OnLoadAsync()
@@ -97,7 +75,7 @@ namespace StellaFiesta.Client.CoreStandard
 
         public override Task OnUnloadAsync()
         {
-            cancellationTokenSource.Cancel();
+            cancellationTokenSource?.Cancel();
             return base.OnUnloadAsync();
         }
 

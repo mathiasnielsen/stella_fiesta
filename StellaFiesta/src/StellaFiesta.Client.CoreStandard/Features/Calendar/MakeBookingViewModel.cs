@@ -43,14 +43,14 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref dateTitle, value); }
         }
 
-        public override Task OnViewInitialized(Dictionary<string, string> navigationParameters)
+        public override Task OnViewInitializedAsync(Dictionary<string, string> navigationParameters)
         {
             bookingDate = NavigationParameterParser.StringDateTicksToDateTime(
                  navigationParameters[BookingDateInTicksParameterKey]);
 
             DateTitle = DateTimeToStringHelper.GetTitleFromDate(bookingDate);
 
-            return base.OnViewInitialized(navigationParameters);
+            return base.OnViewInitializedAsync(navigationParameters);
         }
 
         private async void MakeBooking()

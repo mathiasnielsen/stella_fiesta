@@ -49,37 +49,39 @@ namespace StellaFiesta.Client.Core
             set { Set(ref _loadingText, value); }
         }
 
-        public async void ViewInitialized(Dictionary<string, string> navigationParameters)
-        {
-            NavigationParameters = navigationParameters ?? new Dictionary<string, string>();
-            await OnViewInitialized(NavigationParameters);
-        }
-
-        public async void ViewLoading()
+        public void SubscripeBaseEvents()
         {
             LoadingManager.Loading += OnLoading;
             LoadingManager.Completed += OnCompleted;
             _connectivityService.IsConnectedChanged += IsConnectedChanged;
+        }
 
+        public void ViewInitialized(Dictionary<string, string> navigationParameters)
+        {
+            NavigationParameters = navigationParameters ?? new Dictionary<string, string>();
+            OnViewInitializedAsync(NavigationParameters);
+        }
+
+        public async void ViewLoading()
+        {
             await OnLoadAsync();
         }
 
         public async void ViewUnloading()
         {
-            LoadingManager.Loading -= OnLoading;
-            LoadingManager.Completed -= OnCompleted;
-            _connectivityService.IsConnectedChanged -= IsConnectedChanged;
             await OnUnloadAsync();
         }
 
-        public async void ViewFinalized()
+        public void UnsubscripeBaseEvents()
         {
-
+            LoadingManager.Loading -= OnLoading;
+            LoadingManager.Completed -= OnCompleted;
+            _connectivityService.IsConnectedChanged -= IsConnectedChanged;
         }
 
-        public virtual async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
+        public virtual Task OnViewInitializedAsync(Dictionary<string, string> navigationParameters)
         {
-            await Task.FromResult(true);
+            return Task.FromResult(true);
         }
 
         public virtual async Task OnLoadAsync()

@@ -15,15 +15,9 @@ namespace StellaFiesta.Client
         {
             base.OnAppearing();
 
-            if (hasAppeared == false)
-            {
-                ViewModel = OnPrepareViewModel();
-                BindingContext = ViewModel;
-
-                InitializeViewBaseBindings();
-                ViewModel.ViewInitialized(this.GetNavigationArgs());
-                hasAppeared = true;
-            }
+            PrepareViewModelIfNeeded();
+            ViewModel.SubscripeBaseEvents();
+            IntializeViewIfNeeded();
 
             ViewModel.ViewLoading();
         }
@@ -32,12 +26,27 @@ namespace StellaFiesta.Client
         {
             base.OnDisappearing();
 
+            ViewModel.UnsubscripeBaseEvents();
             ViewModel.ViewUnloading();
         }
 
-        protected virtual TViewModel OnPrepareViewModel()
+        private void PrepareViewModelIfNeeded()
         {
-            return App.Container.Resolve<TViewModel>();
+            if (ViewModel == null)
+            {
+                ViewModel = App.Container.Resolve<TViewModel>();
+                BindingContext = ViewModel;
+            }
+        }
+
+        private void IntializeViewIfNeeded()
+        {
+            if (hasAppeared == false)
+            {
+                InitializeViewBaseBindings();
+                ViewModel.ViewInitialized(this.GetNavigationArgs());
+                hasAppeared = true;
+            }
         }
 
         private void InitializeViewBaseBindings()

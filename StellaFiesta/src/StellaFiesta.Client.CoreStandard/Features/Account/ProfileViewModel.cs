@@ -38,7 +38,7 @@ namespace StellaFiesta.Client.CoreStandard
             set { Set(ref imageUrl, value); }
         }
 
-        public override async Task OnViewInitialized(Dictionary<string, string> navigationParameters)
+        public override async Task OnViewInitializedAsync(Dictionary<string, string> navigationParameters)
         {
             var profile = await authenticationService.GetProfileAsync();
             UserName = profile.Name;
