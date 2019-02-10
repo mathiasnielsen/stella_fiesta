@@ -7,8 +7,11 @@
     <ControlTemplate x:Key="MainPageTemplate">
         <Grid>
             <ContentPresenter />
-            <controls:ContentOverlay
-                IsVisible="{TemplateBinding BindingContext.IsLoading}"/>
+            <controls:LoadingContentView
+                LoadingText = "{TemplateBinding BindingContext.LoadingText}"
+                IsLoading = "{TemplateBinding BindingContext.IsLoading}"/>
+            <controls:OfflineContentView
+                IsInOfflineState="{TemplateBinding BindingContext.IsShowingOfflineState}"/>
         </Grid> 
     </ControlTemplate>
 

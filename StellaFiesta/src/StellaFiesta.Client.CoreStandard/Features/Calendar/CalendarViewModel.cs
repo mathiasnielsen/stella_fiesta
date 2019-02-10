@@ -12,10 +12,9 @@ namespace StellaFiesta.Client.CoreStandard
     {
         private const int MinimumTaskTimeInMs = 1000;
 
-        private readonly ICarTimesApi carTimesApi;
+        private readonly IBookingApi bookingApi;
         private readonly INavigationService navigationService;
         private readonly IToastService toastService;
-        private readonly IConnectivityService connectivityService;
 
         private List<BookingDayViewModel> bookingDaysInMonth;
         private List<DateTime> supportedYears;
@@ -26,15 +25,15 @@ namespace StellaFiesta.Client.CoreStandard
         private CancellationTokenSource cancellationTokenSource;
 
         public CalendarViewModel(
-            ICarTimesApi carTimesApi,
+            IBookingApi bookingApi,
             INavigationService navigationService,
             IToastService toastService,
             IConnectivityService connectivityService)
+            : base (connectivityService)
         {
-            this.carTimesApi = carTimesApi;
+            this.bookingApi = bookingApi;
             this.navigationService = navigationService;
             this.toastService = toastService;
-            this.connectivityService = connectivityService;
 
             MonthSelectedCommand = new RelayCommand<DateTime>(DateSelected);
             BookingDateSelectedCommand = new RelayCommand<BookingDayViewModel>(BookingDateSelected);
@@ -102,6 +101,11 @@ namespace StellaFiesta.Client.CoreStandard
             return base.OnUnloadAsync();
         }
 
+        protected override void OnIsConnectedChanged(bool isConnected)
+        {
+            IsShowingOfflineState = isConnected;
+        }
+
         private List<BookingDayViewModel> GetDaysInMonth(DateTime selectedDate)
         {
             var daysInMonth = CalendarInfoProvider.GetDaysInMonth(selectedDate);
@@ -122,7 +126,7 @@ namespace StellaFiesta.Client.CoreStandard
 
         private async Task RetrieveCarTimesAsync()
         {
-            var bookingsResult = await carTimesApi.GetBookingsAsync(cancellationTokenSource.Token);
+            var bookingsResult = await bookingApi.GetBookingsAsync(cancellationTokenSource.Token);
             DidGetBookings = bookingsResult.IsSuccess;
             if (DidGetBookings)
             {

@@ -7,7 +7,10 @@ namespace StellaFiesta.Client.CoreStandard
     {
         private readonly IToastService toastService;
 
-        public PlaygroundViewModel(IToastService toastService)
+        public PlaygroundViewModel(
+            IConnectivityService connectivityService,
+            IToastService toastService)
+            : base(connectivityService)
         {
             this.toastService = toastService;
 

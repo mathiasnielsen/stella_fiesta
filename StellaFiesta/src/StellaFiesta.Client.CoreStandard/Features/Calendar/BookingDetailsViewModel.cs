@@ -10,7 +10,7 @@ namespace StellaFiesta.Client.CoreStandard
     {
         public const string BookingParameterKey = nameof(BookingParameterKey);
 
-        private readonly ICarTimesApi carTimesApi;
+        private readonly IBookingApi carTimesApi;
         private readonly INavigationService navigationService;
         private readonly IAuthenticationService authenticationService;
         private readonly IDialogService dialogService;
@@ -21,11 +21,13 @@ namespace StellaFiesta.Client.CoreStandard
         private bool isBooker;
 
         public BookingDetailsViewModel(
+            IConnectivityService connectivityService,
             INavigationService navigationService,
-            ICarTimesApi carTimesApi,
+            IBookingApi carTimesApi,
             IAuthenticationService authenticationService,
             IDialogService dialogService,
             IToastService toastService)
+            : base(connectivityService)
         {
             this.navigationService = navigationService;
             this.carTimesApi = carTimesApi;

@@ -14,7 +14,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
         private UnityContainer CreateUnityContainer()
         {
             var unityContainer = new UnityContainer();
-            unityContainer.RegisterSingleton<ICarTimesApi, CarTimesApi>();
+            unityContainer.RegisterSingleton<IBookingApi, BookingApi>();
             unityContainer.RegisterSingleton<IHttpClientFactory, HttpClientFactory>();
             unityContainer.RegisterSingleton<ICommonApi, CommonApi>();
 

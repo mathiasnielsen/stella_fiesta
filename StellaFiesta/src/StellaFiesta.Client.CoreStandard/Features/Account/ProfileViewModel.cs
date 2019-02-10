@@ -13,8 +13,10 @@ namespace StellaFiesta.Client.CoreStandard
         private string imageUrl;
 
         public ProfileViewModel(
+            IConnectivityService connectivityService,
             IAuthenticationService authenticationService,
             INavigationService navigationService)
+            : base(connectivityService)
         {
             this.authenticationService = authenticationService;
             this.navigationService = navigationService;

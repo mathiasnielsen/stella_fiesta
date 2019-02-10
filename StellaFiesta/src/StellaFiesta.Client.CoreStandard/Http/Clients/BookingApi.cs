@@ -7,11 +7,11 @@ using StellaFiesta.Api;
 
 namespace StellaFiesta.Client.CoreStandard
 {
-    public class CarTimesApi : ApiBase, ICarTimesApi
+    public class BookingApi : ApiBase, IBookingApi
     {
         private string route => $"{BaseUrl}/carbooking";
 
-        public CarTimesApi(IHttpClientFactory httpClientFactory)
+        public BookingApi(IHttpClientFactory httpClientFactory)
             : base(httpClientFactory)
         {
         }

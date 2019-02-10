@@ -9,8 +9,10 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly INavigationService navigationService;
 
         public SignInViewModel(
+            IConnectivityService connectivityService,
             IAuthenticationService authenticationService,
             INavigationService navigationService)
+            : base(connectivityService)
         {
             this.authenticationService = authenticationService;
             this.navigationService = navigationService;

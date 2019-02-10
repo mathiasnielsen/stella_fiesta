@@ -66,7 +66,7 @@ namespace StellaFiesta.Client
         private static void RegisterCoreTypes()
         {
             _container.RegisterSingleton<INavigationService, NavigationService>();
-            _container.RegisterSingleton<ICarTimesApi, CarTimesApi>();
+            _container.RegisterSingleton<IBookingApi, BookingApi>();
             _container.RegisterSingleton<IHttpClientFactory, HttpClientFactory>();
             _container.RegisterSingleton<IDialogService, DialogService>();
             _container.RegisterSingleton<IConnectivityService, ConnectivityService>();

@@ -13,7 +13,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
         [Fact]
         public async Task BookingApiTests_GetBookings()
         {
-            var bookingApi = Container.Resolve<ICarTimesApi>();
+            var bookingApi = Container.Resolve<IBookingApi>();
             var bookings = await bookingApi.GetBookingsAsync();
             Assert.True(bookings.Any());
         }
@@ -21,7 +21,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
         [Fact]
         public async Task BookingApi_MakeABooking_DidBook()
         {
-            var bookingApi = Container.Resolve<ICarTimesApi>();
+            var bookingApi = Container.Resolve<IBookingApi>();
             var carBooking = new CarBooking()
             {
                 BookerName = "Gabriella" + Guid.NewGuid(),
@@ -41,7 +41,7 @@ namespace StellaFiesta.Client.CoreStandard.Tests
         [Fact]
         public async Task BookingApi_RemoveABooking_DidBookAndRemoveItAgain()
         {
-            var bookingApi = Container.Resolve<ICarTimesApi>();
+            var bookingApi = Container.Resolve<IBookingApi>();
             var carBooking = new CarBooking()
             {
                 BookerName = "Gabriella" + Guid.NewGuid(),

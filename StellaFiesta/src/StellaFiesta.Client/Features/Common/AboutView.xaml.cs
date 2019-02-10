@@ -1,8 +1,13 @@
-﻿using Xamarin.Forms;
+﻿using StellaFiesta.Client.Core;
+using Xamarin.Forms;
 
-namespace StellaFiesta.Client
+namespace StellaFiesta.Client.Features.Common
 {
-    public partial class AboutView : ContentPage
+    public abstract class AboutViewBase : BindableViewBase<AboutViewModel>
+    {
+    }
+
+    public partial class AboutView : AboutViewBase
     {
         public AboutView()
         {

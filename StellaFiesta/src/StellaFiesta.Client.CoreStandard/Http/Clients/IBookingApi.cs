@@ -6,7 +6,7 @@ using StellaFiesta.Api;
 
 namespace StellaFiesta.Client.CoreStandard
 {
-    public interface ICarTimesApi
+    public interface IBookingApi
     {
         Task<ResultBlock<List<CarBooking>>> GetBookingsAsync(
             CancellationToken cancellationToken = default(CancellationToken));

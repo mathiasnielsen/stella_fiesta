@@ -9,17 +9,12 @@ namespace StellaFiesta.Client
     {
         public ConnectivityService()
         {
-            Initialize();
+            CrossConnectivity.Current.ConnectivityChanged += OnConnectivityChanged;
         }
 
         public bool IsConnected => CrossConnectivity.Current.IsConnected;
 
         public event EventHandler<bool> IsConnectedChanged;
-
-        private void Initialize()
-        {
-            CrossConnectivity.Current.ConnectivityChanged += OnConnectivityChanged;
-        }
 
         private void OnConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
