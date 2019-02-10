@@ -10,21 +10,23 @@
             x:Name="Root">
             <Grid.RowDefinitions>
                 <RowDefinition
-                    Height="6*"/>
+                    Height="2*"/>
+                <RowDefinition
+                    Height="4*"/>
                 <RowDefinition
                     Height="4*"/>
             </Grid.RowDefinitions>
             <forms:AnimationView
-                x:Name="animationViewLoading" 
+                x:Name="animationViewLoading"
+                Grid.Row="1"
                 Animation="car.json"
                 Loop="true"
                 AutoPlay="true"
-                VerticalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand"
                 HorizontalOptions="FillAndExpand" />
             <Label
                 x:Name="loadingLabel"
-                Grid.Row="1"
-                VerticalOptions="FillAndExpand"
+                Grid.Row="2"
                 HorizontalOptions="FillAndExpand"/>
         </Grid>
     </ContentView.Content>

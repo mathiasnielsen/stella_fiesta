@@ -27,6 +27,7 @@
     <Folder Include="Features\Tools\" />
     <Folder Include="Resources\" />
     <Folder Include="Enums\" />
+    <Folder Include="Controls\Page\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Common.cs" />

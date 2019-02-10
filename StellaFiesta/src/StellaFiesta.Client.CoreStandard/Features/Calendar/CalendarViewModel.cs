@@ -37,7 +37,7 @@ namespace StellaFiesta.Client.CoreStandard
             BookingDateSelectedCommand = new RelayCommand<BookingDayViewModel>(BookingDateSelected);
 
             CurrentDisplayedDate = DateTime.Now;
-            BookingDaysInMonth = GetDaysInMonth(CurrentDisplayedDate);
+            BookingDaysInMonth = BookingCalendarUtility.GetDaysInMonth(CurrentDisplayedDate);
         }
 
         public RelayCommand<DateTime> MonthSelectedCommand { get; }
@@ -64,6 +64,13 @@ namespace StellaFiesta.Client.CoreStandard
 
         public override async Task OnLoadAsync()
         {
+            // This is not working on simulator atm.
+            IsShowingOfflineState = IsConnected == false;
+            if (IsConnected == false)
+            {
+                return;
+            }
+
             _cancellationTokenSource = new CancellationTokenSource();
             using (LoadingManager.CreateLoadingScope())
             {
@@ -81,25 +88,7 @@ namespace StellaFiesta.Client.CoreStandard
 
         protected override void OnIsConnectedChanged(bool isConnected)
         {
-            IsShowingOfflineState = isConnected;
-        }
-
-        private List<BookingDayViewModel> GetDaysInMonth(DateTime selectedDate)
-        {
-            var daysInMonth = CalendarInfoProvider.GetDaysInMonth(selectedDate);
-            var tempBookingDays = new List<BookingDayViewModel>();
-            var currentDate = DateTime.Now.Date;
-            foreach (var day in daysInMonth)
-            {
-                tempBookingDays.Add(
-                    new BookingDayViewModel(
-                        day.DayOfWeek.ToString(),
-                        day,
-                        isBooked: false,
-                        imageUrl: "StellaFiesta.Client.CoreStandard.Images.nepal.png"));
-            }
-
-            return tempBookingDays;
+            IsShowingOfflineState = isConnected == false;
         }
 
         private async Task RetrieveCarTimesAsync()
@@ -132,7 +121,7 @@ namespace StellaFiesta.Client.CoreStandard
         private void DateSelected(DateTime date)
         {
             CurrentDisplayedDate = date;
-            BookingDaysInMonth = GetDaysInMonth(CurrentDisplayedDate);
+            BookingDaysInMonth = BookingCalendarUtility.GetDaysInMonth(CurrentDisplayedDate);
             UpdateBookingDaysInMonthOfDay(BookingDaysInMonth);
         }
 

@@ -9,7 +9,7 @@ namespace StellaFiesta.Client.Controls
         {
             InitializeComponent();
 
-            Root.BackgroundColor = Color.Gray.MultiplyAlpha(0.1);
+            Root.BackgroundColor = Color.Gray.MultiplyAlpha(0.3);
             IsVisible = false;
         }
 
@@ -54,22 +54,7 @@ namespace StellaFiesta.Client.Controls
             var control = (LoadingContentView)bindable;
             var isVisible = (bool)newValue;
 
-            FadeControl(control, isVisible);
-        }
-
-        private async static void FadeControl(LoadingContentView control, bool toBecomeVisible)
-        {
-            if (toBecomeVisible)
-            {
-                control.IsVisible = true;
-                control.Opacity = 0.0;
-                var isCancelled = await control.FadeTo(1.0, AnimationHelper.ControlFadeInDurationInMs);
-            }
-            else
-            {
-                var isCancelled = await control.FadeTo(0.0, AnimationHelper.ControlFadeOutDurationInMs);
-                control.IsVisible = false;
-            }
+            AnimationHelper.FadeControl(control, isVisible);
         }
     }
 }

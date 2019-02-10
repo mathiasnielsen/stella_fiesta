@@ -9,13 +9,17 @@ namespace StellaFiesta.Client
     {
         private bool hasAppeared;
 
+        public BindableViewBase()
+        {
+            PrepareViewModelIfNeeded();
+        }
+
         public TViewModel ViewModel { get; set; }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
 
-            PrepareViewModelIfNeeded();
             ViewModel.SubscripeBaseEvents();
             IntializeViewIfNeeded();
 

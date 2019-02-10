@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace StellaFiesta.Client.Controls
 {
@@ -8,6 +7,8 @@ namespace StellaFiesta.Client.Controls
         public OfflineContentView()
         {
             InitializeComponent();
+
+            OfflineScreenOverlay.BackgroundColor = Color.White.MultiplyAlpha(0.3);
 
             IsVisible = false;
         }
@@ -31,7 +32,7 @@ namespace StellaFiesta.Client.Controls
             var control = (OfflineContentView)bindable;
             var isInOfflineState = (bool)newValue;
 
-            control.IsVisible = isInOfflineState;
+            AnimationHelper.FadeControl(control, isInOfflineState);
         }
     }
 }

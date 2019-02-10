@@ -31,11 +31,7 @@ namespace StellaFiesta.Client.Core
             private set { Set(ref _isLoading, value); }
         }
 
-        public bool IsConnected
-        {
-            get { return IsConnected; }
-            private set { Set(ref _isConnected, value); }
-        }
+        public bool IsConnected => _connectivityService.IsConnected;
 
         public bool IsShowingOfflineState
         {
