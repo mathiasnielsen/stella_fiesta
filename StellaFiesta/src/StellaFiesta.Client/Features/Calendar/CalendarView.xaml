@@ -42,7 +42,7 @@
                     ItemsSource="{Binding BookingDaysInMonth, Converter={StaticResource debugConverter}}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <ViewCell
+                            <local:BookingCell
                                 IsEnabled="{Binding IsValidBookingDate}">
                                 <StackLayout
                                     Padding="10, 10, 10, 10"
@@ -66,7 +66,7 @@
                                         VerticalOptions="CenterAndExpand"
                                         HorizontalOptions="EndAndExpand"/>
                                 </StackLayout>
-                            </ViewCell>
+                            </local:BookingCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

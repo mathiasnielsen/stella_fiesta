@@ -1,15 +1,14 @@
 ﻿using System;
-using StellaFiesta.Api;
 
 namespace StellaFiesta.Client.CoreStandard
 {
     public class BookingDayViewModel : ViewModelBase
     {
         private string name;
+        private string imageUrl;
         private DateTime day;
         private bool isBooked;
         private bool isValidBookingDate;
-        private string imageUrl;
 
         public BookingDayViewModel(
             string name,

@@ -61,12 +61,9 @@ namespace StellaFiesta.Client.Controls
         {
             if (toBecomeVisible)
             {
-                Device.BeginInvokeOnMainThread(async () =>
-                {
-                    control.IsVisible = true;
-                    control.Opacity = 0.0;
-                    var isCancelled = await control.FadeTo(1.0, AnimationHelper.ControlFadeInDurationInMs);
-                });
+                control.IsVisible = true;
+                control.Opacity = 0.0;
+                var isCancelled = await control.FadeTo(1.0, AnimationHelper.ControlFadeInDurationInMs);
             }
             else
             {

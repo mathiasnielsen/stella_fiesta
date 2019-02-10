@@ -26,6 +26,12 @@ namespace StellaFiesta.Client.Features.Calendar
 
             date_picker.DateSelected += OnDateSelected;
             date_list.ItemTapped += OnItemTapped;
+
+            date_list.ItemAppearing += OnItemAppearing;
+        }
+
+        private void OnItemAppearing(object sender, ItemVisibilityEventArgs e)
+        {
         }
 
         protected override void OnDisappearing()
