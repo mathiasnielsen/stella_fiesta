@@ -11,10 +11,10 @@ namespace StellaFiesta.Client.CoreStandard
     {
         public const string BookingDateInTicksParameterKey = nameof(BookingDateInTicksParameterKey);
 
-        private readonly IBookingApi carTimesApi;
-        private readonly INavigationService navigationService;
-        private readonly IAuthenticationService authenticationService;
-        private readonly IToastService toastService;
+        private readonly IBookingApi _bookingApi;
+        private readonly INavigationService _navigationService;
+        private readonly IAuthenticationService _authenticationService;
+        private readonly IToastService _toastService;
 
         private DateTime bookingDate;
         private string dateTitle;
@@ -27,10 +27,10 @@ namespace StellaFiesta.Client.CoreStandard
             IToastService toastService)
             : base(connectivityService)
         {
-            this.navigationService = navigationService;
-            this.carTimesApi = carTimesApi;
-            this.authenticationService = authenticationService;
-            this.toastService = toastService;
+            _navigationService = navigationService;
+            _bookingApi = carTimesApi;
+            _authenticationService = authenticationService;
+            _toastService = toastService;
 
             MakeBookingCommand = new RelayCommand(MakeBooking);
         }
@@ -53,11 +53,22 @@ namespace StellaFiesta.Client.CoreStandard
             return base.OnViewInitializedAsync(navigationParameters);
         }
 
+        public override Task OnLoadAsync()
+        {
+            IsShowingOfflineState = IsConnected == false;
+            return base.OnLoadAsync();
+        }
+
+        protected override void OnIsConnectedChanged(bool isConnected)
+        {
+            IsShowingOfflineState = isConnected == false;
+        }
+
         private async void MakeBooking()
         {
             using (LoadingManager.CreateLoadingScope())
             {
-                var user = await authenticationService.GetProfileAsync();
+                var user = await _authenticationService.GetProfileAsync();
                 var carBooking = new CarBooking()
                 {
                     BookerName = user.Name,
@@ -66,15 +77,15 @@ namespace StellaFiesta.Client.CoreStandard
                     BookingEndDate = bookingDate.AddDays(1),
                 };
 
-                var didMakeBooking = await carTimesApi.MakingBookingAsync(carBooking);
+                var didMakeBooking = await _bookingApi.MakingBookingAsync(carBooking);
                 if (didMakeBooking)
                 {
-                    toastService.ShortAlert("Booking as been made");
-                    navigationService.GoBack();
+                    _toastService.ShortAlert("Booking as been made");
+                    _navigationService.GoBack();
                 }
                 else
                 {
-                    toastService.ShortAlert("Failed to make the booking");
+                    _toastService.ShortAlert("Failed to make the booking");
                 }
             }
         }

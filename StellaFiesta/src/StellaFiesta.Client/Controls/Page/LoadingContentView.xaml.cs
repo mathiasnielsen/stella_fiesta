@@ -9,7 +9,7 @@ namespace StellaFiesta.Client.Controls
         {
             InitializeComponent();
 
-            Root.BackgroundColor = Color.Gray.MultiplyAlpha(0.3);
+            Root.BackgroundColor = Color.Gray.MultiplyAlpha(0.6);
             IsVisible = false;
         }
 

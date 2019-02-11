@@ -4,7 +4,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="StellaFiesta.Client.Features.Common.AboutView"
     xmlns:local="clr-namespace:StellaFiesta.Client.Features.Common;assembly=StellaFiesta.Client"
-    Title="">
+    Title="About">
     <ContentPage.Content>
+        <StackLayout
+            Padding="{StaticResource PageContentPadding}"
+            Orientation="Vertical">
+            
+            <Label
+                x:Name="AboutTitle"
+                Style="{StaticResource TitleStyle}"
+                Text="{Binding Title}"
+                HorizontalOptions="FillAndExpand"/>
+            <Label
+                x:Name="AboutDescription"
+                Text="{Binding AppDescription}"
+                Margin="0, 16, 0, 16"
+                HorizontalOptions="FillAndExpand"/>
+            
+        </StackLayout>
     </ContentPage.Content>
 </local:AboutViewBase>

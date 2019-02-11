@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using StellaFiesta.Client.CoreStandard;
+﻿using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.Core
 {
@@ -12,14 +9,21 @@ namespace StellaFiesta.Client.Core
         {
         }
 
-        public async override Task OnLoadAsync()
+        public string Title => "About the Stella app";
+
+        public string AppDescription => GetAppDescription();
+
+        private string GetAppDescription()
         {
-            await Task.Delay(2000);
-            using (LoadingManager.CreateLoadingScope())
-            {
-                LoadingText = "Loading...";
-                await Task.Delay(5000);
-            }
+            var description = string.Empty;
+
+            description += "This application gives you an amazing chance to borrow the most beautiful car in the worl.";
+            description += System.Environment.NewLine + System.Environment.NewLine;
+            description += "You simply need to book it through the calendar, and pick it up where ever it is.";
+            description += System.Environment.NewLine + System.Environment.NewLine;
+            description += "Hope you will enjoy.";
+
+            return description;
         }
     }
 }

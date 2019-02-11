@@ -64,6 +64,17 @@ namespace StellaFiesta.Client.CoreStandard
             IsBooker = booking.BookerId == user.UserId;
         }
 
+        public override Task OnLoadAsync()
+        {
+            IsShowingOfflineState = IsConnected == false;
+            return base.OnLoadAsync();
+        }
+
+        protected override void OnIsConnectedChanged(bool isConnected)
+        {
+            IsShowingOfflineState = isConnected == false;
+        }
+
         private async void CancelBooking()
         {
             var didAccept = await dialogService.ShowMessageAsync("Warning!", "Do you want to cancel your booking?", "cancel", "cancel booking");
