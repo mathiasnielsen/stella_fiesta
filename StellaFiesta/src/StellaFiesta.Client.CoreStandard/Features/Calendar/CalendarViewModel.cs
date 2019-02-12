@@ -12,9 +12,10 @@ namespace StellaFiesta.Client.CoreStandard
     {
         private const int MinimumTaskTimeInMs = 1000;
 
-        private readonly IBookingApi bookingApi;
-        private readonly INavigationService navigationService;
-        private readonly IToastService toastService;
+        private readonly IBookingApi _bookingApi;
+        private readonly INavigationService _navigationService;
+        private readonly IToastService _toastService;
+        private readonly ISecurityManager _securityManager;
 
         private List<BookingDayViewModel> _bookingDaysInMonth;
         private List<CarBooking> _bookings;
@@ -23,15 +24,17 @@ namespace StellaFiesta.Client.CoreStandard
         private CancellationTokenSource _cancellationTokenSource;
 
         public CalendarViewModel(
+            IConnectivityService connectivityService,
             IBookingApi bookingApi,
             INavigationService navigationService,
             IToastService toastService,
-            IConnectivityService connectivityService)
+            ISecurityManager securityManager)
             : base(connectivityService)
         {
-            this.bookingApi = bookingApi;
-            this.navigationService = navigationService;
-            this.toastService = toastService;
+            _bookingApi = bookingApi;
+            _navigationService = navigationService;
+            _toastService = toastService;
+            _securityManager = securityManager;
 
             MonthSelectedCommand = new RelayCommand<DateTime>(DateSelected);
             BookingDateSelectedCommand = new RelayCommand<BookingDayViewModel>(BookingDateSelected);
@@ -93,7 +96,7 @@ namespace StellaFiesta.Client.CoreStandard
 
         private async Task RetrieveCarTimesAsync()
         {
-            var bookingsResult = await bookingApi.GetBookingsAsync(_cancellationTokenSource.Token);
+            var bookingsResult = await _bookingApi.GetBookingsAsync(_cancellationTokenSource.Token);
             DidGetBookings = bookingsResult.IsSuccess;
             if (DidGetBookings)
             {
@@ -101,25 +104,38 @@ namespace StellaFiesta.Client.CoreStandard
             }
             else
             {
-                toastService.LongAlert("Failed to retrieve current bookings");
+                _toastService.LongAlert("Failed to retrieve current bookings");
             }
         }
 
         private void BookingDateSelected(BookingDayViewModel bookingOrDayToBook)
         {
-            if (bookingOrDayToBook.IsBooked)
+            if (_securityManager.HasBookingAccess)
             {
-                var booking = _bookings.FirstOrDefault(x => x.BookingStartDate == bookingOrDayToBook.Day);
-                navigationService.NavigateToBookingDetails(booking);
+                GoToBooking(bookingOrDayToBook);
             }
             else
             {
-                navigationService.NavigateToBooking(bookingOrDayToBook.Day);
+                _navigationService.ShowPasswordPopup();
+            }
+        }
+
+        private void GoToBooking(BookingDayViewModel bookingOrDayToBook)
+        {
+            if (bookingOrDayToBook.IsBooked)
+            {
+                var booking = _bookings.FirstOrDefault(x => x.BookingStartDate == bookingOrDayToBook.Day);
+                _navigationService.NavigateToBookingDetails(booking);
+            }
+            else
+            {
+                _navigationService.NavigateToBooking(bookingOrDayToBook.Day);
             }
         }
 
         private void DateSelected(DateTime date)
         {
+
             CurrentDisplayedDate = date;
             BookingDaysInMonth = BookingCalendarUtility.GetDaysInMonth(CurrentDisplayedDate);
             UpdateBookingDaysInMonthOfDay(BookingDaysInMonth);

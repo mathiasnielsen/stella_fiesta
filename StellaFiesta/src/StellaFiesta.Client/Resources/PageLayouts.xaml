@@ -13,5 +13,8 @@
     
     <Thickness
         x:Key="PageContentTopContentPadding">0, 16, 0, 0</Thickness>
+    
+    <Thickness
+        x:Key="MarginTopNextControlSpacing">0, 16, 0, 0</Thickness>
 
 </ResourceDictionary>

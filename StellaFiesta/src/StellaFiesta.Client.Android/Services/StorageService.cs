@@ -6,7 +6,7 @@ using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.Droid
 {
-    public class StorageService : IStorageService
+    public class StorageService : StorageServiceBase, IStorageService
     {
         private const string PreferenceDictionaryKey = nameof(PreferenceDictionaryKey);
 
@@ -19,11 +19,7 @@ namespace StellaFiesta.Client.Droid
 
         public TData LoadPreference<TData>(string key)
         {
-            if (string.IsNullOrWhiteSpace(key))
-            {
-                throw new ArgumentException("Key is invalid");
-            }
-
+            ValidateKey(key);
             var keyExists = DoesPreferenceKeyExist(key);
             if (keyExists)
             {
@@ -37,15 +33,19 @@ namespace StellaFiesta.Client.Droid
 
         public void SavePreference<TData>(string key, TData data)
         {
-            if (string.IsNullOrWhiteSpace(key))
-            {
-                throw new ArgumentException("Key is invalid");
-            }
-
+            ValidateKey(key);
             var dataAsJsonFormatted = JsonConvert.SerializeObject(data);
             _sharedPreferences
                 .Edit()
                 .PutString(key, dataAsJsonFormatted)
+                .Commit();
+        }
+
+        public void ClearPreferences()
+        {
+            _sharedPreferences
+                .Edit()
+                .Clear()
                 .Commit();
         }
 

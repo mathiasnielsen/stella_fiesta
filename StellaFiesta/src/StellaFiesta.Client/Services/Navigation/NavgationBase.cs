@@ -8,49 +8,70 @@ namespace StellaFiesta.Client
 {
     public class NavigationBase
     {
+        private Page _mainPage => Application.Current.MainPage;
+
         public NavigationBase()
         {
         }
 
-        private Dictionary<string, Type> pages { get; }
-            = new Dictionary<string, Type>();
+        private Dictionary<string, Type> Pages { get; } = new Dictionary<string, Type>();
 
-        public Page MainPage => Application.Current.MainPage;
+        protected void Configure(string key, Type pageType) => Pages[key] = pageType;
 
-        public void Configure(string key, Type pageType) => pages[key] = pageType;
+        public void DismissModal()
+        {
+            _mainPage.Navigation.PopModalAsync();
+        }
 
-        public void GoBack() => MainPage.Navigation.PopAsync();
+        public void GoBack()
+        {
+            _mainPage.Navigation.PopAsync();
+        }
 
         public void NavigateTo(
             string pageKey,
             Dictionary<string, string> parameter = null,
             HistoryBehavior historyBehavior = HistoryBehavior.Default)
         {
-            Type pageType;
-            if (pages.TryGetValue(pageKey, out pageType))
+            if (Pages.TryGetValue(pageKey, out Type pageType))
             {
                 var displayPage = (Page)Activator.CreateInstance(pageType);
                 displayPage.SetNavigationArgs(parameter);
 
                 if (historyBehavior == HistoryBehavior.ClearHistory)
                 {
-                    MainPage.Navigation.InsertPageBefore(displayPage, MainPage.Navigation.NavigationStack[0]);
+                    _mainPage.Navigation.InsertPageBefore(displayPage, _mainPage.Navigation.NavigationStack[0]);
 
-                    var existingPages = MainPage.Navigation.NavigationStack.ToList();
+                    // The transitions sucks when using this method.
+                    ////_mainPage.Navigation.PopToRootAsync();
+
+                    var existingPages = _mainPage.Navigation.NavigationStack.ToList();
                     for (int i = 1; i < existingPages.Count; i++)
                     {
-                        MainPage.Navigation.RemovePage(existingPages[i]);
+                        _mainPage.Navigation.RemovePage(existingPages[i]);
                     }
+                }
+                else if (historyBehavior == HistoryBehavior.ClearTop)
+                {
+                    throw new NotImplementedException("Has not made clear top yet");
                 }
                 else
                 {
-                    MainPage.Navigation.PushAsync(displayPage);
+                    _mainPage.Navigation.PushAsync(displayPage);
                 }
             }
             else
             {
-                throw new ArgumentException($"No such page: {pageKey}.",
-                    nameof(pageKey));
+                throw new ArgumentException($"No such page: {pageKey}.", nameof(pageKey));
+            }
+        }
+
+        public void PushModal(string pageKey)
+        {
+            if (Pages.TryGetValue(pageKey, out Type pageType))
+            {
+                var pageToDisplay = (Page)Activator.CreateInstance(pageType);
+                _mainPage.Navigation.PushModalAsync(pageToDisplay);
             }
         }
     }

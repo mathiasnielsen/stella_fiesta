@@ -8,6 +8,8 @@ namespace StellaFiesta.Client.CoreStandard
 
         TData LoadPreference<TData>(string key);
 
+        void ClearPreferences();
+
         // TODO:
         ////Task SaveDataAsync<TData>(string key, TData data);
 

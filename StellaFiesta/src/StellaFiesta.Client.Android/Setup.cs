@@ -1,7 +1,5 @@
 ﻿using Android.Content;
 using StellaFiesta.Client.CoreStandard;
-using Xamarin.Facebook;
-using Xamarin.Facebook.AppEvents;
 
 namespace StellaFiesta.Client.Droid
 {
@@ -16,6 +14,7 @@ namespace StellaFiesta.Client.Droid
         {
             App.Container.RegisterSingleton<IAuthenticationService, AuthenticationService>();
             App.Container.RegisterSingleton<IToastService, ToastService>();
+            App.Container.RegisterSingleton<IStorageService, StorageService>();
         }
     }
 }

@@ -1,5 +1,6 @@
 using StellaFiesta.Client.Core;
 using StellaFiesta.Client.CoreStandard;
+using StellaFiesta.Client.CoreStandard.Managers;
 using StellaFiesta.Client.Features.Account;
 using StellaFiesta.Client.Features.Common;
 using Unity;
@@ -65,11 +66,18 @@ namespace StellaFiesta.Client
 
         private static void RegisterCoreTypes()
         {
+            // Services
             _container.RegisterSingleton<INavigationService, NavigationService>();
             _container.RegisterSingleton<IBookingApi, BookingApi>();
             _container.RegisterSingleton<IHttpClientFactory, HttpClientFactory>();
             _container.RegisterSingleton<IDialogService, DialogService>();
             _container.RegisterSingleton<IConnectivityService, ConnectivityService>();
+
+            // Managers
+            _container.RegisterSingleton<ISecurityManager, SecurityManager>();
+
+            // Others
+            _container.RegisterSingleton<IMessagingCenterForwarder, MessagingCenterForwarder>();
         }
     }
 }

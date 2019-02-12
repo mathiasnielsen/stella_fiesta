@@ -13,6 +13,7 @@ namespace StellaFiesta.Client.iOS
         {
             App.Container.RegisterSingleton<IAuthenticationService, AuthenticationService>();
             App.Container.RegisterSingleton<IToastService, ToastService>();
+            App.Container.RegisterSingleton<IStorageService, StorageService>();
         }
     }
 }

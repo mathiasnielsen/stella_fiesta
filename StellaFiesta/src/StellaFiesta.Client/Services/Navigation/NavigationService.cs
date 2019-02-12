@@ -23,6 +23,7 @@ namespace StellaFiesta.Client
             Configure(nameof(SignInView), typeof(SignInView));
             Configure(nameof(ProfileView), typeof(ProfileView));
             Configure(nameof(PlaygroundView), typeof(PlaygroundView));
+            Configure(nameof(EnterPasswordView), typeof(EnterPasswordView));
         }
 
         public void NavigateToHome()
@@ -75,6 +76,11 @@ namespace StellaFiesta.Client
             };
 
             NavigateTo(nameof(BookingDetailsView), parms);
+        }
+
+        public void ShowPasswordPopup()
+        {
+            PushModal(nameof(EnterPasswordView));
         }
     }
 }

@@ -22,5 +22,9 @@ namespace StellaFiesta.Client.Core
         void NavigateToBooking(DateTime dateTime);
 
         void NavigateToBookingDetails(CarBooking carBooking);
+
+        void ShowPasswordPopup();
+
+        void DismissModal();
     }
 }

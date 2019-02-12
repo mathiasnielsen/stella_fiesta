@@ -7,6 +7,11 @@ namespace StellaFiesta.Client
 {
     public class DialogService : IDialogService
     {
+        public async Task ShowMessageAsync(string title, string message, string cancelText)
+        {
+            await Application.Current.MainPage.DisplayAlert(title, message, cancelText);
+        }
+
         public async Task<bool> ShowMessageAsync(string title, string message, string cancelText, string acceptText)
         {
             var didAccept = await Application.Current.MainPage.DisplayAlert(title, message, acceptText, cancelText);

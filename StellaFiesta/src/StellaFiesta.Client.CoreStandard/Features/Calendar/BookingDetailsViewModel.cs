@@ -10,11 +10,11 @@ namespace StellaFiesta.Client.CoreStandard
     {
         public const string BookingParameterKey = nameof(BookingParameterKey);
 
-        private readonly IBookingApi carTimesApi;
-        private readonly INavigationService navigationService;
-        private readonly IAuthenticationService authenticationService;
-        private readonly IDialogService dialogService;
-        private readonly IToastService toastService;
+        private readonly IBookingApi _bookingApi;
+        private readonly INavigationService _navigationService;
+        private readonly IAuthenticationService _authenticationService;
+        private readonly IDialogService _dialogService;
+        private readonly IToastService _toastService;
 
         private CarBooking booking;
         private string dateTitle;
@@ -29,11 +29,11 @@ namespace StellaFiesta.Client.CoreStandard
             IToastService toastService)
             : base(connectivityService)
         {
-            this.navigationService = navigationService;
-            this.carTimesApi = carTimesApi;
-            this.authenticationService = authenticationService;
-            this.dialogService = dialogService;
-            this.toastService = toastService;
+            _navigationService = navigationService;
+            _bookingApi = carTimesApi;
+            _authenticationService = authenticationService;
+            _dialogService = dialogService;
+            _toastService = toastService;
 
             CancelBookingCommand = new RelayCommand(CancelBooking);
         }
@@ -60,7 +60,7 @@ namespace StellaFiesta.Client.CoreStandard
             var bookingTitle = DateTimeToStringHelper.GetTitleFromDate(booking.BookingStartDate);
             DateTitle = $"{bookingTitle}{System.Environment.NewLine}by {booking.BookerName}";
 
-            var user = await authenticationService.GetProfileAsync();
+            var user = await _authenticationService.GetProfileAsync();
             IsBooker = booking.BookerId == user.UserId;
         }
 
@@ -77,21 +77,21 @@ namespace StellaFiesta.Client.CoreStandard
 
         private async void CancelBooking()
         {
-            var didAccept = await dialogService.ShowMessageAsync("Warning!", "Do you want to cancel your booking?", "cancel", "cancel booking");
+            var didAccept = await _dialogService.ShowMessageAsync("Warning!", "Do you want to cancel your booking?", "cancel", "cancel booking");
             if (didAccept)
             {
                 using (LoadingManager.CreateLoadingScope())
                 {
-                    var user = await authenticationService.GetProfileAsync();
-                    var didRemove = await carTimesApi.RemoveBookingAsync(booking.ID);
+                    var user = await _authenticationService.GetProfileAsync();
+                    var didRemove = await _bookingApi.RemoveBookingAsync(booking.ID);
                     if (didRemove)
                     {
-                        toastService.ShortAlert("Booking as been cancelled");
-                        navigationService.GoBack();
+                        _toastService.ShortAlert("Booking as been cancelled");
+                        _navigationService.GoBack();
                     }
                     else
                     {
-                        toastService.ShortAlert("Failed to cancel the booking");
+                        _toastService.ShortAlert("Failed to cancel the booking");
                     }
                 }
             }

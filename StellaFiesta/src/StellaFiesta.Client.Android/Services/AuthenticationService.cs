@@ -5,9 +5,14 @@ using Xamarin.Facebook;
 
 namespace StellaFiesta.Client.Droid
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthenticationService : AuthenticationServiceBase, IAuthenticationService
     {
         public bool IsLoggedIn => AccessToken.CurrentAccessToken != null && AccessToken.CurrentAccessToken.IsExpired == false;
+
+        public AuthenticationService(IMessagingCenterForwarder messagingCenterForwarder)
+            : base(messagingCenterForwarder)
+        {
+        }
 
         public Task<UserProfile> GetProfileAsync()
         {
@@ -22,7 +27,7 @@ namespace StellaFiesta.Client.Droid
             return null;
         }
 
-        public void SignOut()
+        protected override void OnSignOut()
         {
             throw new NotImplementedException();
         }

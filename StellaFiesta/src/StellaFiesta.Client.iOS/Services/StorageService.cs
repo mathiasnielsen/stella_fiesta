@@ -1,11 +1,10 @@
-﻿using System;
-using Foundation;
+﻿using Foundation;
 using Newtonsoft.Json;
 using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.iOS
 {
-    public class StorageService : IStorageService
+    public class StorageService : StorageServiceBase, IStorageService
     {
         private const string PreferenceDictionaryKey = nameof(PreferenceDictionaryKey);
 
@@ -18,11 +17,7 @@ namespace StellaFiesta.Client.iOS
 
         public void SavePreference<TData>(string key, TData data)
         {
-            if (string.IsNullOrWhiteSpace(key))
-            {
-                throw new ArgumentException("Key is invalid");
-            }
-
+            ValidateKey(key);
             var dataAsJsonFormatted = JsonConvert.SerializeObject(data);
             _preferenceDictionary[key] = new NSString(dataAsJsonFormatted);
 
@@ -32,11 +27,7 @@ namespace StellaFiesta.Client.iOS
 
         public TData LoadPreference<TData>(string key)
         {
-            if (string.IsNullOrWhiteSpace(key))
-            {
-                throw new ArgumentException("Key is invalid");
-            }
-
+            ValidateKey(key);
             var keyExists = DoesPreferenceKeyExist(key);
             if (keyExists)
             {
@@ -48,14 +39,17 @@ namespace StellaFiesta.Client.iOS
             return default(TData);
         }
 
+        public void ClearPreferences()
+        {
+            _preferenceDictionary.Clear();
+            NSUserDefaults.StandardUserDefaults[PreferenceDictionaryKey] = _preferenceDictionary;
+            NSUserDefaults.StandardUserDefaults.Synchronize();
+        }
+
         private bool DoesPreferenceKeyExist(string key)
         {
-            if (string.IsNullOrWhiteSpace(key))
-            {
-                throw new ArgumentException("Key is invalid");
-            }
-
-            return _preferenceDictionary.ContainsKey(key);
+            ValidateKey(key);
+            return _preferenceDictionary.ContainsKey((NSString)key);
         }
 
         private NSMutableDictionary GetOrCreatePreferenceDictionary()

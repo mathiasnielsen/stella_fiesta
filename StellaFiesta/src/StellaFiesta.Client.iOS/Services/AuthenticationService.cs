@@ -6,12 +6,13 @@ using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.iOS
 {
-    public class AuthenticationService : IAuthenticationService
+    public class AuthenticationService : AuthenticationServiceBase, IAuthenticationService
     {
         private const int ImageSize = 100;
         private LoginManager loginManager;
 
-        public AuthenticationService()
+        public AuthenticationService(IMessagingCenterForwarder messagingCenterForwarder)
+            : base(messagingCenterForwarder)
         {
             loginManager = new LoginManager();
         }
@@ -43,7 +44,7 @@ namespace StellaFiesta.Client.iOS
             return completionTask.Task;
         }
 
-        public void SignOut()
+        protected override void OnSignOut()
         {
             loginManager.LogOut();
         }

@@ -21,6 +21,11 @@
     <Folder Include="Models\" />
     <Folder Include="Utilities\Loading\" />
     <Folder Include="Features\Tools\" />
+    <Folder Include="Managers\" />
+    <Folder Include="Managers\Security\" />
+    <Folder Include="Services\Messaging\" />
+    <Folder Include="Services\Storage\" />
+    <Folder Include="Services\Authentication\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />

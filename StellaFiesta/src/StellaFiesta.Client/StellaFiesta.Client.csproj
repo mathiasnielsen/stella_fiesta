@@ -28,6 +28,8 @@
     <Folder Include="Resources\" />
     <Folder Include="Enums\" />
     <Folder Include="Controls\Page\" />
+    <Folder Include="Services\Navigation\" />
+    <Folder Include="Services\Messaging\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Common.cs" />
