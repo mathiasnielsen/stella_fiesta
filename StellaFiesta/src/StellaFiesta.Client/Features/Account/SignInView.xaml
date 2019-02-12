@@ -27,8 +27,8 @@
 
                 <Label
                     x:Name="title_label"
-                    Text="Welcome to Stella Fiesta!"
-                    FontSize="Large"
+                    Text="Welcome\nto\nStella Fiesta"
+                    FontSize="42"
                     TextColor="White"
                     VerticalOptions="Center"
                     HorizontalTextAlignment="Center"

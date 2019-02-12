@@ -9,7 +9,8 @@ namespace StellaFiesta.Client.iOS
 {
     public class SillyFontEffect : PlatformEffect
     {
-        private const string SillyFontName = "gabiies handwritting";
+        private const string SillyFontName = "Monoton";
+        ////private const string SillyFontName = "gabiies handwritting";
         ////private const string SillyFontName = "Reenie Beanie";
         ////private const string SillyFontName = "Pacifico";
 

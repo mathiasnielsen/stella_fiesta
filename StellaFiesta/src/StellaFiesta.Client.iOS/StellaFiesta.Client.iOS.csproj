@@ -171,6 +171,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\gabiie_s handwritting.ttf" />
+    <BundleResource Include="Resources\Monoton-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\StellaLaunchScreen.storyboard" />
