@@ -28,8 +28,6 @@
 	<string>com.kirkegaardbusiness.Stella-Fiesta</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
 	<key>CFBundleName</key>
 	<string>StellaFiesta.Client</string>
 	<key>XSAppIconAssets</key>
@@ -55,5 +53,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UILaunchStoryboardName</key>
+	<string>StellaLaunchScreen</string>
 </dict>
 </plist>

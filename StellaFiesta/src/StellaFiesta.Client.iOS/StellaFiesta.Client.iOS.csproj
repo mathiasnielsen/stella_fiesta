@@ -92,7 +92,6 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controls\CustomUIPickerViewModel.cs" />
     <Compile Include="Services\FacebookService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Setup.cs" />
@@ -108,29 +107,7 @@
     <Compile Include="Services\StorageService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon1024.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon167.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon152.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon80.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon76.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon29.png">
-      <Visible>false</Visible>
-    </ImageAsset>
-    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
     <ImageAsset Include="Assets.xcassets\ic_facebook.imageset\Contents.json" />
@@ -141,6 +118,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %285%29.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %286%29.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %287%29.png" />
+    <ImageAsset Include="Assets.xcassets\ActualLaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\ActualLaunchImage.launchimage\launch_screen.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -183,6 +162,7 @@
     <Folder Include="Renderes\Transitions\" />
     <Folder Include="Services\Toasts\" />
     <Folder Include="Utitlities\" />
+    <Folder Include="Assets.xcassets\ActualLaunchImage.launchimage\" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="car.json" />
@@ -191,6 +171,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\gabiie_s handwritting.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\StellaLaunchScreen.storyboard" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
