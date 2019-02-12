@@ -105,6 +105,8 @@
     <Compile Include="Services\Toasts\ToastViewController.cs" />
     <Compile Include="Utitlities\AutoLayoutToolBox.cs" />
     <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Effects\TitleFontEffect.cs" />
+    <Compile Include="Effects\FontEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -118,8 +120,6 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %285%29.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %286%29.png" />
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\ic_app_stella %287%29.png" />
-    <ImageAsset Include="Assets.xcassets\ActualLaunchImage.launchimage\Contents.json" />
-    <ImageAsset Include="Assets.xcassets\ActualLaunchImage.launchimage\launch_screen.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -171,6 +171,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\gabiie_s handwritting.ttf" />
+    <BundleResource Include="Resources\HELR65W.ttf" />
+    <BundleResource Include="Resources\PermanentMarker-Regular.ttf" />
+    <BundleResource Include="Resources\Chewy-Regular.ttf" />
+    <BundleResource Include="Resources\FredokaOne-Regular.ttf" />
+    <BundleResource Include="Resources\SecularOne-Regular.ttf" />
+    <BundleResource Include="Resources\SpecialElite-Regular.ttf" />
+    <BundleResource Include="Resources\Monoton-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\StellaLaunchScreen.storyboard" />

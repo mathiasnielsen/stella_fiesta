@@ -39,7 +39,8 @@ namespace StellaFiesta.Client.iOS
         public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
         {
             var openUrlOptions = new UIApplicationOpenUrlOptions(options);
-            Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(app, url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
+            ////Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(app, url, openUrlOptions.SourceApplication, openUrlOptions.Annotation);
+            Facebook.CoreKit.ApplicationDelegate.SharedInstance.OpenUrl(app, url, options);
 
             return base.OpenUrl(app, url, options);
         }

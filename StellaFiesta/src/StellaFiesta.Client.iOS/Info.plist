@@ -47,13 +47,16 @@
 	<string>StellaFiesta</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>ReenieBeanie.tff</string>
+		<string>ReenieBeanie.ttf</string>
 		<string>Pacifico.ttf</string>
 		<string>gabiie_s handwritting.ttf</string>
+		<string>Monoton-Regular.ttf</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 	<key>UILaunchStoryboardName</key>
 	<string>StellaLaunchScreen</string>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleLightContent</string>
 </dict>
 </plist>

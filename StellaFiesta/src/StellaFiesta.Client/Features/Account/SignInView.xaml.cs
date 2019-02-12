@@ -22,7 +22,7 @@ namespace StellaFiesta.Client.Features.Account
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            login_facebook_btn.Effects.Add(new SillyFontEffect());
+            ////login_facebook_btn.Effects.Add(new SillyFontEffect());
 
             title_label.Opacity = 0;
             login_facebook_btn.Opacity = 0;

@@ -34,7 +34,7 @@
                     HorizontalTextAlignment="Center"
                     HorizontalOptions="CenterAndExpand">
                     <Label.Effects>
-                        <effects:SillyFontEffect/>
+                        <effects:TitleFontEffect/>
                     </Label.Effects>
                 </Label>
                 <controls:IntelligentButton
