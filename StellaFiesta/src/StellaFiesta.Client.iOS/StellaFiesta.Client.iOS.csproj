@@ -105,6 +105,7 @@
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\Toasts\ToastViewController.cs" />
     <Compile Include="Utitlities\AutoLayoutToolBox.cs" />
+    <Compile Include="Services\StorageService.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
