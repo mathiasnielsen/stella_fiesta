@@ -1,4 +1,5 @@
 ﻿
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -41,18 +42,15 @@ namespace StellaFiesta.Api
 
             services.AddMvc();
             services.AddDistributedMemoryCache();
-            services.AddSession();
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            ////services.Configure<CookiePolicyOptions>(options =>
-            ////{
-            ////    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-            ////    options.CheckConsentNeed.ed = context => false;
-            ////    options.MinimumSameSitePolicy = SameSiteMode.None;
-            ////});
-
-            ////services.AddMvc()
-            ////.SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromMinutes(100);
+                ////options.Cookie.HttpOnly = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

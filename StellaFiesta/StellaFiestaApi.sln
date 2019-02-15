@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Api", "src\Ste
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Api.Tests", "src\StellaFiesta.Api.Tests\StellaFiesta.Api.Tests.csproj", "{7F78B66D-307A-40C8-969A-F0CF06605FE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Models", "src\StellaFiesta.Models\StellaFiesta.Models.csproj", "{98C6B4BC-0727-497F-8266-94F9BF4581AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellaFiesta.Models", "src\StellaFiesta.Models\StellaFiesta.Models.csproj", "{B8FEA2E0-1411-42D4-98EE-3B58A887FE85}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +21,9 @@ Global
 		{7F78B66D-307A-40C8-969A-F0CF06605FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F78B66D-307A-40C8-969A-F0CF06605FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F78B66D-307A-40C8-969A-F0CF06605FE8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{98C6B4BC-0727-497F-8266-94F9BF4581AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98C6B4BC-0727-497F-8266-94F9BF4581AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98C6B4BC-0727-497F-8266-94F9BF4581AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98C6B4BC-0727-497F-8266-94F9BF4581AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8FEA2E0-1411-42D4-98EE-3B58A887FE85}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8FEA2E0-1411-42D4-98EE-3B58A887FE85}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8FEA2E0-1411-42D4-98EE-3B58A887FE85}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8FEA2E0-1411-42D4-98EE-3B58A887FE85}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

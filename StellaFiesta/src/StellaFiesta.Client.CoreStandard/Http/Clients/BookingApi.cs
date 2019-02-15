@@ -9,12 +9,12 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public class BookingApi : ApiBase, IBookingApi
     {
-        private string route => $"{BaseUrl}/carbooking";
-
         public BookingApi(IHttpClientFactory httpClientFactory)
             : base(httpClientFactory)
         {
         }
+
+        private string Route => $"{BaseUrl}/carbooking";
 
         public async Task<ResultBlock<List<CarBooking>>> GetBookingsAsync(
             CancellationToken token = default(CancellationToken))
@@ -23,7 +23,7 @@ namespace StellaFiesta.Client.CoreStandard
             {
                 token.ThrowIfCancellationRequested();
 
-                var url = $"{route}/bookings";
+                var url = $"{Route}/bookings";
                 var carTimes = await Executor.Get<IEnumerable<CarBooking>>(url);
                 var result = new ResultBlock<List<CarBooking>>(true, carTimes.ToList());
                 return result;
@@ -43,7 +43,7 @@ namespace StellaFiesta.Client.CoreStandard
             {
                 token.ThrowIfCancellationRequested();
 
-                var url = $"{route}/makebooking";
+                var url = $"{Route}/makebooking";
                 var didBook = await Executor.Post(url, booking);
                 return didBook;
             }
@@ -61,7 +61,7 @@ namespace StellaFiesta.Client.CoreStandard
             {
                 token.ThrowIfCancellationRequested();
 
-                var url = $"{route}/bookings/{id}";
+                var url = $"{Route}/bookings/{id}";
                 var didRemoveBooking = await Executor.DeleteAsync(url);
                 return didRemoveBooking;
             }

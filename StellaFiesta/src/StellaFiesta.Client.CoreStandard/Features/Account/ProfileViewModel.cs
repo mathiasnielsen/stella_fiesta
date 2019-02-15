@@ -9,7 +9,7 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly IAuthenticationService authenticationService;
         private readonly INavigationService navigationService;
 
-        private string userName;
+        private string _userName;
         private string imageUrl;
 
         public ProfileViewModel(
@@ -28,8 +28,8 @@ namespace StellaFiesta.Client.CoreStandard
 
         public string UserName
         {
-            get { return userName; }
-            set { Set(ref userName, value); }
+            get { return _userName; }
+            set { Set(ref _userName, value); }
         }
 
         public string ImageUrl

@@ -9,7 +9,7 @@ namespace StellaFiesta.Client.Core
         public HomeViewModel(
             IConnectivityService connectivityService,
             INavigationService navigationService)
-            : base (connectivityService)
+            : base(connectivityService)
         {
             this.navigationService = navigationService;
 

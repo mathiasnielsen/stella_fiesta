@@ -135,7 +135,6 @@ namespace StellaFiesta.Client.CoreStandard
 
         private void DateSelected(DateTime date)
         {
-
             CurrentDisplayedDate = date;
             BookingDaysInMonth = BookingCalendarUtility.GetDaysInMonth(CurrentDisplayedDate);
             UpdateBookingDaysInMonthOfDay(BookingDaysInMonth);

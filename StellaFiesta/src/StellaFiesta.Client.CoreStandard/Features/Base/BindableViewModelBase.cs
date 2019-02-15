@@ -10,7 +10,6 @@ namespace StellaFiesta.Client.Core
         private readonly IConnectivityService _connectivityService;
 
         private bool _isLoading;
-        private bool _isConnected;
         private bool _isShowingOfflineState;
         private string _loadingText;
 
@@ -20,10 +19,6 @@ namespace StellaFiesta.Client.Core
             _connectivityService = connectivityService;
             LoadingManager = new LoadingManager();
         }
-
-        protected ILoadingManager LoadingManager { get; set; }
-
-        protected Dictionary<string, string> NavigationParameters { get; set; }
 
         public bool IsLoading
         {
@@ -44,6 +39,10 @@ namespace StellaFiesta.Client.Core
             get { return _loadingText; }
             set { Set(ref _loadingText, value); }
         }
+
+        protected ILoadingManager LoadingManager { get; set; }
+
+        protected Dictionary<string, string> NavigationParameters { get; set; }
 
         public void SubscripeBaseEvents()
         {
@@ -90,6 +89,10 @@ namespace StellaFiesta.Client.Core
             await Task.FromResult(true);
         }
 
+        protected virtual void OnIsConnectedChanged(bool isConnected)
+        {
+        }
+
         private void OnCompleted(object sender, EventArgs e)
         {
             IsLoading = false;
@@ -104,10 +107,6 @@ namespace StellaFiesta.Client.Core
         private void IsConnectedChanged(object sender, bool isConnected)
         {
             OnIsConnectedChanged(isConnected);
-        }
-
-        protected virtual void OnIsConnectedChanged(bool isConnected)
-        {
         }
     }
 }

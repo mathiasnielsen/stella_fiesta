@@ -38,12 +38,13 @@ namespace StellaFiesta.Api
         }
 
         [HttpGet("save_in_session")]
-        public void TestHttpContextSave()
+        public string TestHttpContextSave()
         {
             try
             {
                 var dateTimeInString = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
                 HttpContext.Session.SetString(StartTimeStamp, dateTimeInString);
+                return dateTimeInString;
             }
             catch (Exception ex)
             {
@@ -53,11 +54,12 @@ namespace StellaFiesta.Api
         }
 
         [HttpGet("retrieve_from_session")]
-        public void HttpContextRetrieve()
+        public string HttpContextRetrieve()
         {
             try
             {
                 var savedText = HttpContext.Session.GetString(StartTimeStamp);
+                return savedText;
             }
             catch (Exception ex)
             {

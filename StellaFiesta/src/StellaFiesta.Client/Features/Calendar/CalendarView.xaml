@@ -64,7 +64,7 @@
                                         Text="{Binding IsBooked, Converter={StaticResource bookingStateToTextBoolConverter}}"
                                         LineBreakMode="TailTruncation"
                                         VerticalOptions="CenterAndExpand"
-                                        HorizontalOptions="EndAndExpand"/>
+                                        HorizontalOptions="End"/>
                                 </StackLayout>
                             </local:BookingCell>
                         </DataTemplate>

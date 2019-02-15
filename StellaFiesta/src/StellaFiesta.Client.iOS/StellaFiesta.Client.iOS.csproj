@@ -105,6 +105,7 @@
     <Compile Include="Services\Toasts\ToastViewController.cs" />
     <Compile Include="Utitlities\AutoLayoutToolBox.cs" />
     <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Effects\TitleFontEffect.cs" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

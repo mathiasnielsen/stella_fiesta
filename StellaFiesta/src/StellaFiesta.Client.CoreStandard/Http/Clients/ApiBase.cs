@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace StellaFiesta.Client.CoreStandard
 {
     public abstract class ApiBase
@@ -15,6 +16,6 @@ namespace StellaFiesta.Client.CoreStandard
 
         protected string MediaType => "application/json";
 
-        protected IHttpRequestExecutor Executor;
+        protected IHttpRequestExecutor Executor { get; }
     }
 }

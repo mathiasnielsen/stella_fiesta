@@ -94,7 +94,8 @@ namespace StellaFiesta.Client.CoreStandard
             return null;
         }
 
-        private static StringContent CreateJsonContent<TContent>(TContent bodyParameter) where TContent : class
+        private static StringContent CreateJsonContent<TContent>(TContent bodyParameter)
+            where TContent : class
         {
             var content = JsonConvert.SerializeObject(bodyParameter);
 

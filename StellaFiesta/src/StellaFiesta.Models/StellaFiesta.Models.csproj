@@ -1,7 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+        <!-- we need an empty dependency group to prevent netstandard1.x references from applying to 2.0 -->
+        <!--<_dependency Include="_._">-->
+            <TargetFramework>netstandard2.0</TargetFramework>
+            <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>

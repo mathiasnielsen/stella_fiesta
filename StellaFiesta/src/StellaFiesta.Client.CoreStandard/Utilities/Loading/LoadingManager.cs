@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace StellaFiesta.Client.CoreStandard
 {
     public class LoadingManager : ILoadingManager
@@ -10,13 +11,13 @@ namespace StellaFiesta.Client.CoreStandard
 
         /// <summary>
         /// Loading event, which the view will hook into,
-        /// to be able to e.g. show a spinner. 
+        /// to be able to e.g. show a spinner.
         /// </summary>
         public event EventHandler Loading;
 
         /// <summary>
         /// Completed event, which the view will hook into
-        /// to be able to e.g. dismiss a spinner. 
+        /// to be able to e.g. dismiss a spinner.
         /// </summary>
         public event EventHandler Completed;
 
@@ -45,7 +46,7 @@ namespace StellaFiesta.Client.CoreStandard
         /// <summary>
         /// Creates a disposable LoadingScope, which internally
         /// calls "BeginLoad" when it is constrcuted, and "EndLoad"
-        /// when it is disposed. 
+        /// when it is disposed.
         /// </summary>
         public LoadingScope CreateLoadingScope(bool useProgress = false, Action completion = null)
         {

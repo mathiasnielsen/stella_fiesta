@@ -4,16 +4,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Http;
 
 namespace StellaFiesta.Api.Controllers
 {
     [Route("api/carbooking")]
-    public class CarTimesController : ControllerBase
+    public class BookingController : ControllerBase
     {
         private readonly StellaFiestaContext _context;
         private readonly ILogger _logger;
 
-        public CarTimesController(StellaFiestaContext context, ILogger<CarTimesController> logger)
+        public BookingController(StellaFiestaContext context, ILogger<BookingController> logger)
         {
             _context = context;
             _logger = logger;
@@ -41,19 +42,32 @@ namespace StellaFiesta.Api.Controllers
         [Route("makebooking")]
         public async Task<bool> AddBookingAsync([FromBody] CarBooking carDay)
         {
+            var bookingKey = carDay.BookingStartDate.ToString("MM/dd/yyyy h:mm tt");
+            var hasBookingKey = HttpContext.Session.Keys.Contains(bookingKey);
+            if (hasBookingKey)
+            {
+                throw new Exception("Someone is alredy trying to make the booking");
+            }
+
             try
             {
+                HttpContext.Session.SetInt32(bookingKey, 1);
                 _logger.LogInformation($"Started adding booking, bookerName: {carDay?.BookerName}");
                 _context.CarBookings.Add(carDay);
                 _logger.LogInformation($"Added, bookerName: {carDay?.BookerName}");
                 var result = await _context.SaveChangesAsync();
                 _logger.LogInformation($"Result = {result}, bookerName: {carDay?.BookerName}");
+
                 return result > 0;
             }
             catch (Exception ex)
             {
                 _logger.LogInformation("Failed to post, ex:" + ex.Message);
                 throw;
+            }
+            finally
+            {
+                HttpContext.Session.Remove(bookingKey);
             }
         }
 
