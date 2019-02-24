@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+using System;
+using System.Threading.Tasks;
 using Facebook.CoreKit;
 using Facebook.LoginKit;
 using Foundation;
@@ -9,17 +10,18 @@ namespace StellaFiesta.Client.iOS
     public class AuthenticationService : AuthenticationServiceBase, IAuthenticationService
     {
         private const int ImageSize = 100;
-        private LoginManager loginManager;
+
+        private readonly LoginManager _loginManager;
 
         public AuthenticationService(IMessagingCenterForwarder messagingCenterForwarder)
             : base(messagingCenterForwarder)
         {
-            loginManager = new LoginManager();
+            _loginManager = new LoginManager();
         }
 
         public bool IsLoggedIn => AccessToken.CurrentAccessTokenIsActive;
 
-        public Task<UserProfile> GetProfileAsync()
+        protected override Task<UserProfile> GetNativeProfileAsync()
         {
             var completionTask = new TaskCompletionSource<UserProfile>();
             var accessToken = AccessToken.CurrentAccessToken;
@@ -27,6 +29,18 @@ namespace StellaFiesta.Client.iOS
             {
                 Profile.LoadCurrentProfile((Profile profile, NSError error) =>
                 {
+                    if (error != null)
+                    {
+                        completionTask.TrySetException(new Exception($"An exception has been registered, ex: {error.LocalizedDescription}"));
+                        return;
+                    }
+
+                    if (profile == null)
+                    {
+                        completionTask.TrySetException(new Exception("Profile is null"));
+                        return;
+                    }
+
                     var userProfile = new UserProfile
                     {
                         UserId = profile.UserId,
@@ -46,7 +60,7 @@ namespace StellaFiesta.Client.iOS
 
         protected override void OnSignOut()
         {
-            loginManager.LogOut();
+            _loginManager.LogOut();
         }
     }
 }

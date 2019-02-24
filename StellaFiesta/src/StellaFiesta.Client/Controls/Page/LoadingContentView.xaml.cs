@@ -5,14 +5,6 @@ namespace StellaFiesta.Client.Controls
     // https://xamarinhelp.com/xamarin-forms-page-templates/
     public partial class LoadingContentView : ContentView
     {
-        public LoadingContentView()
-        {
-            InitializeComponent();
-
-            Root.BackgroundColor = Color.Gray.MultiplyAlpha(0.6);
-            IsVisible = false;
-        }
-
         public static BindableProperty LoadingTextProperty =
             BindableProperty.Create(
                 propertyName: nameof(LoadingText),
@@ -28,6 +20,14 @@ namespace StellaFiesta.Client.Controls
                 typeof(LoadingContentView),
                 defaultValue: false,
                 propertyChanged: OnIsLoadingChanged);
+
+        public LoadingContentView()
+        {
+            InitializeComponent();
+
+            Root.BackgroundColor = Color.Gray.MultiplyAlpha(0.6);
+            IsVisible = false;
+        }
 
         public string LoadingText
         {

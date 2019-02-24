@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <local:CalendarViewBase 
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -44,11 +44,15 @@
                         <DataTemplate>
                             <local:BookingCell
                                 IsEnabled="{Binding IsValidBookingDate}">
-                                <StackLayout
+                                <Grid
                                     Padding="10, 10, 10, 10"
                                     HeightRequest="48"
-                                    Orientation="Horizontal"
                                     BackgroundColor="{Binding Day, Converter={StaticResource weekDayToColorConverter}}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="24"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
                                     <Label
                                         Text="{Binding Day, Converter={StaticResource dateTimeToDayNumberConverter}}"
                                         LineBreakMode="TailTruncation"
@@ -56,16 +60,19 @@
                                         VerticalOptions="CenterAndExpand"
                                         HorizontalOptions="Start"/>
                                     <Label
+                                        Grid.Column="1"
                                         Text="{Binding Name}"
                                         LineBreakMode="TailTruncation"
                                         VerticalOptions="CenterAndExpand"
-                                        HorizontalOptions="Start"/>
+                                        HorizontalOptions="StartAndExpand"/>
                                     <Label
+                                        Grid.Column="2"
                                         Text="{Binding IsBooked, Converter={StaticResource bookingStateToTextBoolConverter}}"
                                         LineBreakMode="TailTruncation"
+                                        HorizontalTextAlignment="End"
                                         VerticalOptions="CenterAndExpand"
-                                        HorizontalOptions="End"/>
-                                </StackLayout>
+                                        HorizontalOptions="FillAndExpand"/>
+                                </Grid>
                             </local:BookingCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

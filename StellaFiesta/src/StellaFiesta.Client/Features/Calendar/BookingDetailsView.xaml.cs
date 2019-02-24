@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using StellaFiesta.Client.CoreStandard;
-using Xamarin.Forms;
+﻿using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.Features.Calendar
 {

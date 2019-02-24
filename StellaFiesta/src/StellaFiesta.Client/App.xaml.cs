@@ -14,20 +14,6 @@ namespace StellaFiesta.Client
     {
         private static IUnityContainer _container;
 
-        public static IUnityContainer Container
-        {
-            get
-            {
-                if (_container != null) return _container;
-
-                _container = new UnityContainer();
-                ////_container.AddExtension(new InitializationExtension());
-                RegisterCoreTypes();
-
-                return _container;
-            }
-        }
-
         public App()
         {
             InitializeComponent();
@@ -47,6 +33,20 @@ namespace StellaFiesta.Client
 
             var navigationPage = new NavigationPage(startPage);
             MainPage = navigationPage;
+        }
+
+        public static IUnityContainer Container
+        {
+            get
+            {
+                if (_container != null) return _container;
+
+                _container = new UnityContainer();
+                ////_container.AddExtension(new InitializationExtension());
+                RegisterCoreTypes();
+
+                return _container;
+            }
         }
 
         protected override void OnStart()

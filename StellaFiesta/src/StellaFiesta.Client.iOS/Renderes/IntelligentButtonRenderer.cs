@@ -29,7 +29,7 @@ namespace StellaFiesta.Client.iOS
         {
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == IntelligentButton.PaddingProperty.PropertyName)
+            if (e.PropertyName == IntelligentButton.ButtonPaddingProperty.PropertyName)
             {
                 SetPadding();
             }

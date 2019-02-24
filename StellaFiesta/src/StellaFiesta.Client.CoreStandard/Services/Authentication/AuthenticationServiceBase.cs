@@ -1,4 +1,6 @@
-﻿namespace StellaFiesta.Client.CoreStandard
+using System.Threading.Tasks;
+
+namespace StellaFiesta.Client.CoreStandard
 {
     public abstract class AuthenticationServiceBase
     {
@@ -9,10 +11,18 @@
             _messagingCenterForwarder = messagingCenterForwarder;
         }
 
+        protected abstract Task<UserProfile> GetNativeProfileAsync();
+
         public void SignOut()
         {
             OnSignOut();
             _messagingCenterForwarder.Publish(this, new LogOutMessage());
+        }
+
+        public async Task<UserProfile> GetProfileAsync()
+        {
+            var userProfile = await GetNativeProfileAsync();
+            return userProfile;
         }
 
         protected virtual void OnSignOut()

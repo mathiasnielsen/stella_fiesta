@@ -4,22 +4,21 @@ namespace StellaFiesta.Client.Controls
 {
     public partial class OfflineContentView : ContentView
     {
+        public static BindableProperty IsInOfflineStateProperty =
+            BindableProperty.Create(
+                nameof(IsInOfflineState),
+                typeof(bool),
+                typeof(OfflineContentView),
+                defaultValue: false,
+                propertyChanged: OnIsInOfflineStateChanged);
+
         public OfflineContentView()
         {
             InitializeComponent();
 
             OfflineScreenOverlay.BackgroundColor = Color.White.MultiplyAlpha(0.3);
-
             IsVisible = false;
         }
-
-        public static BindableProperty IsInOfflineStateProperty =
-        BindableProperty.Create(
-            nameof(IsInOfflineState),
-            typeof(bool),
-            typeof(OfflineContentView),
-            defaultValue: false,
-            propertyChanged: OnIsInOfflineStateChanged);
 
         public bool IsInOfflineState
         {

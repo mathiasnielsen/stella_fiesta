@@ -5,6 +5,7 @@
 [assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA0001:XML documentation must be enabled")]
 
 //Maintainability
+[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single class")]
 [assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1404:Code analysis suppression must have justification")]
 
 //[assembly: SuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1401:FieldsMustBePrivate", Justification = "Reviewed.")]
