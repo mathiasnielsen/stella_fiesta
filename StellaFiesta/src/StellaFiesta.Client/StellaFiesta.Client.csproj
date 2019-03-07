@@ -36,6 +36,7 @@
     <Folder Include="Controls\Page\" />
     <Folder Include="Services\Navigation\" />
     <Folder Include="Services\Messaging\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Common.cs" />

@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using StellaFiesta.Client.CoreStandard.Utilities.Logging;
 using StellaFiesta.Client.Features.Account;
 using StellaFiesta.Client.iOS;
 using UIKit;
@@ -10,19 +11,12 @@ namespace StellaFiesta.Client.iOS
 {
     public class SignInPageRenderer : PageRenderer
     {
-        // TODO: Test on iOS9
-        ////public override UIStatusBarStyle PreferredStatusBarStyle()
-        ////{
-        ////    return UIStatusBarStyle.LightContent;
-        ////}
+        private readonly Logger logger = new Logger(nameof(SignInPageRenderer));
 
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
             UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
-
-            // TODO: Test on iOS9
-            ////SetNeedsStatusBarAppearanceUpdate();
         }
 
         public override void ViewWillDisappear(bool animated)
@@ -52,6 +46,10 @@ namespace StellaFiesta.Client.iOS
         {
             var facebookService = new FacebookService(this);
             var loginResult = await facebookService.LogInAsync();
+            if (loginResult?.Token != null)
+            {
+                logger.Info("Did not log in");
+            }
         }
     }
 }

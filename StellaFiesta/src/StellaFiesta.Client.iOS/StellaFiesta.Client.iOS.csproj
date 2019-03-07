@@ -106,6 +106,7 @@
     <Compile Include="Utitlities\AutoLayoutToolBox.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="Effects\TitleFontEffect.cs" />
+    <Compile Include="Effects\FontEffectBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\GlobalSuppressions.cs">
