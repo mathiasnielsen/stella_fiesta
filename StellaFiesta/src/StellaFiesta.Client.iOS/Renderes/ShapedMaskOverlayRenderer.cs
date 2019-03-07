@@ -19,6 +19,7 @@ namespace StellaFiesta.Client.iOS
                 var maskedView = new UIView();
                 maskedView.Layer.MasksToBounds = false;
                 // AHHH! I do not know.
+                // USE FFImageLoading with circle transformation.
             }
 
             if (e.OldElement != null)
