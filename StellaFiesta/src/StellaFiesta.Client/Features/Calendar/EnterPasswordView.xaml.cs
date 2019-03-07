@@ -1,5 +1,4 @@
-﻿using StellaFiesta.Client.CoreStandard;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using StellaFiesta.Client.CoreStandard;
 
 namespace StellaFiesta.Client.Features.Calendar
 {
@@ -13,7 +12,9 @@ namespace StellaFiesta.Client.Features.Calendar
         {
             InitializeComponent();
 
-            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+            // Will be fullscreen
+            // Do not do this, in order to not show the background of the statusbar (which is white).
+            ////On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
         }
     }
 }

@@ -16,13 +16,13 @@ namespace StellaFiesta.Client.iOS
         public override void ViewDidAppear(bool animated)
         {
             base.ViewDidAppear(animated);
-            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
+            ////UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.LightContent, true);
         }
 
         public override void ViewWillDisappear(bool animated)
         {
             base.ViewWillDisappear(animated);
-            UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
+            ////UIApplication.SharedApplication.SetStatusBarStyle(UIStatusBarStyle.Default, true);
         }
 
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
