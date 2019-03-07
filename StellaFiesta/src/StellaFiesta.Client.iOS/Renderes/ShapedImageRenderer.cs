@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -65,17 +65,17 @@ namespace StellaFiesta.Client.iOS
                 Control.ClipsToBounds = true;
 
                 // Border
-                ////RemovePreviouslyAddedBorderLayers();
-                ////var externalBorder = new CALayer
-                ////{
-                ////    Name = BorderLayerName,
-                ////    CornerRadius = Control.Layer.CornerRadius,
-                ////    Frame = new CGRect(-.5, -.5, minSize + 1, minSize + 1),
-                ////    BorderColor = ((ShapedImage)Element).BorderColor.ToCGColor(),
-                ////    BorderWidth = ((ShapedImage)Element).BorderThickness
-                ////};
+                RemovePreviouslyAddedBorderLayers();
+                var externalBorder = new CALayer
+                {
+                    Name = BorderLayerName,
+                    CornerRadius = Control.Layer.CornerRadius,
+                    Frame = new CGRect(-.5, -.5, minSize + 1, minSize + 1),
+                    BorderColor = ((ShapedImage)Element).BorderColor.ToCGColor(),
+                    BorderWidth = ((ShapedImage)Element).BorderThickness
+                };
 
-                ////Control.Layer.AddSublayer(externalBorder);
+                Control.Layer.AddSublayer(externalBorder);
             }
             catch (Exception ex)
             {

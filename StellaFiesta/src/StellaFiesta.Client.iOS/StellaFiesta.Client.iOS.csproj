@@ -108,6 +108,7 @@
     <Compile Include="Effects\TitleFontEffect.cs" />
     <Compile Include="Effects\FontEffectBase.cs" />
     <Compile Include="Renderes\ShapedImageRenderer.cs" />
+    <Compile Include="Renderes\ShapedMaskOverlayRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\GlobalSuppressions.cs">
