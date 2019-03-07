@@ -11,8 +11,6 @@ namespace StellaFiesta.Client.CoreStandard
             _messagingCenterForwarder = messagingCenterForwarder;
         }
 
-        protected abstract Task<UserProfile> GetNativeProfileAsync();
-
         public void SignOut()
         {
             OnSignOut();
@@ -28,5 +26,7 @@ namespace StellaFiesta.Client.CoreStandard
         protected virtual void OnSignOut()
         {
         }
+
+        protected abstract Task<UserProfile> GetNativeProfileAsync();
     }
 }

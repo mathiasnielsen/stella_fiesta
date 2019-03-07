@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using StellaFiesta.Client.CoreStandard;
 using StellaFiesta.Client.Effects;
 using Xamarin.Forms;
@@ -22,7 +22,7 @@ namespace StellaFiesta.Client.Features.Account
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            title_label.Text = $"Welcome{Environment.NewLine}to{Environment.NewLine}Stella Fiesta";
+            title_label.Text = "Stella Fiesta";
             login_facebook_btn.Effects.Add(new SillyFontEffect());
 
             title_label.Opacity = 0;

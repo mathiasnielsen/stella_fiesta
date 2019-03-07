@@ -1,14 +1,14 @@
-﻿using StellaFiesta.Client.iOS;
+using StellaFiesta.Client.iOS;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportEffect(typeof(SillyFontEffect), "CustomFontEffect2")]
+[assembly: ExportEffect(typeof(TitleFontEffect), nameof(TitleFontEffect))]
 namespace StellaFiesta.Client.iOS
 {
     public class TitleFontEffect : PlatformEffect
     {
-        private const string SillyFontName = "Reanie Beanie";
+        private const string FontName = "Monoton";
         ////private const string SillyFontName = "gabiies handwritting";
         ////private const string SillyFontName = "Reenie Beanie";
         ////private const string SillyFontName = "Pacifico";
@@ -21,14 +21,14 @@ namespace StellaFiesta.Client.iOS
             {
                 var label = Control as UILabel;
                 originalFont = label.Font;
-                label.Font = UIFont.FromName(SillyFontName, label.Font.PointSize);
+                label.Font = UIFont.FromName(FontName, label.Font.PointSize);
             }
 
             if (Element is Button)
             {
                 var button = Control as UIButton;
                 originalFont = button.TitleLabel.Font;
-                var font = UIFont.FromName(SillyFontName, button.TitleLabel.Font.PointSize);
+                var font = UIFont.FromName(FontName, button.TitleLabel.Font.PointSize);
                 button.TitleLabel.Font = font;
             }
         }
