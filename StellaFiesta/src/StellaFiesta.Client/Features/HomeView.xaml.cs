@@ -1,4 +1,5 @@
-﻿using StellaFiesta.Client.Core;
+using StellaFiesta.Client.Converters;
+using StellaFiesta.Client.Core;
 using Xamarin.Forms;
 
 namespace StellaFiesta.Client.Features.Common
@@ -17,13 +18,21 @@ namespace StellaFiesta.Client.Features.Common
             SetSVGImage();
         }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            profile_svgImage.SetBinding(
+                Image.SourceProperty, new Binding("Source", source: ViewModel.ImageUrl, converter: new DebugConverter()));
+        }
+
         private void SetSVGImage()
         {
             // Need to be set before appearing (otherwise we get an object null ref)
-            var tigerSvgPath = "StellaFiesta.Client.Assets.Images.tiger.svg";
+            var profilePlaceholderImage = "StellaFiesta.Client.Assets.Images.tiger_head.svg";
             var assembly = this.GetType().Assembly;
 
-            profile_svgImage.SvgPath = tigerSvgPath;
+            profile_svgImage.SvgPath = profilePlaceholderImage;
             profile_svgImage.SvgAssembly = assembly;
         }
     }

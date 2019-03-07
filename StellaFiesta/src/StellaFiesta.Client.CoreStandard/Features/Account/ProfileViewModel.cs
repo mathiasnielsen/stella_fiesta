@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using StellaFiesta.Client.Core;
 
@@ -10,7 +10,7 @@ namespace StellaFiesta.Client.CoreStandard
         private readonly INavigationService navigationService;
 
         private string _userName;
-        private string imageUrl;
+        private string _imageUrl;
 
         public ProfileViewModel(
             IConnectivityService connectivityService,
@@ -34,8 +34,8 @@ namespace StellaFiesta.Client.CoreStandard
 
         public string ImageUrl
         {
-            get { return imageUrl; }
-            set { Set(ref imageUrl, value); }
+            get { return _imageUrl; }
+            set { Set(ref _imageUrl, value); }
         }
 
         public override async Task OnViewInitializedAsync(Dictionary<string, string> navigationParameters)

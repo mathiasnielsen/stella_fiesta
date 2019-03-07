@@ -52,10 +52,15 @@
     <None Remove="Features\HomeView.xaml.orig" />
     <None Remove="Assets\Images\forden.jpg" />
     <None Remove="Assets\Images\tiger.svg" />
+    <None Remove="Assets\Images\icon_account.svg" />
+    <None Remove="Assets\Images\stella.svg" />
+    <None Remove="Assets\Images\tiger_head.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assets\Images\forden.jpg" />
-    <EmbeddedResource Include="Assets\Images\tiger.svg" />
+    <EmbeddedResource Include="Assets\Images\icon_account.svg" />
+    <EmbeddedResource Include="Assets\Images\stella.svg" />
+    <EmbeddedResource Include="Assets\Images\tiger_head.svg" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Resources\Colors %28copy%29.xaml.cs">
@@ -70,5 +75,10 @@
       <DependentUpon>TextStyles.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\Images\icon_account.svg">
+      <LogicalName>StellaFiesta.Client.Assets.Images.icon_account.svg</LogicalName>
+    </None>
   </ItemGroup>
 </Project>
