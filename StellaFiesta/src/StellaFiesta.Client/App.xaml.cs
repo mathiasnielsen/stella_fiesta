@@ -1,3 +1,6 @@
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using StellaFiesta.Client.Core;
 using StellaFiesta.Client.CoreStandard;
 using StellaFiesta.Client.CoreStandard.Managers;
@@ -61,6 +64,7 @@ namespace StellaFiesta.Client
         protected override void OnStart()
         {
             // Handle when your app starts
+            PrepareAppCenter();
         }
 
         protected override void OnSleep()
@@ -88,6 +92,14 @@ namespace StellaFiesta.Client
 
             // Others
             _container.RegisterSingleton<IMessagingCenterForwarder, MessagingCenterForwarder>();
+        }
+
+        private void PrepareAppCenter()
+        {
+            var iOSAppCenterKey = "ios=3bd9daf5-3a98-4446-9132-eac22f377a91;";
+            var uwpAppCenterKey = "uwp={Your UWP App secret here};";
+            var androidCenterKey = "android={Your Android App secret here}";
+            AppCenter.Start($"{iOSAppCenterKey}{uwpAppCenterKey}{androidCenterKey}", typeof(Analytics), typeof(Crashes));
         }
     }
 }
