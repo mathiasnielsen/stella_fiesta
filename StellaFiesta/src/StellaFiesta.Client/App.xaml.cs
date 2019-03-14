@@ -97,9 +97,8 @@ namespace StellaFiesta.Client
         private void PrepareAppCenter()
         {
             var iOSAppCenterKey = "ios=3bd9daf5-3a98-4446-9132-eac22f377a91;";
-            var uwpAppCenterKey = "uwp={Your UWP App secret here};";
-            var androidCenterKey = "android={Your Android App secret here}";
-            AppCenter.Start($"{iOSAppCenterKey}{uwpAppCenterKey}{androidCenterKey}", typeof(Analytics), typeof(Crashes));
+            var androidCenterKey = "android=83cb784c-355d-47f0-b4a2-fba7ccccae2a";
+            AppCenter.Start($"{iOSAppCenterKey}{androidCenterKey}", typeof(Analytics), typeof(Crashes));
         }
     }
 }

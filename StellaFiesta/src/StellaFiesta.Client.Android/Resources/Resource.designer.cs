@@ -27,6 +27,7 @@ namespace StellaFiesta.Client.Droid
 		public static void UpdateIdValues()
 		{
 			global::NGraphics.Android.Custom.Resource.String.library_name = global::StellaFiesta.Client.Droid.Resource.String.library_name;
+			global::Plugin.LocalNotifications.Resource.Drawable.plugin_lc_smallicon = global::StellaFiesta.Client.Droid.Resource.Drawable.plugin_lc_smallicon;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_in = global::StellaFiesta.Client.Droid.Resource.Animation.abc_fade_in;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_fade_out = global::StellaFiesta.Client.Droid.Resource.Animation.abc_fade_out;
 			global::Xamarin.Forms.Platform.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::StellaFiesta.Client.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -4574,26 +4575,26 @@ namespace StellaFiesta.Client.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020155
-			public const int avd_hide_password_1 = 2130837845;
-			
 			// aapt resource value: 0x7f020156
-			public const int avd_hide_password_2 = 2130837846;
+			public const int avd_hide_password_1 = 2130837846;
 			
 			// aapt resource value: 0x7f020157
-			public const int avd_hide_password_3 = 2130837847;
+			public const int avd_hide_password_2 = 2130837847;
+			
+			// aapt resource value: 0x7f020158
+			public const int avd_hide_password_3 = 2130837848;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020158
-			public const int avd_show_password_1 = 2130837848;
-			
 			// aapt resource value: 0x7f020159
-			public const int avd_show_password_2 = 2130837849;
+			public const int avd_show_password_1 = 2130837849;
 			
 			// aapt resource value: 0x7f02015a
-			public const int avd_show_password_3 = 2130837850;
+			public const int avd_show_password_2 = 2130837850;
+			
+			// aapt resource value: 0x7f02015b
+			public const int avd_show_password_3 = 2130837851;
 			
 			// aapt resource value: 0x7f020055
 			public const int com_facebook_auth_dialog_background = 2130837589;
@@ -5345,11 +5346,11 @@ namespace StellaFiesta.Client.Droid
 			// aapt resource value: 0x7f02014e
 			public const int notification_icon_background = 2130837838;
 			
-			// aapt resource value: 0x7f020153
-			public const int notification_template_icon_bg = 2130837843;
-			
 			// aapt resource value: 0x7f020154
-			public const int notification_template_icon_low_bg = 2130837844;
+			public const int notification_template_icon_bg = 2130837844;
+			
+			// aapt resource value: 0x7f020155
+			public const int notification_template_icon_low_bg = 2130837845;
 			
 			// aapt resource value: 0x7f02014f
 			public const int notification_tile_bg = 2130837839;
@@ -5358,10 +5359,13 @@ namespace StellaFiesta.Client.Droid
 			public const int notify_panel_notification_icon_bg = 2130837840;
 			
 			// aapt resource value: 0x7f020151
-			public const int tooltip_frame_dark = 2130837841;
+			public const int plugin_lc_smallicon = 2130837841;
 			
 			// aapt resource value: 0x7f020152
-			public const int tooltip_frame_light = 2130837842;
+			public const int tooltip_frame_dark = 2130837842;
+			
+			// aapt resource value: 0x7f020153
+			public const int tooltip_frame_light = 2130837843;
 			
 			static Drawable()
 			{
