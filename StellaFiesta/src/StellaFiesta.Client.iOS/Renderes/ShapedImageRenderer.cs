@@ -2,6 +2,8 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using CoreAnimation;
+using CoreGraphics;
 using Foundation;
 using StellaFiesta.Client.Controls;
 using StellaFiesta.Client.iOS;
