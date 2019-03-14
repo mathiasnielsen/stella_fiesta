@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using StellaFiesta.Api;
 using StellaFiesta.Client.Core;
+using StellaFiesta.Client.CoreStandard.Services;
 using StellaFiesta.Client.CoreStandard.Utilities;
 
 namespace StellaFiesta.Client.CoreStandard
@@ -10,11 +11,13 @@ namespace StellaFiesta.Client.CoreStandard
     public class MakeBookingViewModel : BindableViewModelBase
     {
         public const string BookingDateInTicksParameterKey = nameof(BookingDateInTicksParameterKey);
+        private const int ReminderNotificationId = 1001;
 
         private readonly IBookingApi _bookingApi;
         private readonly INavigationService _navigationService;
         private readonly IAuthenticationService _authenticationService;
         private readonly IToastService _toastService;
+        private readonly ILocalNotificationService _localNotificationService;
 
         private DateTime bookingDate;
         private string dateTitle;
@@ -24,13 +27,15 @@ namespace StellaFiesta.Client.CoreStandard
             INavigationService navigationService,
             IBookingApi carTimesApi,
             IAuthenticationService authenticationService,
-            IToastService toastService)
+            IToastService toastService,
+            ILocalNotificationService localNotificationService)
             : base(connectivityService)
         {
             _navigationService = navigationService;
             _bookingApi = carTimesApi;
             _authenticationService = authenticationService;
             _toastService = toastService;
+            _localNotificationService = localNotificationService;
 
             MakeBookingCommand = new RelayCommand(MakeBooking);
         }
@@ -81,6 +86,7 @@ namespace StellaFiesta.Client.CoreStandard
                 if (didMakeBooking)
                 {
                     _toastService.ShortAlert("Booking as been made");
+                    ScheduleReminder();
                     _navigationService.GoBack();
                 }
                 else
@@ -88,6 +94,15 @@ namespace StellaFiesta.Client.CoreStandard
                     _toastService.ShortAlert("Failed to make the booking");
                 }
             }
+        }
+
+        private void ScheduleReminder()
+        {
+            var title = "Returning Stella";
+            var body = "Remember to return Stella before 12.00";
+            var timeStampForReminder = DateTime.Now.AddSeconds(10);
+
+            _localNotificationService.ScheduleNotification(title, body, ReminderNotificationId, timeStampForReminder);
         }
     }
 }

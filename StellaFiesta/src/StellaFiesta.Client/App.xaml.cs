@@ -1,8 +1,10 @@
 using StellaFiesta.Client.Core;
 using StellaFiesta.Client.CoreStandard;
 using StellaFiesta.Client.CoreStandard.Managers;
+using StellaFiesta.Client.CoreStandard.Services;
 using StellaFiesta.Client.Features.Account;
 using StellaFiesta.Client.Features.Common;
+using StellaFiesta.Client.Services;
 using Unity;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -43,7 +45,10 @@ namespace StellaFiesta.Client
         {
             get
             {
-                if (_container != null) return _container;
+                if (_container != null)
+                {
+                    return _container;
+                }
 
                 _container = new UnityContainer();
                 ////_container.AddExtension(new InitializationExtension());
@@ -76,6 +81,7 @@ namespace StellaFiesta.Client
             _container.RegisterSingleton<IHttpClientFactory, HttpClientFactory>();
             _container.RegisterSingleton<IDialogService, DialogService>();
             _container.RegisterSingleton<IConnectivityService, ConnectivityService>();
+            _container.RegisterSingleton<ILocalNotificationService, LocalNotificationService>();
 
             // Managers
             _container.RegisterSingleton<ISecurityManager, SecurityManager>();
