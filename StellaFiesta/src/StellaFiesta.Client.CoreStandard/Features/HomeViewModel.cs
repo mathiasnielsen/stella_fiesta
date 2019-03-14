@@ -42,10 +42,8 @@ namespace StellaFiesta.Client.Core
 
         public override async Task OnViewInitializedAsync(Dictionary<string, string> navigationParameters)
         {
-            var profile = await _authenticationService.GetProfileAsync(imageSize: 310);
-
+            var profile = await _authenticationService.GetProfileAsync(imageSize: 200);
             await Task.Delay(2000);
-
             ImageUrl = profile.ImageUrl;
         }
 

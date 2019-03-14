@@ -12,7 +12,7 @@ namespace StellaFiesta.Client.Controls
     /// </summary>
     public partial class IntelligentImage : ContentView
     {
-        private const string PlaceholderSVGImagePath = "StellaFiesta.Client.Assets.Images.tiger_head.svg";
+        private const string FallbackImageButNotUsed = "StellaFiesta.Client.Assets.Images.tiger_head.svg";
 
         public static BindableProperty ImageUrlProperty =
             BindableProperty.Create(
@@ -22,10 +22,30 @@ namespace StellaFiesta.Client.Controls
                 defaultValue: string.Empty,
                 propertyChanged: OnImageUrlChanged);
 
+        public static BindableProperty PlaceHolderSVGFilePathProperty =
+            BindableProperty.Create(
+                propertyName: nameof(PlaceholderSVGFilePath),
+                returnType: typeof(string),
+                declaringType: typeof(IntelligentImage),
+                defaultValue: string.Empty,
+                propertyChanged: OnPlaceholderSVGGilePathPropertyChanged);
+
         public IntelligentImage()
         {
             InitializeComponent();
             SetSVGPlaceHolderImage();
+        }
+
+        public string ImageUrl
+        {
+            get { return (string)GetValue(ImageUrlProperty); }
+            set { SetValue(ImageUrlProperty, value); }
+        }
+
+        public string PlaceholderSVGFilePath
+        {
+            get { return (string)GetValue(PlaceHolderSVGFilePathProperty); }
+            set { SetValue(PlaceHolderSVGFilePathProperty, value); }
         }
 
         public void Load()
@@ -38,31 +58,29 @@ namespace StellaFiesta.Client.Controls
             shaped_image.PropertyChanged -= OnImagePropertyChanged;
         }
 
-        public string ImageUrl
-        {
-            get { return (string)GetValue(ImageUrlProperty); }
-            set { SetValue(ImageUrlProperty, value); }
-        }
-
         private static void OnImageUrlChanged(
             BindableObject bindable,
             object oldValue,
             object newValue)
         {
-            ////var control = (IntelligentImage)bindable;
-            ////var image = control.shaped_image;
+            // Here we could set the image also, but urls also takes some time to load the first time.
+            // So! we wait until the IsLoading is finished.
+        }
 
-            ////// Can be set here.
-            ////var imageUrl = (string)newValue;
-            ////image.Source = imageUrl;
+        private static void OnPlaceholderSVGGilePathPropertyChanged(
+            BindableObject bindable,
+            object oldValue,
+            object newValue)
+        {
+            var control = (IntelligentImage)bindable;
+            var svgImage = control.svg_placeholder_image;
+            svgImage.SvgPath = (string)newValue;
         }
 
         private void SetSVGPlaceHolderImage()
         {
             // Need to be set before appearing (otherwise we get an object null ref)
             var assembly = this.GetType().Assembly;
-
-            svg_placeholder_image.SvgPath = PlaceholderSVGImagePath;
             svg_placeholder_image.SvgAssembly = assembly;
         }
 

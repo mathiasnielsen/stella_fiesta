@@ -35,6 +35,7 @@ namespace StellaFiesta.Client.Features.Common
             // Need to be set before appearing (otherwise we get an object null ref)
             var profilePlaceholderImage = "StellaFiesta.Client.Assets.Images.tiger_head.svg";
             var assembly = this.GetType().Assembly;
+            profile_image.PlaceholderSVGFilePath = profilePlaceholderImage;
 
             ////profile_svgImage.SvgPath = profilePlaceholderImage;
             ////profile_svgImage.SvgAssembly = assembly;
