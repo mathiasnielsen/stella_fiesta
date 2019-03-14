@@ -107,8 +107,7 @@
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="Effects\TitleFontEffect.cs" />
     <Compile Include="Effects\FontEffectBase.cs" />
-    <Compile Include="Renderes\ShapedImageRenderer.cs" />
-    <Compile Include="Renderes\ShapedMaskOverlayRenderer.cs" />
+    <Compile Include="Renderes\ShapedMaskGridRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\GlobalSuppressions.cs">

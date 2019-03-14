@@ -6,7 +6,7 @@ namespace StellaFiesta.Client.CoreStandard
     {
         bool IsLoggedIn { get; }
 
-        Task<UserProfile> GetProfileAsync();
+        Task<UserProfile> GetProfileAsync(int imageSize = 100);
 
         void SignOut();
     }

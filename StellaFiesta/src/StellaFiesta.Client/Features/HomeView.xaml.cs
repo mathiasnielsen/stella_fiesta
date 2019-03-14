@@ -21,9 +21,13 @@ namespace StellaFiesta.Client.Features.Common
         protected override void OnAppearing()
         {
             base.OnAppearing();
+            profile_image.Load();
+        }
 
-            profile_svgImage.SetBinding(
-                Image.SourceProperty, new Binding("Source", source: ViewModel.ImageUrl, converter: new DebugConverter()));
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            profile_image.Unload();
         }
 
         private void SetSVGImage()
@@ -32,8 +36,8 @@ namespace StellaFiesta.Client.Features.Common
             var profilePlaceholderImage = "StellaFiesta.Client.Assets.Images.tiger_head.svg";
             var assembly = this.GetType().Assembly;
 
-            profile_svgImage.SvgPath = profilePlaceholderImage;
-            profile_svgImage.SvgAssembly = assembly;
+            ////profile_svgImage.SvgPath = profilePlaceholderImage;
+            ////profile_svgImage.SvgAssembly = assembly;
         }
     }
 }

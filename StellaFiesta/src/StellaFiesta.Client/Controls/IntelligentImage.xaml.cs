@@ -1,3 +1,5 @@
+using System;
+using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace StellaFiesta.Client.Controls
@@ -26,6 +28,16 @@ namespace StellaFiesta.Client.Controls
             SetSVGPlaceHolderImage();
         }
 
+        public void Load()
+        {
+            shaped_image.PropertyChanged += OnImagePropertyChanged;
+        }
+
+        public void Unload()
+        {
+            shaped_image.PropertyChanged -= OnImagePropertyChanged;
+        }
+
         public string ImageUrl
         {
             get { return (string)GetValue(ImageUrlProperty); }
@@ -37,24 +49,12 @@ namespace StellaFiesta.Client.Controls
             object oldValue,
             object newValue)
         {
-            var control = (IntelligentImage)bindable;
-            var image = control.shaped_image;
-            var svgImage = control.svg_placeholder_image;
+            ////var control = (IntelligentImage)bindable;
+            ////var image = control.shaped_image;
 
-            var imageUrl = (string)newValue;
-            image.Source = imageUrl;
-
-            var didGetImage = string.IsNullOrWhiteSpace(imageUrl) == false;
-            if (didGetImage)
-            {
-                ////image.FadeTo(1.0);
-                ////svgImage.FadeTo(0.0);
-            }
-            else
-            {
-                ////image.FadeTo(0.0);
-                ////svgImage.FadeTo(1.0);
-            }
+            ////// Can be set here.
+            ////var imageUrl = (string)newValue;
+            ////image.Source = imageUrl;
         }
 
         private void SetSVGPlaceHolderImage()
@@ -64,6 +64,32 @@ namespace StellaFiesta.Client.Controls
 
             svg_placeholder_image.SvgPath = PlaceholderSVGImagePath;
             svg_placeholder_image.SvgAssembly = assembly;
+        }
+
+        private void OnImagePropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == Image.IsLoadingProperty.PropertyName)
+            {
+                if (shaped_image.IsLoading == false)
+                {
+                    FinishedLoading();
+                }
+            }
+        }
+
+        private void FinishedLoading()
+        {
+            var didGetImage = string.IsNullOrWhiteSpace(ImageUrl) == false;
+            if (didGetImage)
+            {
+                shaped_image.FadeTo(1.0);
+                svg_placeholder_image.FadeTo(0.0);
+            }
+            else
+            {
+                shaped_image.FadeTo(0.0);
+                svg_placeholder_image.FadeTo(1.0);
+            }
         }
     }
 }

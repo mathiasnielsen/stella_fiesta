@@ -9,8 +9,6 @@ namespace StellaFiesta.Client.iOS
 {
     public class AuthenticationService : AuthenticationServiceBase, IAuthenticationService
     {
-        private const int ImageSize = 100;
-
         private readonly LoginManager _loginManager;
 
         public AuthenticationService(IMessagingCenterForwarder messagingCenterForwarder)
@@ -21,7 +19,7 @@ namespace StellaFiesta.Client.iOS
 
         public bool IsLoggedIn => AccessToken.CurrentAccessTokenIsActive;
 
-        protected override Task<UserProfile> GetNativeProfileAsync()
+        protected override Task<UserProfile> GetNativeProfileAsync(int imageSize)
         {
             var completionTask = new TaskCompletionSource<UserProfile>();
             var accessToken = AccessToken.CurrentAccessToken;
@@ -49,7 +47,7 @@ namespace StellaFiesta.Client.iOS
 
                     userProfile.ImageUrl = profile.ImageUrl(
                         ProfilePictureMode.Square,
-                        new CoreGraphics.CGSize(ImageSize, ImageSize)).AbsoluteString;
+                        new CoreGraphics.CGSize(imageSize, imageSize)).AbsoluteString;
 
                     completionTask.TrySetResult(userProfile);
                 });

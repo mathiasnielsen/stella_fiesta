@@ -4,6 +4,8 @@ namespace StellaFiesta.Client.CoreStandard
 {
     public abstract class AuthenticationServiceBase
     {
+        private const int ImageSize = 100;
+
         private readonly IMessagingCenterForwarder _messagingCenterForwarder;
 
         public AuthenticationServiceBase(IMessagingCenterForwarder messagingCenterForwarder)
@@ -17,9 +19,9 @@ namespace StellaFiesta.Client.CoreStandard
             _messagingCenterForwarder.Publish(this, new LogOutMessage());
         }
 
-        public async Task<UserProfile> GetProfileAsync()
+        public async Task<UserProfile> GetProfileAsync(int imageSize = ImageSize)
         {
-            var userProfile = await GetNativeProfileAsync();
+            var userProfile = await GetNativeProfileAsync(imageSize);
             return userProfile;
         }
 
@@ -27,6 +29,6 @@ namespace StellaFiesta.Client.CoreStandard
         {
         }
 
-        protected abstract Task<UserProfile> GetNativeProfileAsync();
+        protected abstract Task<UserProfile> GetNativeProfileAsync(int imageSize);
     }
 }

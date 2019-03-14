@@ -9,30 +9,16 @@
     x:Class="StellaFiesta.Client.Features.Common.HomeView"
     Title="Welcome to Stella">
     <ContentPage.Content>
-        <Grid
-            BackgroundColor="#FF0000">
+        <Grid>
             <StackLayout
                 Orientation="Vertical"
                 Padding="{StaticResource PageContentPadding}">
                 <controls:IntelligentImage
-                    HeightRequest="50"
-                    WidthRequest="50"
+                    x:Name="profile_image"
+                    HeightRequest="100"
+                    WidthRequest="100"
+                    HorizontalOptions="CenterAndExpand"
                     ImageUrl="{Binding ImageUrl}"/>
-                <controls:ShapedMaskOverlay
-                    HeightRequest="50"
-                    WidthRequest="50"
-                    HorizontalOptions="Center">
-                    
-                    <abstractions:SvgImage
-                        x:Name="profile_svgImage"
-                        SvgPath=""
-                        SvgAssembly=""
-                        HeightRequest="50"
-                        WidthRequest="50"
-                        HorizontalOptions="Center"
-                        VerticalOptions="Center"/>
-                    
-                </controls:ShapedMaskOverlay>
                 <Button
                     Text="About"
                     Command="{Binding GoToAboutCommand}"/>

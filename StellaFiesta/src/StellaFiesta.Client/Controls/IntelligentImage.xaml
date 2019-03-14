@@ -6,24 +6,25 @@
     x:Class="StellaFiesta.Client.Controls.IntelligentImage"
     xmlns:abstractions="clr-namespace:SVG.Forms.Plugin.Abstractions;assembly=SVG.Forms.Plugin.Abstractions">
     <ContentView.Content>
-        <Grid>
+        <controls:ShapedMaskGrid
+            BackgroundColor="#00FF00"
+            HorizontalOptions="CenterAndExpand"
+            VerticalOptions="CenterAndExpand">
             
             <abstractions:SvgImage
                 x:Name="svg_placeholder_image"
                 SvgPath=""
                 SvgAssembly=""
-                BackgroundColor="White"
                 HorizontalOptions="FillAndExpand"
                 VerticalOptions="CenterAndExpand"/>
             
-           <controls:ShapedImage
+           <Image
                 x:Name="shaped_image"
-                BackgroundColor="Red"
                 Aspect="AspectFill"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
                 Source="{Binding ImageUrl}"/>
             
-        </Grid>
+        </controls:ShapedMaskGrid>
     </ContentView.Content>
 </ContentView>
