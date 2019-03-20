@@ -77,6 +77,7 @@
     <Compile Include="Renderers\Transitions\TransitionNavigationPageRenderer.cs" />
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\StorageService.cs" />
+    <Compile Include="Renderers\BlurredImageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />

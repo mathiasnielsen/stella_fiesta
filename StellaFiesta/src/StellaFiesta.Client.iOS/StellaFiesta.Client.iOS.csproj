@@ -107,6 +107,7 @@
     <Compile Include="Effects\TitleFontEffect.cs" />
     <Compile Include="Effects\FontEffectBase.cs" />
     <Compile Include="Renderes\ShapedMaskGridRenderer.cs" />
+    <Compile Include="Renderes\BlurredImageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\GlobalSuppressions.cs">
