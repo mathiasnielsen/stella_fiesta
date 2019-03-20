@@ -30,6 +30,7 @@
                     Command="{Binding GoToProfileCommand}"/>
                 <Button
                     Text="Playground"
+                    Clicked="Handle_Clicked"
                     Command="{Binding GoToPlaygroundCommand}"/>
             </StackLayout>
         </Grid>

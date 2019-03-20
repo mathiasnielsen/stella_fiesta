@@ -40,6 +40,7 @@
     <Folder Include="Services\Navigation\" />
     <Folder Include="Services\Messaging\" />
     <Folder Include="Utilities\" />
+    <Folder Include="Controls\NavigationPage\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Features\Common.cs" />

@@ -8,7 +8,7 @@ using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
 
-[assembly: ExportRenderer(typeof(StellaFiesta.Client.Controls.TransitionNavigationPage), typeof(TransitionNavigationPageRenderer))]
+[assembly: ExportRenderer(typeof(StellaFiesta.Client.TransitionNavigationPage), typeof(TransitionNavigationPageRenderer))]
 namespace StellaFiesta.Client.Renderers.Transitions
 {
     public class TransitionNavigationPageRenderer : NavigationRenderer
@@ -85,10 +85,12 @@ namespace StellaFiesta.Client.Renderers.Transitions
             {
                 return base.PopViewController(false);
             }
+
             if (_transitionType == TransitionType.Default)
             {
                 return base.PopViewController(animated);
             }
+
             if (_transitionType == TransitionType.Fade)
             {
                 FadeAnimation(View);
@@ -131,31 +133,19 @@ namespace StellaFiesta.Client.Renderers.Transitions
 
         private void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == Controls.TransitionNavigationPage.TransitionTypeProperty.PropertyName)
+            if (e.PropertyName == TransitionNavigationPage.TransitionTypeProperty.PropertyName)
+            {
                 UpdateTransitionType();
+            }
         }
 
         private void UpdateTransitionType()
         {
-            var transitionNavigationPage = (Controls.TransitionNavigationPage)Element;
+            var transitionNavigationPage = (TransitionNavigationPage)Element;
             _transitionType = transitionNavigationPage.TransitionType;
         }
 
-        private void FadeAnimation(UIView view, double duration = 1.0)
-        {
-            view.Alpha = 0.0f;
-            view.Transform = CGAffineTransform.MakeIdentity();
-
-            UIView.Animate(duration, 0, UIViewAnimationOptions.CurveEaseInOut,
-                () =>
-                {
-                    view.Alpha = 1.0f;
-                },
-                null
-            );
-        }
-
-        public void FlipAnimation(UIView view, double duration = 0.5)
+        private void FlipAnimation(UIView view, double duration = 0.5)
         {
             var m34 = (nfloat)(-1 * 0.001);
             var initialTransform = CATransform3D.Identity;
@@ -164,7 +154,10 @@ namespace StellaFiesta.Client.Renderers.Transitions
 
             view.Alpha = 0.0f;
             view.Layer.Transform = initialTransform;
-            UIView.Animate(duration, 0, UIViewAnimationOptions.CurveEaseInOut,
+            UIView.Animate(
+                duration,
+                0,
+                UIViewAnimationOptions.CurveEaseInOut,
                 () =>
                 {
                     view.Layer.AnchorPoint = new CGPoint((nfloat)0.5, 0.5f);
@@ -173,8 +166,23 @@ namespace StellaFiesta.Client.Renderers.Transitions
                     view.Layer.Transform = newTransform;
                     view.Alpha = 1.0f;
                 },
-                null
-            );
+                null);
+        }
+
+        private void FadeAnimation(UIView view, double duration = 1.0)
+        {
+            view.Alpha = 0.0f;
+            view.Transform = CGAffineTransform.MakeIdentity();
+
+            UIView.Animate(
+                duration,
+                0,
+                UIViewAnimationOptions.CurveEaseInOut,
+                () =>
+                {
+                    view.Alpha = 1.0f;
+                },
+                null);
         }
 
         private void ScaleAnimation(UIView view, double duration = 0.5)

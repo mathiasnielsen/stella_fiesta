@@ -36,7 +36,7 @@ namespace StellaFiesta.Client
                 startPage = new SignInView();
             }
 
-            var navigationPage = new NavigationPage(startPage)
+            var navigationPage = new TransitionNavigationPage(startPage)
             {
                 BarTextColor = Color.White,
             };

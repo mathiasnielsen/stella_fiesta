@@ -64,7 +64,7 @@ namespace StellaFiesta.Client.Core
 
         private void GoToPlayground()
         {
-            _navigationService.NavigateToPlayground();
+            ////_navigationService.NavigateToPlayground();
         }
     }
 }

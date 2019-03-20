@@ -20,7 +20,7 @@ namespace StellaFiesta.Client.Features.Account
         {
             InitializeComponent();
 
-            NavigationPage.SetHasNavigationBar(this, false);
+            TransitionNavigationPage.SetHasNavigationBar(this, false);
 
             title_label.Text = "Stella Fiesta";
             login_facebook_btn.Effects.Add(new SillyFontEffect());

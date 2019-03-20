@@ -18,11 +18,11 @@ namespace StellaFiesta.Client
 
         private static void CreateNavigationStyles(ResourceDictionary resourceDictionary)
         {
-            var navigationStyle = new Style(typeof(NavigationPage))
+            var navigationStyle = new Style(typeof(TransitionNavigationPage))
             {
                 Setters =
                 {
-                    new Setter { Property = NavigationPage.BarBackgroundColorProperty, Value = (Color)resourceDictionary["BrandColor"] }
+                    new Setter { Property = TransitionNavigationPage.BarBackgroundColorProperty, Value = (Color)resourceDictionary["BrandColor"] }
                 }
             };
 
