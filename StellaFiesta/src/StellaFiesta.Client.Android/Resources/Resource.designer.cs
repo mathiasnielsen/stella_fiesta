@@ -6651,6 +6651,9 @@ namespace StellaFiesta.Client.Droid
 			// aapt resource value: 0x7f0a0055
 			public const int facebook_app_id = 2131361877;
 			
+			// aapt resource value: 0x7f0a0057
+			public const int facebook_app_name = 2131361879;
+			
 			// aapt resource value: 0x7f0a0056
 			public const int fb_login_protocol_scheme = 2131361878;
 			

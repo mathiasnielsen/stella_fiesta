@@ -2,4 +2,5 @@
 <resources>
     <string name="facebook_app_id">534663733642417</string>
     <string name="fb_login_protocol_scheme">fb534663733642417</string>
+    <string name="facebook_app_name">StellaFiesta</string>
 </resources>

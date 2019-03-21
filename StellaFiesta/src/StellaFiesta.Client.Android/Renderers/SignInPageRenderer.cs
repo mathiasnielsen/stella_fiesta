@@ -12,9 +12,13 @@ namespace StellaFiesta.Client.Droid
 {
     public class SignInPageRenderer : PageRenderer
     {
+        private readonly FacebookService _facebookService;
+
         public SignInPageRenderer(Context context)
             : base(context)
         {
+            var activity = this.Context as Activity;
+            _facebookService = new FacebookService(activity, SplashScreenActivity.CallbackManager);
         }
 
         protected override void OnElementChanged(ElementChangedEventArgs<Page> e)
@@ -37,9 +41,7 @@ namespace StellaFiesta.Client.Droid
 
         private async void OnFacebookButtonClicked(object sender, EventArgs e)
         {
-            var activity = this.Context as Activity;
-            var facebookService = new FacebookService(activity, SplashScreenActivity.CallbackManager);
-            var didLogin = await facebookService.LoginAsync();
+            var didLogin = await _facebookService.LoginAsync();
         }
     }
 }

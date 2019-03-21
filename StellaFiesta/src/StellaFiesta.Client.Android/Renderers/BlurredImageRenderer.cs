@@ -8,9 +8,9 @@ using Android.Graphics.Drawables;
 using Android.Renderscripts;
 using Android.Widget;
 using KickassUI.Spotify.Droid.Renderers;
-using KickassUI.Spotify.Controls;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
+using StellaFiesta.Client;
 
 // CHECK OUT: https://github.com/sthewissen/KickassUI.Spotify/blob/master/src/KickassUI.Spotify/Pages/PlayerPage.xaml
 
@@ -19,12 +19,15 @@ namespace KickassUI.Spotify.Droid.Renderers
 {
     public class BlurredImageRenderer : ViewRenderer<BlurredImage, ImageView>
     {
-        private bool _isDisposed;
-
         private const float BITMAP_SCALE = 0.3f;
         private const float RESIZE_SCALE = 0.2f;
 
-        public BlurredImageRenderer()
+        private static FieldInfo _isLoadingPropertyKeyFieldInfo;
+
+        private bool _isDisposed;
+
+        public BlurredImageRenderer(Context context)
+            : base(context)
         {
             AutoPackage = false;
         }
@@ -64,6 +67,7 @@ namespace KickassUI.Spotify.Droid.Renderers
             {
                 return;
             }
+
             _isDisposed = true;
             BitmapDrawable bitmapDrawable;
             if (disposing && Control != null && (bitmapDrawable = (Control.Drawable as BitmapDrawable)) != null)
@@ -75,6 +79,7 @@ namespace KickassUI.Spotify.Droid.Renderers
                     bitmap.Dispose();
                 }
             }
+
             base.Dispose(disposing);
         }
 
@@ -257,8 +262,6 @@ namespace KickassUI.Spotify.Droid.Renderers
             }
         }
 
-        private static FieldInfo _isLoadingPropertyKeyFieldInfo;
-
         private static FieldInfo IsLoadingPropertyKeyFieldInfo
         {
             get
@@ -267,6 +270,7 @@ namespace KickassUI.Spotify.Droid.Renderers
                 {
                     _isLoadingPropertyKeyFieldInfo = typeof(Image).GetField("IsLoadingPropertyKey", BindingFlags.Static | BindingFlags.NonPublic);
                 }
+
                 return _isLoadingPropertyKeyFieldInfo;
             }
         }

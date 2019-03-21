@@ -27,8 +27,30 @@ namespace StellaFiesta.Client.Droid
 
             FacebookSdk.ApplicationId = "534663733642417";
             CallbackManager = CallbackManagerFactory.Create();
-            ////FacebookSdk.SdkInitialize(ApplicationContext);
+
+            ////FacebookSdk.SdkInitialize(ApplicationContext, CallbackManager.);
             ////AppEventsLogger.ActivateApp(this);
+
+            ////    LoginManager.getInstance().registerCallback(callbackManager,
+            ////    new FacebookCallback<LoginResult>() {
+            ////        @Override
+            ////        public void onSuccess(LoginResult loginResult)
+            ////    {
+            ////        // App code
+            ////    }
+
+            ////    @Override
+            ////        public void onCancel()
+            ////    {
+            ////        // App code
+            ////    }
+
+            ////    @Override
+            ////        public void onError(FacebookException exception)
+            ////    {
+            ////        // App code   
+            ////    }
+            ////});
 
             var setup = new Setup();
             setup.Bootstrap(this);
@@ -44,4 +66,3 @@ namespace StellaFiesta.Client.Droid
         }
     }
 }
-

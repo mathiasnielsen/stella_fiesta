@@ -48,7 +48,8 @@ namespace StellaFiesta.Client
                     var existingPages = _mainPage.Navigation.NavigationStack.ToList();
                     for (int i = 1; i < existingPages.Count; i++)
                     {
-                        _mainPage.Navigation.RemovePage(existingPages[i]);
+                        ////_mainPage.Navigation.RemovePage(existingPages[i]);
+                        _mainPage.Navigation.PopAsync();
                     }
                 }
                 else if (historyBehavior == HistoryBehavior.ClearTop)

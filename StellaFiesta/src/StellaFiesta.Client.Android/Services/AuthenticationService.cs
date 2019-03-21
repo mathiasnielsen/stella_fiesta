@@ -2,26 +2,32 @@
 using System.Threading.Tasks;
 using StellaFiesta.Client.CoreStandard;
 using Xamarin.Facebook;
+using Xamarin.Facebook.Login;
 
 namespace StellaFiesta.Client.Droid
 {
     public class AuthenticationService : AuthenticationServiceBase, IAuthenticationService
     {
-        public bool IsLoggedIn => AccessToken.CurrentAccessToken != null && AccessToken.CurrentAccessToken.IsExpired == false;
-
         public AuthenticationService(IMessagingCenterForwarder messagingCenterForwarder)
             : base(messagingCenterForwarder)
         {
         }
 
-        public Task<UserProfile> GetProfileAsync()
+        public bool IsLoggedIn =>
+            AccessToken.CurrentAccessToken != null && AccessToken.CurrentAccessToken.IsExpired == false;
+
+        protected override Task<UserProfile> GetNativeProfileAsync(int imageSize)
         {
             var accessToken = AccessToken.CurrentAccessToken;
             if (accessToken.IsExpired == false)
             {
-                var userProfile = new UserProfile();
-                userProfile.Name = Profile.CurrentProfile.Name;
-                var imageUri = Profile.CurrentProfile.GetProfilePictureUri(100, 100);
+                var userProfile = new UserProfile
+                {
+                    Name = Profile.CurrentProfile.Name,
+                };
+
+                var imageUri = Profile.CurrentProfile.GetProfilePictureUri(imageSize, imageSize);
+                userProfile.ImageUrl = imageUri.ToString();
             }
 
             return null;
@@ -29,7 +35,7 @@ namespace StellaFiesta.Client.Droid
 
         protected override void OnSignOut()
         {
-            throw new NotImplementedException();
+            LoginManager.Instance.LogOut();
         }
     }
 }

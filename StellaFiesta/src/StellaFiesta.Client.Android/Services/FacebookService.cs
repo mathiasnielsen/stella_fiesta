@@ -1,8 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Android.App;
+using StellaFiesta.Client.Droid;
 using Xamarin.Facebook;
 using Xamarin.Facebook.Login;
+
+// GOOD GIT https://gist.github.com/jaganjan/ecd8b6523ddebbaf43e7
+[assembly: Xamarin.Forms.Dependency(typeof(FacebookService))]
+[assembly: Permission(Name = Android.Manifest.Permission.Internet)]
+[assembly: Permission(Name = Android.Manifest.Permission.WriteExternalStorage)]
+[assembly: MetaData("com.facebook.sdk.ApplicationId", Value = "@string/facebook_app_id")]
+[assembly: MetaData("com.facebook.sdk.ApplicationName", Value = "@string/facebook_app_name")]
 
 namespace StellaFiesta.Client.Droid
 {
@@ -26,18 +34,21 @@ namespace StellaFiesta.Client.Droid
             return _loginTaskCompletionSource.Task;
         }
 
-        public void OnCancel()
+        public async void OnCancel()
         {
+            await Task.Delay(2000);
             _loginTaskCompletionSource.SetResult(false);
         }
 
-        public void OnError(FacebookException error)
+        public async void OnError(FacebookException error)
         {
+            await Task.Delay(2000);
             _loginTaskCompletionSource.SetResult(false);
         }
 
-        public void OnSuccess(Java.Lang.Object result)
+        public async void OnSuccess(Java.Lang.Object result)
         {
+            await Task.Delay(2000);
             _loginTaskCompletionSource.SetResult(true);
         }
     }
