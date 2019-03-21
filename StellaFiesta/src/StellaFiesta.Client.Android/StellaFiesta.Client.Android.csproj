@@ -78,6 +78,7 @@
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="Renderers\BlurredImageRenderer.cs" />
+    <Compile Include="PureNative\FacebookActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -129,6 +130,7 @@
     <Folder Include="Services\" />
     <Folder Include="Renderers\Transitions\" />
     <Folder Include="Resources\anim\" />
+    <Folder Include="PureNative\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StellaFiesta.Client\StellaFiesta.Client.csproj">
