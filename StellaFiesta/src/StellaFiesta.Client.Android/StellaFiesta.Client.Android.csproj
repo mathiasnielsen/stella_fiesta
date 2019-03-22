@@ -78,6 +78,7 @@
     <Compile Include="Services\ToastService.cs" />
     <Compile Include="Services\StorageService.cs" />
     <Compile Include="Renderers\BlurredImageRenderer.cs" />
+    <Compile Include="MainActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -117,6 +118,8 @@
     <AndroidResource Include="Resources\anim\enter_right.xml" />
     <AndroidResource Include="Resources\anim\enter_left.xml" />
     <AndroidResource Include="Resources\anim\enter_bottom.xml" />
+    <AndroidResource Include="Resources\drawable\launch_screen.xml" />
+    <AndroidResource Include="Resources\drawable\launch_screen_simple.xml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />
@@ -141,6 +144,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
     <AndroidAsset Include="Assets\gabiie_s handwritting.ttf" />
     <AndroidAsset Include="Assets\car.json" />
   </ItemGroup>

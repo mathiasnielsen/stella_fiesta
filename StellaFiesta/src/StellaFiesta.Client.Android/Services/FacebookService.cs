@@ -34,21 +34,18 @@ namespace StellaFiesta.Client.Droid
             return _loginTaskCompletionSource.Task;
         }
 
-        public async void OnCancel()
+        public void OnCancel()
         {
-            await Task.Delay(2000);
             _loginTaskCompletionSource.SetResult(false);
         }
 
-        public async void OnError(FacebookException error)
+        public void OnError(FacebookException error)
         {
-            await Task.Delay(2000);
             _loginTaskCompletionSource.SetResult(false);
         }
 
-        public async void OnSuccess(Java.Lang.Object result)
+        public void OnSuccess(Java.Lang.Object result)
         {
-            await Task.Delay(2000);
             _loginTaskCompletionSource.SetResult(true);
         }
     }

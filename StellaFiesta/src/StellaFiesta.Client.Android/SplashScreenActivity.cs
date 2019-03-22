@@ -10,7 +10,7 @@ namespace StellaFiesta.Client.Droid
     [Activity(
         Label = "StellaFiesta.Client",
         Icon = "@mipmap/icon",
-        Theme = "@style/MainTheme",
+        Theme = "@style/LauncherTheme",
         MainLauncher = true,
         ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
         Name = "com.kirkegaardbusiness.Stella_Fiesta.SplashScreenActivity")]
@@ -25,32 +25,11 @@ namespace StellaFiesta.Client.Droid
 
             base.OnCreate(bundle);
 
-            FacebookSdk.ApplicationId = "534663733642417";
-            CallbackManager = CallbackManagerFactory.Create();
+            // NOPE! But make put all this into activity
+            // https://xamarinhelp.com/creating-splash-screen-xamarin-forms/
+            SetTheme(Resource.Style.MainTheme);
 
-            ////FacebookSdk.SdkInitialize(ApplicationContext, CallbackManager.);
-            ////AppEventsLogger.ActivateApp(this);
-
-            ////    LoginManager.getInstance().registerCallback(callbackManager,
-            ////    new FacebookCallback<LoginResult>() {
-            ////        @Override
-            ////        public void onSuccess(LoginResult loginResult)
-            ////    {
-            ////        // App code
-            ////    }
-
-            ////    @Override
-            ////        public void onCancel()
-            ////    {
-            ////        // App code
-            ////    }
-
-            ////    @Override
-            ////        public void onError(FacebookException exception)
-            ////    {
-            ////        // App code   
-            ////    }
-            ////});
+            InitializeFacebook();
 
             var setup = new Setup();
             setup.Bootstrap(this);
@@ -63,6 +42,12 @@ namespace StellaFiesta.Client.Droid
         {
             CallbackManager.OnActivityResult(requestCode, (int)resultCode, data);
             base.OnActivityResult(requestCode, resultCode, data);
+        }
+
+        private void InitializeFacebook()
+        {
+            FacebookSdk.ApplicationId = "534663733642417";
+            CallbackManager = CallbackManagerFactory.Create();
         }
     }
 }
